@@ -4,45 +4,69 @@ import Layout from '../layouts/Layout.astro';
 const faqs = [
   {
     q: 'How do I play sudoku?',
-    a: 'Fill the 9×9 grid so that every row, column, and 3×3 box contains the digits 1–9 exactly once. Tap an empty cell to select it, then tap a number from the bottom panel to fill it in. Use the pencil mode to jot down candidate numbers without committing.',
+    a: 'Fill the 9×9 grid so that every row, column, and 3×3 box contains the digits 1–9 exactly once. Tap an empty cell to select it, then tap a number from the panel to fill it in. Use pencil mode to jot down candidate numbers without committing to an answer.',
   },
   {
     q: 'What difficulty levels are available?',
-    a: 'sudoku. offers four levels: Easy, Medium, Hard, and Expert. Easy puzzles have more given numbers and are great for beginners. Expert puzzles require advanced techniques and are suited for experienced solvers.',
+    a: 'One Sudoku offers four levels: Easy, Medium, Hard, and Expert. Easy puzzles have more given numbers and are great for beginners. Expert puzzles require advanced techniques and are suited for experienced solvers.',
   },
   {
-    q: 'How do I use the notes / pencil mode?',
+    q: 'How do I use notes / pencil mode?',
     a: 'Tap the pencil icon in the toolbar to toggle notes mode. In notes mode, tapping a number adds it as a small candidate note inside the cell without committing it as a final answer. Toggle back to normal mode to enter final answers.',
   },
   {
     q: 'How do I undo a move?',
-    a: 'Tap the undo button (↩) in the toolbar to step back one move at a time. You can undo as many times as needed.',
+    a: 'Tap the undo button (↩) in the toolbar to step back one move at a time. You can undo as many times as you like.',
   },
   {
-    q: 'What are Daily Puzzles?',
-    a: 'A brand-new puzzle is generated every day. Completing the daily puzzle contributes to your streak. Daily puzzles reset at midnight in your local timezone.',
+    q: 'What is the Daily Challenge?',
+    a: 'A fresh puzzle is available every day — the same puzzle for every player worldwide. Completing it extends your daily streak. Miss a day and your streak resets. The daily challenge never shows interstitial ads, even for free users.',
   },
   {
-    q: 'How do I reset my progress?',
-    a: 'Go to Settings (gear icon) inside the app and tap "Reset All Progress". This will clear all saved statistics, streaks, and completed puzzles. This action cannot be undone.',
+    q: 'How do hints work?',
+    a: 'Free users receive 3 hints per day (they reset at midnight). Tap the hint button and the app will highlight the best cell to work on next and reveal its correct value. If you run out of hints, you can watch a short ad for an extra hint or upgrade to Premium for unlimited hints.',
+  },
+  {
+    q: 'What is Premium and how much does it cost?',
+    a: 'Premium removes all ads and gives you unlimited hints. Pricing: $2.99/month, $19.99/year (includes a 3-day free trial), or $39.99 as a one-time lifetime purchase. Prices are shown in your local currency in the App Store.',
+  },
+  {
+    q: 'How do I cancel my subscription?',
+    a: 'Open iOS Settings → tap your name at the top → Subscriptions → One Sudoku → Cancel Subscription. You will retain Premium access until the end of the current billing period. Apple handles all subscription billing — we cannot process cancellations directly.',
+  },
+  {
+    q: 'How do I restore my purchases on a new device?',
+    a: 'Open One Sudoku, go to Settings inside the app, and tap "Restore Purchases". Your Premium status will be restored as long as you are signed in with the same Apple ID used for the original purchase.',
+  },
+  {
+    q: 'Why are there ads in the free version?',
+    a: 'Ads allow us to keep the core game completely free. A short interstitial ad may appear after every 5 completed games. No ads ever appear during gameplay or after a Daily Challenge. You can remove all ads permanently by upgrading to Premium.',
   },
   {
     q: 'Is my progress backed up?',
-    a: 'Your game data is stored locally on your device. If you have iCloud Backup enabled in iOS Settings, your data will be included in your iCloud backup and restored if you reinstall the app or switch devices.',
+    a: 'Your game data is stored locally on your device. If you have iCloud Backup enabled in iOS Settings, your data is included in your backup and will be restored when you reinstall the app or switch to a new device.',
   },
   {
-    q: 'Is sudoku. free?',
-    a: 'Yes, sudoku. is free to download and play. All core features are included at no cost.',
+    q: 'What languages does the app support?',
+    a: 'One Sudoku is available in English, Turkish, Spanish, German, and French. The app automatically uses your device language. You can also change the language manually in the app\'s Settings.',
+  },
+  {
+    q: 'How do I reset my progress?',
+    a: 'Go to Settings (gear icon) inside the app and tap "Reset All Progress". This clears all statistics, streaks, and completed puzzles. This action cannot be undone.',
+  },
+  {
+    q: 'Does the app work offline?',
+    a: 'Yes. Puzzles are generated on-device, so you can play anywhere without an internet connection. The only feature that requires connectivity is loading ads for free users.',
   },
 ];
 ---
 
-<Layout title="Support — sudoku." description="Get help with the sudoku. iOS app.">
+<Layout title="Support — One Sudoku" description="Get help with the One Sudoku iOS app.">
   <!-- Navbar -->
   <header class="bg-green-950 border-b border-green-800/30">
     <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="/" class="text-white font-semibold text-xl tracking-tight">
-        sudoku<span class="text-green-400">.</span>
+        one sudoku<span class="text-green-400">.</span>
       </a>
       <a href="/privacy" class="text-green-400/60 hover:text-green-400 text-sm transition-colors">Privacy</a>
     </nav>
@@ -65,7 +89,7 @@ const faqs = [
       <div class="max-w-2xl mx-auto">
         <h2 class="text-2xl font-bold text-green-950 mb-8">Frequently Asked Questions</h2>
 
-        <div class="space-y-4">
+        <div class="space-y-3">
           {faqs.map(({ q, a }) => (
             <details class="group border border-green-100 rounded-2xl overflow-hidden">
               <summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none text-green-950 font-medium hover:bg-green-50 transition-colors list-none">
@@ -88,16 +112,16 @@ const faqs = [
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="text-3xl font-bold text-white mb-4">Still need help?</h2>
         <p class="text-green-200/70 text-lg mb-8">
-          We're here for you. Send us an email and we'll get back to you as soon as possible.
+          Send us an email and we'll get back to you as soon as possible.
         </p>
         <a
-          href="mailto:[SUPPORT_EMAIL]"
+          href="mailto:yusufkarakaya92@gmail.com"
           class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
         >
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
-          [SUPPORT_EMAIL]
+          yusufkarakaya92@gmail.com
         </a>
         <p class="text-green-400/40 text-sm mt-6">We typically respond within 1–2 business days.</p>
       </div>
@@ -108,13 +132,13 @@ const faqs = [
   <footer class="bg-green-950 py-10 px-6 border-t border-green-800/30">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <a href="/" class="text-white font-semibold text-lg">
-        sudoku<span class="text-green-400">.</span>
+        one sudoku<span class="text-green-400">.</span>
       </a>
       <div class="flex items-center gap-6 text-sm">
         <a href="/privacy" class="text-green-400/60 hover:text-green-400 transition-colors">Privacy Policy</a>
         <a href="/support" class="text-green-400 transition-colors">Support</a>
       </div>
-      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} sudoku. All rights reserved.</p>
+      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
     </div>
   </footer>
 </Layout>

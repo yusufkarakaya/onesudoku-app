@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Privacy Policy — sudoku." description="Privacy policy for the sudoku. iOS app.">
+<Layout title="Privacy Policy — One Sudoku" description="Privacy policy for the One Sudoku iOS app.">
   <!-- Navbar -->
   <header class="bg-green-950 border-b border-green-800/30">
     <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="/" class="text-white font-semibold text-xl tracking-tight">
-        sudoku<span class="text-green-400">.</span>
+        one sudoku<span class="text-green-400">.</span>
       </a>
       <a href="/support" class="text-green-400/60 hover:text-green-400 text-sm transition-colors">Support</a>
     </nav>
@@ -19,44 +19,75 @@ import Layout from '../layouts/Layout.astro';
       <div class="mb-12">
         <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Legal</span>
         <h1 class="text-4xl font-bold text-green-950 mb-3">Privacy Policy</h1>
-        <p class="text-zinc-500 text-sm">Effective date: <strong>[EFFECTIVE_DATE]</strong></p>
+        <p class="text-zinc-500 text-sm">Effective date: <strong>May 24, 2026</strong></p>
       </div>
 
       <div class="prose prose-zinc max-w-none space-y-8 text-zinc-700 leading-relaxed">
 
         <section>
           <p>
-            This Privacy Policy describes how <strong>sudoku.</strong> ("we", "us", or "our") handles your information when you use our iOS application. We take your privacy seriously and have designed sudoku. with a minimal data footprint.
+            This Privacy Policy describes how <strong>One Sudoku</strong> ("we", "us", or "our") handles your information when you use our iOS application. We take your privacy seriously and have designed One Sudoku with a minimal data footprint. We do not operate servers, user accounts, or any backend that processes your personal data.
           </p>
         </section>
 
         <section>
           <h2 class="text-xl font-semibold text-green-950 mb-3">1. Information We Collect</h2>
           <p>
-            sudoku. is designed to work without collecting personal information. We do <strong>not</strong> collect, store, or transmit:
+            One Sudoku is designed to work without collecting personal information. We do <strong>not</strong> collect, store, or transmit:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
             <li>Your name, email address, or any account information</li>
             <li>Location data</li>
-            <li>Device identifiers for advertising purposes</li>
-            <li>Usage analytics tied to your identity</li>
+            <li>Contacts, photos, or any other device content</li>
+            <li>Device identifiers linked to your identity</li>
+            <li>Usage analytics tied to you personally</li>
           </ul>
           <p class="mt-3">
-            Game progress (completed puzzles, streaks, statistics) is stored <strong>locally on your device</strong> only, using iOS standard storage. This data never leaves your device unless you use iCloud Backup, which is controlled by your iOS settings.
+            Game progress (completed puzzles, streaks, statistics, and settings) is stored <strong>locally on your device only</strong>, using iOS standard storage (UserDefaults and local files). This data never leaves your device unless you use iCloud Backup, which is controlled entirely by your iOS settings.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">2. Automatically Collected Information</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">2. Crash Reports &amp; Analytics</h2>
           <p>
-            We may receive aggregated, non-identifiable crash reports and performance data through Apple's built-in crash reporting system, if you have opted into sharing analytics with app developers in your iOS settings. This data cannot be used to identify you personally.
+            We may receive aggregated, non-identifiable crash reports and performance data through Apple's built-in crash reporting system, if you have opted into sharing analytics with app developers in your iOS Settings → Privacy &amp; Security → Analytics &amp; Improvements. This data is anonymous and cannot be used to identify you personally. We use it solely to fix bugs and improve stability.
+          </p>
+          <p class="mt-3">
+            We do not integrate any third-party analytics SDK (e.g. Firebase, Mixpanel, Amplitude) into the app.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">3. Third-Party Services</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">3. Advertising</h2>
           <p>
-            sudoku. does not integrate third-party advertising networks, social media SDKs, or analytics services that collect personal data.
+            The free version of One Sudoku displays ads. When you first launch the app, we request permission under Apple's App Tracking Transparency (ATT) framework. Your choices:
+          </p>
+          <ul class="list-disc pl-6 mt-3 space-y-2 text-zinc-600">
+            <li><strong>Allow tracking:</strong> Ads may be personalised using Apple's SKAdNetwork. No persistent advertising identifier (IDFA) is shared with advertisers without your consent.</li>
+            <li><strong>Deny tracking:</strong> Ads are shown without personalisation. The app continues to work normally.</li>
+          </ul>
+          <p class="mt-3">
+            You can change this permission at any time in iOS Settings → Privacy &amp; Security → Tracking.
+          </p>
+          <p class="mt-3">
+            Premium subscribers see no ads at all. No ad-related code is active for Premium users.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">4. In-App Purchases &amp; Subscriptions</h2>
+          <p>
+            One Sudoku offers optional Premium subscriptions (monthly, annual, and lifetime) processed entirely through Apple's StoreKit 2 framework. We never see, process, or store your payment information. All billing, receipts, and subscription management are handled by Apple.
+          </p>
+          <p class="mt-3">
+            To manage or cancel your subscription, go to <strong>iOS Settings → [Your Name] → Subscriptions</strong>. For refund requests, contact Apple Support directly.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">5. Third-Party Services</h2>
+          <p>
+            One Sudoku does not integrate third-party social media SDKs, marketing trackers, or data brokers.
           </p>
           <p class="mt-3">
             The app is distributed via the Apple App Store. Apple may collect certain information in accordance with their own <a href="https://www.apple.com/legal/privacy/" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
@@ -64,30 +95,42 @@ import Layout from '../layouts/Layout.astro';
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">4. Children's Privacy</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">6. Children's Privacy</h2>
           <p>
-            sudoku. does not knowingly collect any personal information from children under the age of 13. The app is designed to be safe for all ages.
+            One Sudoku does not knowingly collect any personal information from anyone, including children under the age of 13. The app contains no chat features, no social sharing of personal data, and no account registration. It is designed to be safe for all ages.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">5. Changes to This Policy</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">7. GDPR &amp; Privacy Rights</h2>
           <p>
-            We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated effective date. We encourage you to review this policy periodically.
+            Because we do not collect personal data, there is nothing for us to provide, correct, or delete on our servers. If you have questions about data stored locally on your device, you can reset all app data in Settings inside the app.
+          </p>
+          <p class="mt-3">
+            If you are located in the European Economic Area (EEA) or the United Kingdom and believe we hold personal data about you, please contact us at the address below and we will respond within 30 days.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">6. Contact Us</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">8. Changes to This Policy</h2>
           <p>
-            If you have any questions or concerns about this Privacy Policy, please contact us at:
+            We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated effective date. We encourage you to review this policy periodically. Continued use of the app after changes are posted constitutes your acceptance of the updated policy.
           </p>
-          <div class="mt-4 p-4 bg-green-50 rounded-2xl border border-green-100">
-            <p class="font-medium text-green-950">sudoku.</p>
-            <p class="text-zinc-600 mt-1">
-              Email: <a href="mailto:[SUPPORT_EMAIL]" class="text-green-600 hover:text-green-700">[SUPPORT_EMAIL]</a>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">9. Contact Us</h2>
+          <p>
+            If you have any questions or concerns about this Privacy Policy, please contact us:
+          </p>
+          <div class="mt-4 p-5 bg-green-50 rounded-2xl border border-green-100">
+            <p class="font-semibold text-green-950">One Sudoku</p>
+            <p class="text-zinc-600 mt-2">
+              Email: <a href="mailto:yusufkarakaya92@gmail.com" class="text-green-600 hover:text-green-700">yusufkarakaya92@gmail.com</a>
             </p>
-            <p class="text-zinc-600">Website: <span class="text-green-600">[YOUR_DOMAIN]</span></p>
+            <p class="text-zinc-600">
+              Website: <a href="https://www.onesudoku.co" class="text-green-600 hover:text-green-700">onesudoku.co</a>
+            </p>
           </div>
         </section>
 
@@ -99,13 +142,13 @@ import Layout from '../layouts/Layout.astro';
   <footer class="bg-green-950 py-10 px-6">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <a href="/" class="text-white font-semibold text-lg">
-        sudoku<span class="text-green-400">.</span>
+        one sudoku<span class="text-green-400">.</span>
       </a>
       <div class="flex items-center gap-6 text-sm">
         <a href="/privacy" class="text-green-400 transition-colors">Privacy Policy</a>
         <a href="/support" class="text-green-400/60 hover:text-green-400 transition-colors">Support</a>
       </div>
-      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} sudoku. All rights reserved.</p>
+      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
     </div>
   </footer>
 </Layout>
