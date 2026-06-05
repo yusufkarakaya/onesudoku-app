@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#052e16"/>
+  <!-- subtle grid -->
+  <g stroke="#4ade80" stroke-width="1" opacity="0.06">
+    <path d="M0 70 H1200 M0 140 H1200 M0 210 H1200 M0 280 H1200 M0 350 H1200 M0 420 H1200 M0 490 H1200 M0 560 H1200"/>
+    <path d="M70 0 V630 M140 0 V630 M210 0 V630 M280 0 V630 M350 0 V630 M420 0 V630 M490 0 V630 M560 0 V630 M630 0 V630 M700 0 V630 M770 0 V630 M840 0 V630 M910 0 V630 M980 0 V630 M1050 0 V630 M1120 0 V630"/>
+  </g>
+
+  <!-- badge -->
+  <rect x="80" y="118" width="232" height="48" rx="24" fill="#14532d" stroke="#15803d" stroke-opacity="0.5"/>
+  <circle cx="108" cy="142" r="5" fill="#4ade80"/>
+  <text x="126" y="149" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" fill="#86efac">Available on the App Store</text>
+
+  <!-- headline -->
+  <text x="78" y="290" font-family="Inter, system-ui, sans-serif" font-size="92" font-weight="700" fill="#ffffff">Sudoku.</text>
+  <text x="78" y="392" font-family="Inter, system-ui, sans-serif" font-size="92" font-weight="700" fill="#4ade80">Pure and simple.</text>
+
+  <!-- subhead -->
+  <text x="80" y="470" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400" fill="#bbf7d0" fill-opacity="0.75">Free sudoku for iPhone &amp; iPad — daily challenge,</text>
+  <text x="80" y="510" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400" fill="#bbf7d0" fill-opacity="0.75">offline play, no ads.</text>
+
+  <!-- wordmark -->
+  <text x="80" y="585" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" fill="#ffffff">one sudoku<tspan fill="#4ade80">.</tspan></text>
+
+  <!-- mini grid mark -->
+  <g transform="translate(905, 175)">
+    <rect x="0" y="0" width="220" height="220" rx="28" fill="#14532d" stroke="#15803d" stroke-opacity="0.4"/>
+    <g transform="translate(26, 26)" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700" fill="#86efac" text-anchor="middle">
+      <text x="28" y="36">5</text><text x="84" y="36">3</text><text x="140" y="36">8</text>
+      <text x="28" y="96">7</text><text x="112" y="96">1</text><text x="168" y="96">9</text>
+      <text x="56" y="156">4</text><text x="112" y="156">5</text><text x="168" y="156">3</text>
+    </g>
+    <g stroke="#4ade80" stroke-opacity="0.25" stroke-width="2">
+      <path d="M73 12 V208 M147 12 V208 M12 73 H208 M12 147 H208"/>
+    </g>
+  </g>
+</svg>
