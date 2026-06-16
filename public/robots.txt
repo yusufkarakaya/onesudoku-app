@@ -26,4 +26,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Google-adstxt
+Disallow:
+
 Sitemap: https://www.onesudoku.co/sitemap-index.xml

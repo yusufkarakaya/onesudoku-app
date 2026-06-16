@@ -9,7 +9,7 @@ const SITE_URL = 'https://www.onesudoku.co';
 const faqs = [
   {
     q: 'Is One Sudoku free?',
-    a: 'Yes. One Sudoku is free to download and play. There are no ads, no banners, and no accounts required.',
+    a: 'Yes. One Sudoku is free to download and play with minimal, non-intrusive ads. No accounts required.',
   },
   {
     q: 'Does it work offline?',
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: 'Are there any ads or in-app purchases?',
-    a: 'No. There are no ads and no interruptions. The experience is deliberately clean so you can stay focused on solving.',
+    a: 'One Sudoku shows minimal banner ads to keep the app free. You can also watch optional video ads to earn extra hints. Ads are designed to stay out of your way while you solve.',
   },
   {
     q: 'Is One Sudoku available on Android?',
@@ -44,7 +44,7 @@ const appSchema = {
   downloadUrl: APP_STORE_URL,
   installUrl: APP_STORE_URL,
   description:
-    'A clean, ad-free sudoku game for iPhone and iPad with four difficulty levels, a daily challenge, smart notes, and unlimited offline puzzles.',
+    'A clean, free sudoku game for iPhone and iPad with four difficulty levels, a daily challenge, smart notes, and unlimited offline puzzles.',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -55,7 +55,7 @@ const appSchema = {
     'Daily challenge with streaks',
     'Unlimited offline puzzles',
     'Candidate notes, unlimited undo, auto-save',
-    'No ads, no accounts, light and dark themes',
+    'Free, no accounts, light and dark themes',
   ],
 };
 
@@ -151,7 +151,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
         </h1>
 
         <p class="text-green-200/70 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
-          A free sudoku game for iPhone and iPad. Four difficulty levels, a daily challenge, and unlimited offline puzzles — in a clean, ad-free interface that gets out of your way.
+          A free sudoku game for iPhone and iPad. Four difficulty levels, a daily challenge, and unlimited offline puzzles — in a clean interface that gets out of your way.
         </p>
 
         <div class="flex flex-wrap items-center gap-4">
@@ -170,7 +170,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
               <span class="block text-base leading-none">App Store</span>
             </span>
           </a>
-          <span class="text-green-300/70 text-sm font-medium">Free · No ads · No accounts</span>
+          <span class="text-green-300/70 text-sm font-medium">Free · No accounts</span>
         </div>
       </div>
 
@@ -299,8 +299,8 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-green-950 mb-2">Clean, ad-free design</h3>
-          <p class="text-zinc-500 leading-relaxed">A minimal interface with light and dark themes. No banners, no pop-ups, no accounts — no interruptions.</p>
+          <h3 class="text-xl font-semibold text-green-950 mb-2">Clean, minimal design</h3>
+          <p class="text-zinc-500 leading-relaxed">Thoughtful ad placement that stays out of your way — no pop-ups, no accounts.</p>
         </div>
 
         <!-- Offline -->
@@ -411,7 +411,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
   <section class="bg-green-900 py-24 px-6">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-5">Ready to play?</h2>
-      <p class="text-green-200/70 text-lg mb-10">Download One Sudoku free and start solving today — no ads, no accounts, no catch.</p>
+      <p class="text-green-200/70 text-lg mb-10">Download One Sudoku free and start solving today — no accounts, no catch.</p>
       <a
         href={APP_STORE_URL}
         target="_blank"
