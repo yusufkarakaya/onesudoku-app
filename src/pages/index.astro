@@ -1,15 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Update this URL once the App Store listing is live
 const APP_STORE_URL = 'https://apps.apple.com/us/app/one-sudoku-game/id6775040739';
+// Placeholder until the Play listing is live — update the package id here only.
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.one_sudoku';
 const SITE_URL = 'https://www.onesudoku.co';
 
 // Single source of truth: drives both the visible FAQ accordion and the FAQPage schema.
 const faqs = [
   {
     q: 'Is One Sudoku free?',
-    a: 'Yes. One Sudoku is free to download and play with minimal, non-intrusive ads. No accounts required.',
+    a: 'Yes. One Sudoku is free to download and play with minimal, non-intrusive ads. No account required.',
   },
   {
     q: 'Does it work offline?',
@@ -29,7 +30,11 @@ const faqs = [
   },
   {
     q: 'Is One Sudoku available on Android?',
-    a: 'One Sudoku is currently available on iPhone and iPad via the App Store. An Android version is not available yet.',
+    a: 'Yes. One Sudoku is available on the App Store for iPhone and iPad, and on Google Play for Android phones and tablets.',
+  },
+  {
+    q: 'Do I need an account?',
+    a: 'No. You can play everything as a guest, and your progress is saved on your device. Signing in with Google, Apple, or an email address is optional — it syncs your progress and streaks across your devices so nothing is lost when you switch phones.',
   },
 ];
 
@@ -38,13 +43,13 @@ const appSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'One Sudoku',
-  operatingSystem: 'iOS',
+  operatingSystem: 'iOS, Android',
   applicationCategory: 'GameApplication',
   url: SITE_URL,
-  downloadUrl: APP_STORE_URL,
-  installUrl: APP_STORE_URL,
+  downloadUrl: [APP_STORE_URL, PLAY_STORE_URL],
+  installUrl: [APP_STORE_URL, PLAY_STORE_URL],
   description:
-    'A clean, free sudoku game for iPhone and iPad with four difficulty levels, a daily challenge, smart notes, and unlimited offline puzzles.',
+    'A clean, free sudoku game for iPhone, iPad, and Android with four difficulty levels, a daily challenge, smart notes, and unlimited offline puzzles.',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -55,7 +60,8 @@ const appSchema = {
     'Daily challenge with streaks',
     'Unlimited offline puzzles',
     'Candidate notes, unlimited undo, auto-save',
-    'Free, no accounts, light and dark themes',
+    'Optional cloud sync with Google, Apple, or email sign-in',
+    'Free to play, light and dark themes',
   ],
 };
 
@@ -123,9 +129,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
         <a href="#how-to-play" class="hidden sm:inline text-green-200/70 hover:text-white text-sm font-medium transition-colors">How to play</a>
         <a href="#faq" class="hidden sm:inline text-green-200/70 hover:text-white text-sm font-medium transition-colors">FAQ</a>
         <a
-          href={APP_STORE_URL}
-          target="_blank"
-          rel="noopener"
+          href="#download"
           class="bg-green-500 hover:bg-green-400 text-green-950 font-semibold text-sm px-5 py-2 rounded-full transition-colors"
         >
           Download
@@ -142,7 +146,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 bg-green-900/60 border border-green-700/40 rounded-full px-4 py-1.5 mb-8">
           <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          <span class="text-green-300 text-sm font-medium">Available on the App Store</span>
+          <span class="text-green-300 text-sm font-medium">Available on the App Store &amp; Google Play</span>
         </div>
 
         <h1 class="text-5xl md:text-7xl font-bold text-white leading-[1.05] mb-6">
@@ -151,10 +155,10 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
         </h1>
 
         <p class="text-green-200/70 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
-          A free sudoku game for iPhone and iPad. Four difficulty levels, a daily challenge, and unlimited offline puzzles — in a clean interface that gets out of your way.
+          A free sudoku game for iPhone, iPad, and Android. Four difficulty levels, a daily challenge, and unlimited offline puzzles — in a clean interface that gets out of your way.
         </p>
 
-        <div class="flex flex-wrap items-center gap-4">
+        <div id="download" class="flex flex-wrap items-center gap-4 scroll-mt-24">
           <a
             href={APP_STORE_URL}
             target="_blank"
@@ -170,7 +174,22 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
               <span class="block text-base leading-none">App Store</span>
             </span>
           </a>
-          <span class="text-green-300/70 text-sm font-medium">Free · No accounts</span>
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener"
+            aria-label="Get One Sudoku on Google Play"
+            class="inline-flex items-center gap-3 bg-white hover:bg-green-50 text-green-950 font-semibold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-950/40"
+          >
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.609 1.814L13.792 12 3.609 22.186a2.01 2.01 0 0 1-.61-1.437V3.251c0-.56.24-1.064.61-1.437zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626c.68.394.68 1.378 0 1.772l-2.807 1.626-2.494-2.512 2.494-2.512zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+            </svg>
+            <span class="text-left">
+              <span class="block text-xs text-green-800/60 leading-none mb-0.5">Get it on</span>
+              <span class="block text-base leading-none">Google Play</span>
+            </span>
+          </a>
+          <span class="text-green-300/70 text-sm font-medium">Free · No account required</span>
         </div>
       </div>
 
@@ -300,7 +319,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-green-950 mb-2">Clean, minimal design</h3>
-          <p class="text-zinc-500 leading-relaxed">Thoughtful ad placement that stays out of your way — no pop-ups, no accounts.</p>
+          <p class="text-zinc-500 leading-relaxed">Thoughtful ad placement that stays out of your way — no pop-ups, no forced sign-ups.</p>
         </div>
 
         <!-- Offline -->
@@ -334,7 +353,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-green-950 mb-2">Track your progress</h3>
-          <p class="text-zinc-500 leading-relaxed">Best times, win rate, and streaks across every difficulty — so you can watch yourself improve.</p>
+          <p class="text-zinc-500 leading-relaxed">Best times, win rate, and streaks across every difficulty. Sign in with Google, Apple, or email if you want it synced across your devices — entirely optional.</p>
         </div>
 
       </div>
@@ -411,19 +430,33 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
   <section class="bg-green-900 py-24 px-6">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-5">Ready to play?</h2>
-      <p class="text-green-200/70 text-lg mb-10">Download One Sudoku free and start solving today — no accounts, no catch.</p>
-      <a
-        href={APP_STORE_URL}
-        target="_blank"
-        rel="noopener"
-        aria-label="Download One Sudoku on the App Store"
-        class="inline-flex items-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
-      >
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
-        </svg>
-        Download on the App Store
-      </a>
+      <p class="text-green-200/70 text-lg mb-10">Download One Sudoku free and start solving today — no account required, no catch.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener"
+          aria-label="Download One Sudoku on the App Store"
+          class="inline-flex items-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
+          </svg>
+          App Store
+        </a>
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener"
+          aria-label="Get One Sudoku on Google Play"
+          class="inline-flex items-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.609 1.814L13.792 12 3.609 22.186a2.01 2.01 0 0 1-.61-1.437V3.251c0-.56.24-1.064.61-1.437zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626c.68.394.68 1.378 0 1.772l-2.807 1.626-2.494-2.512 2.494-2.512zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+          </svg>
+          Google Play
+        </a>
+      </div>
     </div>
   </section>
 
@@ -437,6 +470,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
         <a href="#how-to-play" class="text-green-400/60 hover:text-green-400 transition-colors">How to Play</a>
         <a href="#faq" class="text-green-400/60 hover:text-green-400 transition-colors">FAQ</a>
         <a href="/privacy" class="text-green-400/60 hover:text-green-400 transition-colors">Privacy Policy</a>
+        <a href="/delete-account" class="text-green-400/60 hover:text-green-400 transition-colors">Delete Account</a>
         <a href="/support" class="text-green-400/60 hover:text-green-400 transition-colors">Support</a>
       </nav>
       <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>

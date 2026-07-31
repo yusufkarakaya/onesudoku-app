@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const SUPPORT_EMAIL = 'yusufkarakaya92@gmail.com';
+const MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Account Deletion Request — One Sudoku')}`;
+---
+
+<Layout
+  title="Delete Your Account — One Sudoku"
+  description="How to delete your One Sudoku account and all data associated with it."
+>
+  <!-- Navbar -->
+  <header class="bg-green-950 border-b border-green-800/30">
+    <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-white font-semibold text-xl tracking-tight">
+        one sudoku<span class="text-green-400">.</span>
+      </a>
+      <a href="/support" class="text-green-400/60 hover:text-green-400 text-sm transition-colors">Support</a>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <main class="min-h-screen bg-white py-16 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="mb-12">
+        <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Your Data</span>
+        <h1 class="text-4xl font-bold text-green-950 mb-3">Delete Your Account</h1>
+        <p class="text-zinc-500 text-lg">
+          You can delete your One Sudoku account and everything stored with it at any time. Here are two ways to do it.
+        </p>
+      </div>
+
+      <div class="prose prose-zinc max-w-none space-y-8 text-zinc-700 leading-relaxed">
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">Option 1 — Delete it in the app</h2>
+          <p>The fastest way. Your account is removed immediately.</p>
+          <ol class="list-decimal pl-6 mt-3 space-y-2 text-zinc-600">
+            <li>Open <strong>One Sudoku</strong> on your iPhone, iPad, or Android device.</li>
+            <li>Make sure you are signed in to the account you want to delete.</li>
+            <li>Go to <strong>Settings</strong> (the gear icon) → <strong>Account</strong>.</li>
+            <li>Tap <strong>Delete Account</strong> and confirm.</li>
+          </ol>
+          <p class="mt-3">
+            You may be asked to sign in again first — this is a security step to confirm the account is yours.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">Option 2 — Ask us by email</h2>
+          <p>
+            If you no longer have the app installed or cannot sign in, email us from the address associated with your account and we will delete it for you.
+          </p>
+          <div class="mt-4 p-5 bg-green-50 rounded-2xl border border-green-100 not-prose">
+            <p class="text-zinc-600 mb-4">
+              Send an email with the subject <strong class="text-green-950">"Account Deletion Request"</strong> from the email address you signed up with.
+            </p>
+            <a
+              href={MAILTO}
+              class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-green-950 font-semibold px-6 py-3 rounded-2xl transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Request deletion by email
+            </a>
+          </div>
+          <p class="mt-4">
+            If you signed in with Apple using <strong>"Hide My Email"</strong>, send your request from that private relay address, or include the relay address in your message so we can locate your account.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">What gets deleted</h2>
+          <p>When your account is deleted, we permanently remove:</p>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li>Your account record — email address, display name, sign-in provider, and account identifier</li>
+            <li>All game data synced to our servers — progress, statistics, streaks, and completed puzzles</li>
+          </ul>
+          <p class="mt-3">What is <strong>not</strong> affected:</p>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li>Game data stored locally on your device. To clear it, use <strong>Settings → Reset All Progress</strong> in the app, or uninstall the app.</li>
+            <li>Aggregated, pseudonymous analytics that is not linked to your account and cannot be traced back to you.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">How long it takes</h2>
+          <p>
+            Deleting your account in the app takes effect immediately. Email requests are confirmed within 30 days, and usually within 1–2 business days. Copies held in encrypted backups are purged within 30 days.
+          </p>
+          <p class="mt-3">
+            <strong>Account deletion cannot be undone.</strong> Once your synced progress is gone, we cannot restore it. If you only want to stop syncing, sign out instead of deleting — your account and its data will stay intact.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">Questions</h2>
+          <p>
+            See our <a href="/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700">Privacy Policy</a> for full details on what we collect and how long we keep it, or email
+            <a href={`mailto:${SUPPORT_EMAIL}`} class="text-green-600 underline underline-offset-2 hover:text-green-700">{SUPPORT_EMAIL}</a>.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-950 py-10 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="/" class="text-white font-semibold text-lg">
+        one sudoku<span class="text-green-400">.</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/privacy" class="text-green-400/60 hover:text-green-400 transition-colors">Privacy Policy</a>
+        <a href="/delete-account" class="text-green-400 transition-colors">Delete Account</a>
+        <a href="/support" class="text-green-400/60 hover:text-green-400 transition-colors">Support</a>
+      </div>
+      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>

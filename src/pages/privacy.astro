@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Privacy Policy — One Sudoku" description="Privacy policy for the One Sudoku iOS app.">
+<Layout title="Privacy Policy — One Sudoku" description="Privacy policy for the One Sudoku app for iPhone, iPad, and Android.">
   <!-- Navbar -->
   <header class="bg-green-950 border-b border-green-800/30">
     <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -19,52 +19,131 @@ import Layout from '../layouts/Layout.astro';
       <div class="mb-12">
         <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Legal</span>
         <h1 class="text-4xl font-bold text-green-950 mb-3">Privacy Policy</h1>
-        <p class="text-zinc-500 text-sm">Effective date: <strong>May 24, 2026</strong></p>
+        <p class="text-zinc-500 text-sm">Effective date: <strong>July 30, 2026</strong></p>
       </div>
 
       <div class="prose prose-zinc max-w-none space-y-8 text-zinc-700 leading-relaxed">
 
         <section>
           <p>
-            This Privacy Policy describes how <strong>One Sudoku</strong> ("we", "us", or "our") handles your information when you use our iOS application. We take your privacy seriously and have designed One Sudoku with a minimal data footprint. We do not operate servers, user accounts, or any backend that processes your personal data.
+            This Privacy Policy describes how <strong>One Sudoku</strong> ("we", "us", or "our") handles your information when you use our applications for iPhone, iPad, and Android. We take your privacy seriously and have designed One Sudoku with a minimal data footprint.
+          </p>
+          <p class="mt-3">
+            <strong>You can play the entire game without an account.</strong> Signing in is optional. If you never sign in, your game data stays on your device and we hold no personal information about you beyond the analytics and advertising data described in Sections 3 and 6. If you choose to sign in with Google, Apple, or an email address, we create an account for you and store your game progress on our cloud infrastructure so it can follow you across devices.
           </p>
         </section>
 
         <section>
           <h2 class="text-xl font-semibold text-green-950 mb-3">1. Information We Collect</h2>
+
+          <h3 class="text-base font-semibold text-green-900 mt-5 mb-2">a. Account information (only if you sign in)</h3>
           <p>
-            One Sudoku is designed to work with minimal data collection. We do <strong>not</strong> directly collect, store, or transmit:
+            If you create an account, we store:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
-            <li>Your name, email address, or any account information</li>
-            <li>Contacts, photos, or any other device content</li>
-            <li>Usage analytics tied to you personally</li>
+            <li>Your email address</li>
+            <li>Your display name, if your sign-in provider supplies one</li>
+            <li>A unique account identifier (Firebase UID) and the sign-in provider you used</li>
+            <li>Account creation and last sign-in timestamps</li>
           </ul>
           <p class="mt-3">
-            Game progress (completed puzzles, streaks, statistics, and settings) is stored <strong>locally on your device only</strong>, using iOS standard storage (UserDefaults and local files). This data never leaves your device unless you use iCloud Backup, which is controlled entirely by your iOS settings.
+            What each sign-in method shares with us:
           </p>
-          <p class="mt-3">
-            <strong>Note:</strong> Our advertising partner (Google AdMob) may collect certain data as described in Section 3 below.
-          </p>
-        </section>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li><strong>Google:</strong> your email address, name, and profile photo URL from your Google account.</li>
+            <li><strong>Apple:</strong> your name and email address. If you choose "Hide My Email", Apple gives us an anonymous <code>@privaterelay.appleid.com</code> relay address instead of your real one, and we never see your actual email.</li>
+            <li><strong>Email &amp; password:</strong> your email address. Your password is handled and stored in hashed form by Firebase Authentication — we never see or store your plaintext password.</li>
+          </ul>
 
-        <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">2. Crash Reports &amp; Analytics</h2>
+          <h3 class="text-base font-semibold text-green-900 mt-5 mb-2">b. Game data</h3>
           <p>
-            We may receive aggregated, non-identifiable crash reports and performance data through Apple's built-in crash reporting system, if you have opted into sharing analytics with app developers in your iOS Settings → Privacy &amp; Security → Analytics &amp; Improvements. This data is anonymous and cannot be used to identify you personally. We use it solely to fix bugs and improve stability.
+            Game progress — completed puzzles, streaks, statistics, and settings — is always stored locally on your device using standard platform storage (UserDefaults and local files on iOS, SharedPreferences and local files on Android).
           </p>
           <p class="mt-3">
-            We do not integrate any third-party analytics SDK (e.g. Firebase, Mixpanel, Amplitude) into the app.
+            <strong>If you are signed in</strong>, this game data is also synced to our cloud storage so you can continue on another device or restore it after reinstalling. It is linked to your account identifier. It contains no message content, no contacts, and no free-text you have written.
+          </p>
+
+          <h3 class="text-base font-semibold text-green-900 mt-5 mb-2">c. If you play as a guest</h3>
+          <p>
+            Without an account, your game data never leaves your device, except through iCloud Backup (iOS) or Google Backup (Android) — both controlled entirely by your own operating system settings, not by us.
+          </p>
+
+          <h3 class="text-base font-semibold text-green-900 mt-5 mb-2">d. What we never collect</h3>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li>Your contacts, photos, files, or other device content</li>
+            <li>Precise GPS location</li>
+            <li>Payment or financial information</li>
+          </ul>
+          <p class="mt-3">
+            <strong>Note:</strong> our analytics and advertising partners collect certain data automatically, as described in Sections 3 and 6 below.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">3. Advertising (Google AdMob)</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">2. Accounts &amp; Authentication</h2>
+          <p>
+            One Sudoku uses <strong>Firebase Authentication</strong> (a Google service) to sign you in. We support three optional methods: Sign in with Google, Sign in with Apple, and email &amp; password.
+          </p>
+          <p class="mt-3">
+            Creating an account is entirely optional and is offered only so your progress can sync across your devices. You can use every feature of the game without one. You may sign out at any time, which stops all syncing, and you may delete your account permanently at any time — see Section 9.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">3. Analytics (Google Firebase Analytics)</h2>
+          <p>
+            One Sudoku uses <strong>Google Firebase Analytics</strong> to understand how the app is used in aggregate, so we can fix problems and decide what to improve. Firebase Analytics automatically collects:
+          </p>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li>A pseudonymous app instance identifier, which you can reset by reinstalling the app</li>
+            <li>Device model, operating system version, app version, and language</li>
+            <li>Approximate location at the country or region level, derived from your IP address</li>
+            <li>Session information, such as when the app is opened and which screens are viewed</li>
+            <li>In-app events, such as a puzzle being started or completed and which difficulty was chosen</li>
+          </ul>
+          <p class="mt-3">
+            We look at this data only in aggregate. We do not use it to identify you personally, we do not sell it, and we do not combine it with your account information to build a profile about you.
+          </p>
+          <p class="mt-3">
+            We may also receive anonymous, aggregated crash reports and performance data through Apple's and Google's built-in crash reporting, and through Firebase Crashlytics where enabled. This is used solely to fix bugs and improve stability.
+          </p>
+          <p class="mt-3">
+            For details, see <a href="https://firebase.google.com/support/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Firebase's Privacy and Security page</a> and <a href="https://policies.google.com/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">4. Cloud Storage &amp; Sync</h2>
+          <p>
+            Account information and, for signed-in users, synced game data are stored on <strong>Google Firebase</strong> infrastructure. Google acts as our data processor and processes this data on our behalf under its own security and privacy commitments.
+          </p>
+          <p class="mt-3">
+            Data is transmitted over encrypted connections (HTTPS/TLS) and encrypted at rest by Google. Access is restricted so that your synced game data is readable only by your own signed-in account and by us where necessary to operate and support the service.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">5. How We Use Your Information</h2>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li>To create and maintain your account and sign you in</li>
+            <li>To sync and restore your game progress across your devices</li>
+            <li>To understand aggregate app usage and improve the game</li>
+            <li>To diagnose crashes and fix bugs</li>
+            <li>To display ads that keep the app free</li>
+            <li>To respond to your support requests</li>
+          </ul>
+          <p class="mt-3">
+            We do not sell your personal information, and we do not share your account information with advertisers.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">6. Advertising (Google AdMob)</h2>
           <p>
             One Sudoku displays ads through Google AdMob to keep the app free. AdMob may collect:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
-            <li>Advertising ID (can be reset in iOS Settings)</li>
+            <li>An advertising identifier — the Advertising Identifier (IDFA) on iOS, or the Android Advertising ID on Android. Both can be reset or deleted in your device settings.</li>
             <li>General location (country/region level)</li>
             <li>App usage data for ad personalization</li>
           </ul>
@@ -72,53 +151,88 @@ import Layout from '../layouts/Layout.astro';
             You can opt out of personalized ads:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
-            <li>iOS Settings → Privacy & Security → Apple Advertising → turn off "Personalized Ads"</li>
-            <li>Or within Google's ad settings</li>
+            <li><strong>iOS:</strong> Settings → Privacy &amp; Security → Apple Advertising → turn off "Personalized Ads". You can also decline tracking when the app asks.</li>
+            <li><strong>Android:</strong> Settings → Google → Ads → "Delete advertising ID" or "Opt out of Ads Personalization".</li>
+            <li>Or within Google's own ad settings.</li>
           </ul>
           <p class="mt-3">
-            For details, see <a href="https://policies.google.com/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+            For details, see <a href="https://policies.google.com/technologies/partner-sites" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>.
           </p>
           <p class="mt-3">
-            We do not share any personal data we collect with advertisers.
+            We do not share your account information with advertisers.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">4. Third-Party Services</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">7. Third-Party Services</h2>
           <p>
-            One Sudoku does not integrate third-party social media SDKs, marketing trackers, or data brokers.
+            One Sudoku relies on the following third-party services. Each processes data under its own privacy policy:
+          </p>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li><strong>Google Firebase</strong> — authentication, cloud sync, and analytics. <a href="https://firebase.google.com/support/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Firebase privacy</a></li>
+            <li><strong>Google AdMob</strong> — advertising. <a href="https://policies.google.com/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+            <li><strong>Sign in with Apple</strong> — optional authentication. <a href="https://www.apple.com/legal/privacy/" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Apple Privacy Policy</a></li>
+            <li><strong>Apple App Store</strong> and <strong>Google Play</strong> — app distribution. Each may collect information in accordance with its own policy.</li>
+          </ul>
+          <p class="mt-3">
+            We do not integrate social media SDKs, marketing trackers, or data brokers.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">8. Children's Privacy</h2>
+          <p>
+            One Sudoku is not directed at children under the age of 13, and we do not knowingly collect personal information from them. Because the app now supports optional account registration, users under 13 should not create an account without the consent of a parent or guardian.
           </p>
           <p class="mt-3">
-            The app is distributed via the Apple App Store. Apple may collect certain information in accordance with their own <a href="https://www.apple.com/legal/privacy/" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+            The app contains no chat features and no social sharing of personal data. If you believe a child under 13 has created an account, please contact us at the address below and we will delete the account and its data promptly.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">5. Children's Privacy</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">9. Your Rights &amp; Data Deletion</h2>
           <p>
-            One Sudoku does not knowingly collect any personal information from anyone, including children under the age of 13. The app contains no chat features, no social sharing of personal data, and no account registration. It is designed to be safe for all ages.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">6. GDPR &amp; Privacy Rights</h2>
-          <p>
-            Because we do not collect personal data, there is nothing for us to provide, correct, or delete on our servers. If you have questions about data stored locally on your device, you can reset all app data in Settings inside the app.
+            You have the right to access, correct, export, and delete the personal data we hold about you, and to withdraw your consent at any time by signing out and deleting your account.
           </p>
           <p class="mt-3">
-            If you are located in the European Economic Area (EEA) or the United Kingdom and believe we hold personal data about you, please contact us at the address below and we will respond within 30 days.
+            <strong>Deleting your account.</strong> Open the app and go to Settings → Account → Delete Account. This permanently removes your account and all game data synced to our servers. You can also email us at the address below from your account's email address and we will handle it for you. Full instructions are on our <a href="/delete-account" class="text-green-600 underline underline-offset-2 hover:text-green-700">account deletion page</a>.
+          </p>
+          <p class="mt-3">
+            <strong>Local data.</strong> Data stored on your device can be cleared at any time with "Reset All Progress" in the app's settings, or by uninstalling the app.
+          </p>
+          <p class="mt-3">
+            If you are located in the European Economic Area (EEA) or the United Kingdom, you also have the right to object to or restrict processing and to lodge a complaint with your local data protection authority. If you are a California resident, you have the right to know what personal information we collect and to request its deletion — <strong>we do not sell personal information</strong>.
+          </p>
+          <p class="mt-3">
+            To exercise any of these rights, contact us at the address below. We will respond within 30 days.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">7. Changes to This Policy</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">10. Data Retention</h2>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
+            <li><strong>Account and synced game data</strong> — retained for as long as your account is active. When you delete your account, it is removed from our production systems immediately and from backups within 30 days.</li>
+            <li><strong>Analytics data</strong> — retained in pseudonymous, aggregated form according to the retention period configured in Firebase, after which it is automatically deleted.</li>
+            <li><strong>Local device data</strong> — removed when you reset your progress in the app or uninstall the app.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">11. International Data Transfers</h2>
+          <p>
+            Our service providers, including Google Firebase, process data on servers located in the United States and other countries. Where data is transferred out of the EEA or the UK, it is done under the safeguards provided by those providers, such as Standard Contractual Clauses.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">12. Changes to This Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated effective date. We encourage you to review this policy periodically. Continued use of the app after changes are posted constitutes your acceptance of the updated policy.
           </p>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">8. Contact Us</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">13. Contact Us</h2>
           <p>
             If you have any questions or concerns about this Privacy Policy, please contact us:
           </p>
@@ -145,6 +259,7 @@ import Layout from '../layouts/Layout.astro';
       </a>
       <div class="flex items-center gap-6 text-sm">
         <a href="/privacy" class="text-green-400 transition-colors">Privacy Policy</a>
+        <a href="/delete-account" class="text-green-400/60 hover:text-green-400 transition-colors">Delete Account</a>
         <a href="/support" class="text-green-400/60 hover:text-green-400 transition-colors">Support</a>
       </div>
       <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>

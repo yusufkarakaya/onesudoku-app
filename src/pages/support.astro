@@ -23,8 +23,20 @@ const faqs = [
     a: 'A fresh puzzle is available every day — the same puzzle for every player worldwide. Completing it extends your daily streak. Miss a day and your streak resets.',
   },
   {
+    q: 'Do I need an account to play?',
+    a: 'No. One Sudoku is fully playable as a guest — every difficulty, the Daily Challenge, and all your stats work without signing in. An account is optional and only exists so your progress can follow you to another device.',
+  },
+  {
+    q: 'How do I sign in?',
+    a: 'Open Settings (gear icon) inside the app and choose Sign In. You can use Sign in with Google, Sign in with Apple, or an email address and password. Once signed in, your progress syncs automatically.',
+  },
+  {
     q: 'Is my progress backed up?',
-    a: 'Your game data is stored locally on your device. If you have iCloud Backup enabled in iOS Settings, your data is included in your backup and will be restored when you reinstall the app or switch to a new device.',
+    a: 'If you are signed in, your progress, stats, and streaks are synced to your account and restored automatically when you sign in on another device or reinstall the app. As a guest, your game data stays on your device — it is included in iCloud Backup (iOS) or Google Backup (Android) if you have those enabled in your device settings.',
+  },
+  {
+    q: 'How do I delete my account?',
+    a: 'Go to Settings → Account → Delete Account inside the app. This permanently removes your account and all progress synced to our servers. If you cannot sign in, email us and we will handle it — full instructions are on our Delete Account page.',
   },
   {
     q: 'What languages does the app support?',
@@ -32,7 +44,7 @@ const faqs = [
   },
   {
     q: 'How do I reset my progress?',
-    a: 'Go to Settings (gear icon) inside the app and tap "Reset All Progress". This clears all statistics, streaks, and completed puzzles. This action cannot be undone.',
+    a: 'Go to Settings (gear icon) inside the app and tap "Reset All Progress". This clears all statistics, streaks, and completed puzzles. If you are signed in, it also clears the copy synced to your account. This action cannot be undone.',
   },
   {
     q: 'Does the app work offline?',
@@ -42,10 +54,14 @@ const faqs = [
     q: 'Does the app have ads?',
     a: 'Yes, One Sudoku shows small banner ads at the bottom of the screen to keep the app free. You may also see a short ad after completing a puzzle. Additionally, you can choose to watch a video ad to earn extra hints — this is entirely optional.',
   },
+  {
+    q: 'Which devices does One Sudoku support?',
+    a: 'One Sudoku is available on the App Store for iPhone and iPad, and on Google Play for Android phones and tablets.',
+  },
 ];
 ---
 
-<Layout title="Support — One Sudoku" description="Get help with the One Sudoku iOS app.">
+<Layout title="Support — One Sudoku" description="Get help with the One Sudoku app for iPhone, iPad, and Android.">
   <!-- Navbar -->
   <header class="bg-green-950 border-b border-green-800/30">
     <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -120,6 +136,7 @@ const faqs = [
       </a>
       <div class="flex items-center gap-6 text-sm">
         <a href="/privacy" class="text-green-400/60 hover:text-green-400 transition-colors">Privacy Policy</a>
+        <a href="/delete-account" class="text-green-400/60 hover:text-green-400 transition-colors">Delete Account</a>
         <a href="/support" class="text-green-400 transition-colors">Support</a>
       </div>
       <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
