@@ -19,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="mb-12">
         <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Legal</span>
         <h1 class="text-4xl font-bold text-green-950 mb-3">Privacy Policy</h1>
-        <p class="text-zinc-500 text-sm">Effective date: <strong>July 30, 2026</strong></p>
+        <p class="text-zinc-500 text-sm">Effective date: <strong>August 22, 2026</strong></p>
       </div>
 
       <div class="prose prose-zinc max-w-none space-y-8 text-zinc-700 leading-relaxed">
@@ -29,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
             This Privacy Policy describes how <strong>One Sudoku</strong> ("we", "us", or "our") handles your information when you use our applications for iPhone, iPad, and Android. We take your privacy seriously and have designed One Sudoku with a minimal data footprint.
           </p>
           <p class="mt-3">
-            <strong>You can play the entire game without an account.</strong> Signing in is optional. If you never sign in, your game data stays on your device and we hold no personal information about you beyond the analytics and advertising data described in Sections 3 and 6. If you choose to sign in with Google, Apple, or an email address, we create an account for you and store your game progress on our cloud infrastructure so it can follow you across devices.
+            <strong>You can play every Sudoku mode without an account.</strong> Signing in is optional. Guests can also view the leaderboards; a registered, verified account is required only to publish a score or hold a ranked position. If you never sign in, your game data stays on your device and we hold no personal information about you beyond the analytics and advertising data described in Sections 3 and 6. If you choose to sign in with Google, Apple, or an email address, we create an account for you and store your game progress on our cloud infrastructure so it can follow you across devices.
           </p>
         </section>
 
@@ -62,6 +62,9 @@ import Layout from '../layouts/Layout.astro';
           <p class="mt-3">
             <strong>If you are signed in</strong>, this game data is also synced to our cloud storage so you can continue on another device or restore it after reinstalling. It is linked to your account identifier. It contains no message content, no contacts, and no free-text you have written.
           </p>
+          <p class="mt-3">
+            If you participate in the leaderboards, your chosen public leaderboard name, avatar, score, streak, and qualifying completion times are visible to other players. Your email address is never published on a leaderboard. Leaderboard entries can be reported in the app for review.
+          </p>
 
           <h3 class="text-base font-semibold text-green-900 mt-5 mb-2">c. If you play as a guest</h3>
           <p>
@@ -85,7 +88,7 @@ import Layout from '../layouts/Layout.astro';
             One Sudoku uses <strong>Firebase Authentication</strong> (a Google service) to sign you in. We support three optional methods: Sign in with Google, Sign in with Apple, and email &amp; password.
           </p>
           <p class="mt-3">
-            Creating an account is entirely optional and is offered only so your progress can sync across your devices. You can use every feature of the game without one. You may sign out at any time, which stops all syncing, and you may delete your account permanently at any time — see Section 9.
+            Creating an account is entirely optional. It enables cross-device sync and lets you publish scores and hold a ranked position. Guests can play every puzzle mode and view the leaderboards without an account. You may sign out at any time, which stops all syncing, and you may delete your account permanently at any time — see Section 9.
           </p>
         </section>
 
@@ -143,18 +146,17 @@ import Layout from '../layouts/Layout.astro';
             One Sudoku displays ads through Google AdMob to keep the app free. AdMob may collect:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
-            <li>An advertising identifier — the Advertising Identifier (IDFA) on iOS, or the Android Advertising ID on Android. Both can be reset or deleted in your device settings.</li>
-            <li>General location (country/region level)</li>
-            <li>App usage data for ad personalization</li>
+            <li>General location at the country or region level, estimated from the device's IP address</li>
+            <li>App- or developer-bounded device identifiers used for functions such as frequency capping, aggregated reporting, and fraud prevention</li>
+            <li>Advertising data, such as which ads were shown</li>
+            <li>Product interaction, performance, crash, and other diagnostic data used to deliver, measure, and improve ads</li>
           </ul>
           <p class="mt-3">
-            You can opt out of personalized ads:
+            One Sudoku requests <strong>non-personalized ads only</strong>. We do not use AdMob to track you across apps or websites, and the iOS app does not request App Tracking Transparency permission or access the IDFA. Non-personalized ads can still use contextual information and app- or developer-bounded identifiers for the limited purposes described above.
           </p>
-          <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
-            <li><strong>iOS:</strong> Settings → Privacy &amp; Security → Apple Advertising → turn off "Personalized Ads". You can also decline tracking when the app asks.</li>
-            <li><strong>Android:</strong> Settings → Google → Ads → "Delete advertising ID" or "Opt out of Ads Personalization".</li>
-            <li>Or within Google's own ad settings.</li>
-          </ul>
+          <p class="mt-3">
+            Where required by law, Google's consent form is shown before ads can load. If Google requires an ongoing privacy-choice entry point for your region, you can reopen it from Settings → Ad privacy options. Declining or withdrawing consent leaves the game fully playable without ads.
+          </p>
           <p class="mt-3">
             For details, see <a href="https://policies.google.com/technologies/partner-sites" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>.
           </p>
@@ -185,7 +187,7 @@ import Layout from '../layouts/Layout.astro';
             One Sudoku is not directed at children under the age of 13, and we do not knowingly collect personal information from them. Because the app now supports optional account registration, users under 13 should not create an account without the consent of a parent or guardian.
           </p>
           <p class="mt-3">
-            The app contains no chat features and no social sharing of personal data. If you believe a child under 13 has created an account, please contact us at the address below and we will delete the account and its data promptly.
+            The app contains no chat, direct messaging, social feed, likes, comments, or reposting. A registered player may choose a public name and avatar for the leaderboard; leaderboard content can be reported in the app. If you believe a child under 13 has created an account, please contact us at the address below and we will delete the account and its data promptly.
           </p>
         </section>
 
@@ -195,7 +197,7 @@ import Layout from '../layouts/Layout.astro';
             You have the right to access, correct, export, and delete the personal data we hold about you, and to withdraw your consent at any time by signing out and deleting your account.
           </p>
           <p class="mt-3">
-            <strong>Deleting your account.</strong> Open the app and go to Settings → Account → Delete Account. This permanently removes your account and all game data synced to our servers. You can also email us at the address below from your account's email address and we will handle it for you. Full instructions are on our <a href="/delete-account" class="text-green-600 underline underline-offset-2 hover:text-green-700">account deletion page</a>.
+            <strong>Deleting your account.</strong> Open the app and go to Settings → Account → Manage account &amp; data → Delete account. This permanently removes your account and all game data synced to our servers. You can also email us at the address below from your account's email address and we will handle it for you. Full instructions are on our <a href="/delete-account" class="text-green-600 underline underline-offset-2 hover:text-green-700">account deletion page</a>.
           </p>
           <p class="mt-3">
             <strong>Local data.</strong> Data stored on your device can be cleared at any time with "Reset All Progress" in the app's settings, or by uninstalling the app.
