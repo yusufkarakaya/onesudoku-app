@@ -1,0 +1,32 @@
+---
+/**
+ * Site analytics. Renders nothing unless PUBLIC_GA_ID is set at build time,
+ * so the site is safe to deploy before the GA4 property exists.
+ * Astro inlines PUBLIC_* vars during `astro build` — changing the value in
+ * Vercel requires a redeploy, not just a restart.
+ */
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+
+{gaId && (
+  <Fragment>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+    <script is:inline define:vars={{ gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </Fragment>
+)}
+
+{/* Store-click conversions. Delegated, so it costs nothing on pages with no store links. */}
+<script is:inline>
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element && event.target.closest('[data-store]');
+    if (!link) return;
+    const store = link.getAttribute('data-store');
+    window.gtag?.('event', 'store_click', { store });
+    window.va?.('event', { name: 'store_click', data: { store } });
+  });
+</script>

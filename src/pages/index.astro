@@ -1,10 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const APP_STORE_URL = 'https://apps.apple.com/us/app/one-sudoku-game/id6775040739';
-// Placeholder until the Play listing is live — update the package id here only.
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.one_sudoku';
-const SITE_URL = 'https://www.onesudoku.co';
+import { SITE_URL, APP_STORE_URL, PLAY_STORE_URL } from '../consts';
 
 // Single source of truth: drives both the visible FAQ accordion and the FAQPage schema.
 const faqs = [
@@ -74,7 +70,7 @@ const websiteSchema = {
     '@type': 'Organization',
     name: 'One Sudoku',
     url: SITE_URL,
-    logo: `${SITE_URL}/favicon.svg`,
+    logo: `${SITE_URL}/logo-512.png`,
   },
 };
 
@@ -164,6 +160,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
             target="_blank"
             rel="noopener"
             aria-label="Download One Sudoku on the App Store"
+          data-store="ios"
             class="inline-flex items-center gap-3 bg-white hover:bg-green-50 text-green-950 font-semibold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-950/40"
           >
             <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -179,6 +176,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
             target="_blank"
             rel="noopener"
             aria-label="Get One Sudoku on Google Play"
+          data-store="android"
             class="inline-flex items-center gap-3 bg-white hover:bg-green-50 text-green-950 font-semibold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-950/40"
           >
             <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -437,6 +435,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
           target="_blank"
           rel="noopener"
           aria-label="Download One Sudoku on the App Store"
+          data-store="ios"
           class="inline-flex items-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
         >
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -449,6 +448,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
           target="_blank"
           rel="noopener"
           aria-label="Get One Sudoku on Google Play"
+          data-store="android"
           class="inline-flex items-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
         >
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { SITE_URL } from '../consts';
 
 const faqs = [
   {
@@ -59,9 +60,47 @@ const faqs = [
     a: 'One Sudoku is available on the App Store for iPhone and iPad, and on Google Play for Android phones and tablets.',
   },
 ];
+
+// --- Structured data ---
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Support — One Sudoku',
+  description: 'Get help with the One Sudoku app for iPhone, iPad, and Android.',
+  url: `${SITE_URL}/support/`,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'One Sudoku',
+    url: SITE_URL,
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'One Sudoku', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Support', item: `${SITE_URL}/support/` },
+  ],
+};
+
+// Mirrors the visible FAQ accordion below so the two can never drift apart.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
 <Layout title="Support — One Sudoku" description="Get help with the One Sudoku app for iPhone, iPad, and Android.">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+
   <!-- Navbar -->
   <header class="bg-green-950 border-b border-green-800/30">
     <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
