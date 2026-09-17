@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import { SITE_URL, APP_STORE_URL, PLAY_STORE_URL } from '../consts';
 
 // Single source of truth: drives both the visible FAQ accordion and the FAQPage schema.
@@ -36,18 +38,11 @@ const faqs = [
 
 // Real app screenshots. Drives both the gallery below and SoftwareApplication.screenshot,
 // so the alt text a reader gets and the schema a crawler gets can never diverge.
+// home.webp is produced by `npm run generate:images` — do not hand-edit it.
 const screenshots = [
   {
-    src: '/screenshots/game.webp',
-    alt: 'A One Sudoku puzzle in progress on iPhone, showing a medium 9x9 grid 52% complete with the undo, erase, notes and hint tools below it.',
-  },
-  {
-    src: '/screenshots/daily.webp',
-    alt: 'The One Sudoku daily challenge calendar for August, with completed days marked and a 12-day streak.',
-  },
-  {
-    src: '/screenshots/stats.webp',
-    alt: 'The One Sudoku statistics screen showing total games, win rate, best streak and average solve time by difficulty.',
+    src: '/screenshots/home.webp',
+    alt: 'The One Sudoku home screen on iPhone, showing the four difficulty levels with best times, a game in progress, and the completed daily challenge.',
   },
 ];
 
@@ -106,11 +101,22 @@ const faqSchema = {
   })),
 };
 
-// Difficulty cards shown in the phone mockup home screen
-const mockDifficulties = [
-  { label: 'Easy', sub: '5–10 min' },
-  { label: 'Medium', sub: '10–20 min' },
-  { label: 'Hard', sub: '20–40 min' },
+// Trust row under the hero. Every claim here is one a visitor can verify from
+// the store listing or by opening the app — no invented ratings or download
+// counts, which would also put the structured data at risk.
+const trustPoints = [
+  { label: 'Free to play', sub: 'No paywall, no subscription' },
+  { label: 'No account needed', sub: 'Open it and start solving' },
+  { label: 'Works fully offline', sub: 'Puzzles made on your device' },
+  { label: 'iPhone, iPad & Android', sub: 'Same app on every screen' },
+];
+
+// Claims paired with the screenshot in "A look inside".
+const insidePoints = [
+  { title: 'Four difficulty levels', body: 'Easy through Expert, each tracking its own best time and games won.' },
+  { title: 'Pick up where you left off', body: 'Every puzzle auto-saves, so a game survives the phone going in your pocket.' },
+  { title: 'A daily challenge', body: 'One shared puzzle a day, with a streak that only grows if you keep showing up.' },
+  { title: 'Nothing you did not ask for', body: 'No pop-ups, no forced sign-up, no feed to scroll. Just the grid.' },
 ];
 
 // Illustrative mini grid for the "How to play" section
@@ -123,7 +129,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
   const col = i % 9;
   const num = howToSeed[i];
   const cls = [
-    'flex items-center justify-center text-sm font-semibold bg-white',
+    'flex items-center justify-center text-xs sm:text-sm font-semibold bg-white',
     col === 2 || col === 5 ? 'border-r-2 border-r-green-300' : '',
     row === 2 || row === 5 ? 'border-b-2 border-b-green-300' : '',
     num ? 'text-green-700' : 'text-transparent',
@@ -137,53 +143,36 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(websiteSchema)} />
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-green-950/90 backdrop-blur-sm border-b border-green-800/30">
-    <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="/" class="text-white font-semibold text-xl tracking-tight">
-        one sudoku<span class="text-green-400">.</span>
-      </a>
-      <div class="flex items-center gap-6">
-        <a href="#how-to-play" class="hidden sm:inline text-green-200/70 hover:text-white text-sm font-medium transition-colors">How to play</a>
-        <a href="#faq" class="hidden sm:inline text-green-200/70 hover:text-white text-sm font-medium transition-colors">FAQ</a>
-        <a
-          href="#download"
-          class="bg-green-500 hover:bg-green-400 text-green-950 font-semibold text-sm px-5 py-2 rounded-full transition-colors"
-        >
-          Download
-        </a>
-      </div>
-    </nav>
-  </header>
+  <Header variant="home" />
 
   <!-- Hero -->
-  <section class="bg-green-950 pt-32 pb-24 px-6 overflow-hidden relative">
+  <section class="bg-green-950 pt-28 pb-16 sm:pt-32 sm:pb-24 px-6 overflow-hidden relative">
     <div class="absolute inset-0 opacity-5" aria-hidden="true" style="background-image: repeating-linear-gradient(0deg, #4ade80 0, #4ade80 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, #4ade80 0, #4ade80 1px, transparent 1px, transparent 40px);"></div>
 
-    <div class="max-w-5xl mx-auto relative flex items-center justify-between gap-12">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 bg-green-900/60 border border-green-700/40 rounded-full px-4 py-1.5 mb-8">
+    <div class="max-w-5xl mx-auto relative flex flex-col lg:flex-row items-center lg:justify-between gap-12">
+      <div class="max-w-2xl text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 bg-green-900/60 border border-green-700/40 rounded-full px-4 py-1.5 mb-6 sm:mb-8">
           <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          <span class="text-green-300 text-sm font-medium">Available on the App Store &amp; Google Play</span>
+          <span class="text-green-300 text-xs sm:text-sm font-medium">Available on the App Store &amp; Google Play</span>
         </div>
 
-        <h1 class="text-5xl md:text-7xl font-bold text-white leading-[1.05] mb-6">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-[1.05] mb-5 sm:mb-6">
           Sudoku.<br/>
           <span class="text-green-400">Pure and simple.</span>
         </h1>
 
-        <p class="text-green-200/70 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
-          A free sudoku game for iPhone, iPad, and Android. Four difficulty levels, a daily challenge, and unlimited offline puzzles — in a clean interface that gets out of your way.
+        <p class="text-green-200/70 text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0">
+          A few quiet minutes with one puzzle and nothing else competing for your attention. Four difficulty levels, a daily challenge, and unlimited offline puzzles — free, with no account and no clutter.
         </p>
 
-        <div id="download" class="flex flex-wrap items-center gap-4 scroll-mt-24">
+        <div id="download" class="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-4 scroll-mt-24">
           <a
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener"
             aria-label="Download One Sudoku on the App Store"
-          data-store="ios"
-            class="inline-flex items-center gap-3 bg-white hover:bg-green-50 text-green-950 font-semibold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-950/40"
+            data-store="ios"
+            class="w-full sm:w-auto inline-flex items-center justify-center sm:justify-start gap-3 bg-white hover:bg-green-50 text-green-950 font-semibold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-950/40"
           >
             <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
@@ -198,8 +187,8 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
             target="_blank"
             rel="noopener"
             aria-label="Get One Sudoku on Google Play"
-          data-store="android"
-            class="inline-flex items-center gap-3 bg-white hover:bg-green-50 text-green-950 font-semibold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-950/40"
+            data-store="android"
+            class="w-full sm:w-auto inline-flex items-center justify-center sm:justify-start gap-3 bg-white hover:bg-green-50 text-green-950 font-semibold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-950/40"
           >
             <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M3.609 1.814L13.792 12 3.609 22.186a2.01 2.01 0 0 1-.61-1.437V3.251c0-.56.24-1.064.61-1.437zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626c.68.394.68 1.378 0 1.772l-2.807 1.626-2.494-2.512 2.494-2.512zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
@@ -213,29 +202,45 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
         </div>
       </div>
 
-      <!-- Phone mockup: app home screen recreated in CSS -->
-      <div>
-        <img
-          src="/focus-daily-sudoku.png"
-          alt="One Sudoku home screen on iPhone, showing the four difficulty levels and the daily challenge."
-          width="640"
-          height="1389"
-          loading="lazy"
-          decoding="async"
-          class="w-64 sm:w-72 rounded-3xl shadow-lg shadow-green-950/20 ring-1 ring-green-950/5"
-        />
+      <!-- Real home screen, cropped out of the App Store artwork -->
+      <img
+        src="/screenshots/home.webp"
+        alt={screenshots[0].alt}
+        width="720"
+        height="1516"
+        fetchpriority="high"
+        decoding="async"
+        class="w-56 sm:w-64 lg:w-72 shrink-0 drop-shadow-2xl"
+      />
     </div>
   </section>
 
+  <!-- Trust row -->
+  <section class="bg-green-900 px-6 py-8 sm:py-10 border-t border-green-800/40">
+    <ul class="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7">
+      {trustPoints.map((point) => (
+        <li class="flex gap-3">
+          <svg class="w-5 h-5 text-green-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          <div>
+            <p class="text-white font-semibold text-sm leading-snug">{point.label}</p>
+            <p class="text-green-300/60 text-xs sm:text-sm leading-snug mt-0.5">{point.sub}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
   <!-- Features -->
-  <section class="bg-green-50 py-24 px-6">
+  <section class="bg-green-50 py-16 sm:py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-green-950 mb-4">Built for sudoku lovers</h2>
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-green-950 mb-4">Built for sudoku lovers</h2>
         <p class="text-zinc-500 text-lg max-w-xl mx-auto">Every detail is designed to keep you focused on what matters — solving the puzzle.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Classic Rules -->
         <div class="bg-white rounded-3xl p-8 border border-green-100 hover:border-green-300 hover:shadow-lg hover:shadow-green-100/60 transition-all">
           <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-5">
@@ -311,37 +316,53 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
     </div>
   </section>
 
-  <!-- Screenshots -->
-  <section class="bg-white py-24 px-6">
+  <!-- A look inside -->
+  <section class="bg-white py-16 sm:py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="text-4xl font-bold text-green-950 mb-4">A look inside</h2>
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-green-950 mb-4">A look inside</h2>
         <p class="text-zinc-500 text-lg max-w-xl mx-auto">The same clean interface on iPhone, iPad, and Android.</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 max-w-3xl mx-auto">
-        {screenshots.map((shot) => (
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="justify-self-center lg:justify-self-end">
           <img
-            src={shot.src}
-            alt={shot.alt}
-            width="640"
-            height="1389"
+            src={screenshots[0].src}
+            alt={screenshots[0].alt}
+            width="720"
+            height="1516"
             loading="lazy"
             decoding="async"
-            class="w-full rounded-2xl shadow-lg shadow-green-950/10 ring-1 ring-green-950/5"
+            class="w-60 sm:w-72 drop-shadow-2xl"
           />
-        ))}
+        </div>
+
+        <ul class="space-y-6 max-w-md">
+          {insidePoints.map((point) => (
+            <li class="flex gap-4">
+              <span class="shrink-0 w-9 h-9 rounded-xl bg-green-100 grid place-items-center">
+                <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-lg font-semibold text-green-950 mb-1">{point.title}</h3>
+                <p class="text-zinc-500 leading-relaxed">{point.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- How to Play -->
-  <section id="how-to-play" class="bg-white py-24 px-6 scroll-mt-20">
+  <section id="how-to-play" class="bg-white pb-16 sm:pb-24 px-6 scroll-mt-20">
     <div class="max-w-5xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div>
           <p class="text-green-600 font-semibold text-sm tracking-wide uppercase mb-3">How to play</p>
-          <h2 class="text-4xl font-bold text-green-950 mb-5">The rules of sudoku, in one minute</h2>
+          <h2 class="text-3xl sm:text-4xl font-bold text-green-950 mb-5">The rules of sudoku, in one minute</h2>
           <p class="text-zinc-500 text-lg leading-relaxed mb-8">
             Sudoku is a logic puzzle played on a 9×9 grid divided into nine 3×3 boxes. Some numbers are filled in to start — your job is to complete the rest using reasoning alone. No math required.
           </p>
@@ -363,11 +384,19 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
               <p class="text-zinc-600 leading-relaxed pt-1">When the whole grid is filled with no conflicts, the puzzle is solved. Use <strong class="text-green-950 font-semibold">notes</strong> to track candidates as you go.</p>
             </li>
           </ol>
+          <p class="mt-8">
+            <a href="/blog/benefits-of-sudoku" class="inline-flex items-center gap-2 text-green-700 hover:text-green-600 font-semibold transition-colors">
+              Why a daily puzzle is worth the time
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </p>
         </div>
 
         <!-- mini illustrative grid -->
-        <div class="justify-self-center" aria-hidden="true">
-          <div class="w-64 h-64 sm:w-72 sm:h-72 p-2 bg-green-50 rounded-2xl border border-green-100 grid grid-cols-9 gap-px">
+        <div class="justify-self-center w-full max-w-72" aria-hidden="true">
+          <div class="w-full aspect-square p-2 bg-green-50 rounded-2xl border border-green-100 grid grid-cols-9 gap-px">
             {howToCells.map(({ num, cls }) => (
               <div class={cls}>{num || '0'}</div>
             ))}
@@ -378,23 +407,23 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="bg-green-50 py-24 px-6 scroll-mt-20">
+  <section id="faq" class="bg-green-50 py-16 sm:py-24 px-6 scroll-mt-20">
     <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-green-950 mb-4">Frequently asked questions</h2>
+      <div class="text-center mb-10 sm:mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-green-950 mb-4">Frequently asked questions</h2>
         <p class="text-zinc-500 text-lg">Everything you might want to know before you download.</p>
       </div>
 
       <div class="space-y-3">
         {faqs.map((f) => (
           <details class="group bg-white rounded-2xl border border-green-100 open:border-green-300 transition-colors">
-            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 text-green-950 font-semibold">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 sm:px-6 py-5 text-green-950 font-semibold">
               {f.q}
               <svg class="w-5 h-5 text-green-500 shrink-0 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14"/>
               </svg>
             </summary>
-            <p class="px-6 pb-5 -mt-1 text-zinc-500 leading-relaxed">{f.a}</p>
+            <p class="px-5 sm:px-6 pb-5 -mt-1 text-zinc-500 leading-relaxed">{f.a}</p>
           </details>
         ))}
       </div>
@@ -402,18 +431,18 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
   </section>
 
   <!-- CTA Banner -->
-  <section class="bg-green-900 py-24 px-6">
+  <section class="bg-green-900 py-16 sm:py-24 px-6">
     <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-5">Ready to play?</h2>
-      <p class="text-green-200/70 text-lg mb-10">Download One Sudoku free and start solving today — no account required, no catch.</p>
-      <div class="flex flex-wrap items-center justify-center gap-4">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">Ready to play?</h2>
+      <p class="text-green-200/70 text-lg mb-8 sm:mb-10">Download One Sudoku free and start solving today — no account required, no catch.</p>
+      <div class="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4">
         <a
           href={APP_STORE_URL}
           target="_blank"
           rel="noopener"
           aria-label="Download One Sudoku on the App Store"
           data-store="ios"
-          class="inline-flex items-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
         >
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
@@ -426,7 +455,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
           rel="noopener"
           aria-label="Get One Sudoku on Google Play"
           data-store="android"
-          class="inline-flex items-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-green-400 hover:bg-green-300 text-green-950 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
         >
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M3.609 1.814L13.792 12 3.609 22.186a2.01 2.01 0 0 1-.61-1.437V3.251c0-.56.24-1.064.61-1.437zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626c.68.394.68 1.378 0 1.772l-2.807 1.626-2.494-2.512 2.494-2.512zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
@@ -437,20 +466,18 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-green-950 py-10 px-6">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <span class="text-white font-semibold text-lg">
-        one sudoku<span class="text-green-400">.</span>
-      </span>
-      <nav class="flex items-center gap-6 text-sm" aria-label="Footer">
-        <a href="#how-to-play" class="text-green-400/60 hover:text-green-400 transition-colors">How to Play</a>
-        <a href="#faq" class="text-green-400/60 hover:text-green-400 transition-colors">FAQ</a>
-        <a href="/privacy" class="text-green-400/60 hover:text-green-400 transition-colors">Privacy Policy</a>
-        <a href="/delete-account" class="text-green-400/60 hover:text-green-400 transition-colors">Delete Account</a>
-        <a href="/support" class="text-green-400/60 hover:text-green-400 transition-colors">Support</a>
-      </nav>
-      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
+  <Footer active="home" />
+
+  <!-- Persistent download prompt on phones, where the hero CTAs scroll away fast.
+       Sends people to the hero's store buttons rather than guessing their platform. -->
+  <div class="sm:hidden h-20" aria-hidden="true"></div>
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-green-950/95 backdrop-blur-sm border-t border-green-800/50 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex items-center justify-between gap-3">
+    <div class="min-w-0">
+      <p class="text-white font-semibold text-sm leading-tight">One Sudoku</p>
+      <p class="text-green-300/70 text-xs leading-tight">Free · No account required</p>
     </div>
-  </footer>
+    <a href="#download" class="shrink-0 bg-green-500 hover:bg-green-400 text-green-950 font-semibold text-sm px-5 py-2.5 rounded-full transition-colors">
+      Download
+    </a>
+  </div>
 </Layout>

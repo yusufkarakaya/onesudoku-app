@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 import { SITE_URL } from '../consts';
 
 // --- Structured data ---
@@ -41,11 +42,11 @@ const breadcrumbSchema = {
   </header>
 
   <!-- Content -->
-  <main class="min-h-screen bg-white py-16 px-6">
+  <main class="min-h-screen bg-white py-12 sm:py-16 px-6">
     <div class="max-w-2xl mx-auto">
       <div class="mb-12">
         <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Legal</span>
-        <h1 class="text-4xl font-bold text-green-950 mb-3">Privacy Policy</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold text-green-950 mb-3">Privacy Policy</h1>
         <p class="text-zinc-500 text-sm">Effective date: <strong>August 22, 2026</strong></p>
       </div>
 
@@ -281,17 +282,5 @@ const breadcrumbSchema = {
   </main>
 
   <!-- Footer -->
-  <footer class="bg-green-950 py-10 px-6">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <a href="/" class="text-white font-semibold text-lg">
-        one sudoku<span class="text-green-400">.</span>
-      </a>
-      <div class="flex items-center gap-6 text-sm">
-        <a href="/privacy" class="text-green-400 transition-colors">Privacy Policy</a>
-        <a href="/delete-account" class="text-green-400/60 hover:text-green-400 transition-colors">Delete Account</a>
-        <a href="/support" class="text-green-400/60 hover:text-green-400 transition-colors">Support</a>
-      </div>
-      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
-    </div>
-  </footer>
+  <Footer active="privacy" />
 </Layout>

@@ -1,0 +1,55 @@
+---
+/**
+ * Site footer. Previously copy-pasted into all four pages with slightly
+ * different link sets — and none of them wrapped, so the list overflowed on
+ * narrow screens.
+ *
+ * `active` dims every link except the current page's, matching what the legal
+ * pages did by hand. The "How to play" / FAQ entries are in-page anchors, so
+ * they only make sense on the landing page (`home`).
+ */
+interface Props {
+  /** Which page this footer is on, so its own link renders undimmed. */
+  active?: 'home' | 'blog' | 'privacy' | 'delete-account' | 'support';
+}
+
+const { active = 'home' } = Astro.props;
+
+const links = [
+  ...(active === 'home'
+    ? [
+        { href: '#how-to-play', label: 'How to Play', key: null },
+        { href: '#faq', label: 'FAQ', key: null },
+      ]
+    : []),
+  { href: '/blog', label: 'Blog', key: 'blog' },
+  { href: '/privacy', label: 'Privacy Policy', key: 'privacy' },
+  { href: '/delete-account', label: 'Delete Account', key: 'delete-account' },
+  { href: '/support', label: 'Support', key: 'support' },
+];
+---
+
+<footer class="bg-green-950 py-10 px-6">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+    <a href="/" class="text-white font-semibold text-lg shrink-0">
+      one sudoku<span class="text-green-400">.</span>
+    </a>
+
+    <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm" aria-label="Footer">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class={
+            link.key && link.key === active
+              ? 'text-green-400'
+              : 'text-green-400/60 hover:text-green-400 transition-colors'
+          }
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <p class="text-green-400/40 text-sm shrink-0">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
+  </div>
+</footer>

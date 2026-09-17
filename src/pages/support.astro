@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 import { SITE_URL } from '../consts';
 
 const faqs = [
@@ -113,10 +114,10 @@ const faqSchema = {
 
   <main class="min-h-screen bg-white">
     <!-- Hero -->
-    <section class="bg-green-50 py-16 px-6 border-b border-green-100">
+    <section class="bg-green-50 py-12 sm:py-16 px-6 border-b border-green-100">
       <div class="max-w-2xl mx-auto text-center">
         <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Help Center</span>
-        <h1 class="text-4xl font-bold text-green-950 mb-4">Support</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold text-green-950 mb-4">Support</h1>
         <p class="text-zinc-500 text-lg">
           Find answers to common questions below. Can't find what you need? Drop us an email.
         </p>
@@ -124,7 +125,7 @@ const faqSchema = {
     </section>
 
     <!-- FAQ -->
-    <section class="py-16 px-6">
+    <section class="py-12 sm:py-16 px-6">
       <div class="max-w-2xl mx-auto">
         <h2 class="text-2xl font-bold text-green-950 mb-8">Frequently Asked Questions</h2>
 
@@ -147,9 +148,9 @@ const faqSchema = {
     </section>
 
     <!-- Contact -->
-    <section class="py-16 px-6 bg-green-950">
+    <section class="py-12 sm:py-16 px-6 bg-green-950">
       <div class="max-w-2xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">Still need help?</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Still need help?</h2>
         <p class="text-green-200/70 text-lg mb-8">
           Send us an email and we'll get back to you as soon as possible.
         </p>
@@ -168,17 +169,5 @@ const faqSchema = {
   </main>
 
   <!-- Footer -->
-  <footer class="bg-green-950 py-10 px-6 border-t border-green-800/30">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <a href="/" class="text-white font-semibold text-lg">
-        one sudoku<span class="text-green-400">.</span>
-      </a>
-      <div class="flex items-center gap-6 text-sm">
-        <a href="/privacy" class="text-green-400/60 hover:text-green-400 transition-colors">Privacy Policy</a>
-        <a href="/delete-account" class="text-green-400/60 hover:text-green-400 transition-colors">Delete Account</a>
-        <a href="/support" class="text-green-400 transition-colors">Support</a>
-      </div>
-      <p class="text-green-400/40 text-sm">© {new Date().getFullYear()} onesudoku.co · All rights reserved.</p>
-    </div>
-  </footer>
+  <Footer active="support" />
 </Layout>
