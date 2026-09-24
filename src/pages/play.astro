@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AdSlot from '../components/AdSlot.astro';
+import Game from '../game/ui/Game';
+import { SITE_URL } from '../consts';
+import '../game/ui/game.css';
+
+const adClient = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const slots = {
+  sidebar: import.meta.env.PUBLIC_ADSENSE_SLOT_SIDEBAR,
+  belowBoard: import.meta.env.PUBLIC_ADSENSE_SLOT_BELOW_BOARD,
+  content: import.meta.env.PUBLIC_ADSENSE_SLOT_CONTENT,
+};
+
+const faqs = [
+  {
+    q: 'Is this sudoku free to play online?',
+    a: 'Yes. Every puzzle is free, with no sign-up and no download. Your game is saved in your browser, so you can close the tab and pick up where you left off.',
+  },
+  {
+    q: 'How many puzzles are there?',
+    a: 'A thousand hand-checked puzzles for each of the four difficulty levels — Easy, Medium, Hard and Expert. Every one has exactly one solution and can be solved with logic alone, no guessing.',
+  },
+  {
+    q: 'What do the difficulty levels mean?',
+    a: 'Easy puzzles fall to naked singles. Medium needs hidden singles. Hard brings in pairs, triples and pointing pairs. Expert puzzles require X-Wing, Swordfish or XY-Wing.',
+  },
+  {
+    q: 'Are there keyboard shortcuts?',
+    a: 'Arrow keys move, 1–9 place a number, Backspace erases, N toggles notes, Z undoes, H gives a hint and Space pauses.',
+  },
+  {
+    q: 'Is there an app?',
+    a: 'One Sudoku is free on the App Store and Google Play, with a daily challenge, streaks, statistics and leaderboards, and it plays fully offline.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'One Sudoku — Play Online',
+    url: `${SITE_URL}/play`,
+    applicationCategory: 'GameApplication',
+    operatingSystem: 'Any (web browser)',
+    browserRequirements: 'Requires JavaScript',
+    isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: 'Play classic sudoku online for free in your browser. Four difficulty levels, notes, hints and undo. No sign-up.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+---
+
+<Layout
+  title="Play Sudoku Online Free — Classic Sudoku | One Sudoku"
+  description="Play classic sudoku online for free — no sign-up, no download. Easy, Medium, Hard and Expert puzzles with notes, hints, undo and auto-save."
+>
+  <Fragment slot="head">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    {adClient && (
+      <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`} crossorigin="anonymous"></script>
+    )}
+  </Fragment>
+
+  <div class="play-page min-h-screen">
+    <Header variant="sub" />
+
+    <main class="px-4 pt-3 pb-12 sm:pt-8">
+      <div class="max-w-5xl mx-auto lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10 lg:items-start">
+        <div class="min-w-0">
+          <h1 class="sr-only">Play Sudoku Online — Free Classic Sudoku</h1>
+          <Game client:load />
+          <AdSlot slot={slots.belowBoard} minHeight={100} format="horizontal" class="max-w-[520px] mx-auto mt-6" />
+        </div>
+
+        <aside class="hidden lg:block sticky top-6" aria-label="Advertisement">
+          <AdSlot slot={slots.sidebar} minHeight={600} format="vertical" />
+        </aside>
+      </div>
+
+      <section class="max-w-3xl mx-auto mt-16 sm:mt-20" style="color: var(--on-surface)">
+        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--primary)">How to play</p>
+        <h2 class="display text-3xl font-bold mt-2">The rules of sudoku, in one minute</h2>
+        <p class="mt-4 text-lg leading-relaxed" style="color: var(--on-surface-variant)">
+          Fill the 9×9 grid so that every row, every column and every 3×3 box contains the numbers 1 to 9 exactly once.
+          Some numbers are given to start; the rest you deduce with logic — no math, no guessing.
+        </p>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-3">
+          {[
+            ['Tap a cell, then a number', 'Or use the arrow keys and 1–9 on a keyboard.'],
+            ['Notes', 'Turn on notes (N) to pencil in candidates. Placing a number clears it from the notes around it.'],
+            ['Mistakes', 'A wrong number turns red and counts as a mistake — there is no limit, so keep going.'],
+            ['Hints', 'Three per game. A hint fixes a wrong entry first, then reveals the next logical cell.'],
+          ].map(([title, body]) => (
+            <li class="rounded-2xl p-4" style="background: var(--surface); box-shadow: var(--shadow-pad)">
+              <p class="font-semibold">{title}</p>
+              <p class="mt-1 text-sm leading-relaxed" style="color: var(--on-surface-variant)">{body}</p>
+            </li>
+          ))}
+        </ul>
+
+        <AdSlot slot={slots.content} minHeight={250} class="mt-10" />
+
+        <h2 class="display text-2xl font-bold mt-12">Frequently asked questions</h2>
+        <div class="mt-4 space-y-3">
+          {faqs.map((f) => (
+            <details class="rounded-2xl p-4 group" style="background: var(--surface); box-shadow: var(--shadow-pad)">
+              <summary class="font-semibold cursor-pointer list-none flex justify-between gap-4">
+                {f.q}
+                <span class="transition-transform group-open:rotate-45" style="color: var(--primary)" aria-hidden="true">+</span>
+              </summary>
+              <p class="mt-2 text-sm leading-relaxed" style="color: var(--on-surface-variant)">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <Footer active="play" />
+  </div>
+</Layout>

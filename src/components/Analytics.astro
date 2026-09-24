@@ -3,7 +3,7 @@
  * Site analytics. Renders nothing unless PUBLIC_GA_ID is set at build time,
  * so the site is safe to deploy before the GA4 property exists.
  * Astro inlines PUBLIC_* vars during `astro build` — changing the value in
- * Vercel requires a redeploy, not just a restart.
+ * Netlify requires a new deploy, not just a restart.
  */
 const gaId = import.meta.env.PUBLIC_GA_ID;
 ---
@@ -27,6 +27,5 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
     if (!link) return;
     const store = link.getAttribute('data-store');
     window.gtag?.('event', 'store_click', { store });
-    window.va?.('event', { name: 'store_click', data: { store } });
   });
 </script>

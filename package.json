@@ -13,10 +13,11 @@
     "generate:images": "node scripts/generate-images.mjs"
   },
   "dependencies": {
+    "@astrojs/preact": "^6.0.5",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.0",
-    "@vercel/analytics": "^2.0.1",
     "astro": "^6.3.7",
+    "preact": "^10.29.8",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {

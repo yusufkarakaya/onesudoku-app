@@ -1,0 +1,32 @@
+---
+/**
+ * A static AdSense unit. Renders nothing until both PUBLIC_ADSENSE_CLIENT and
+ * the slot id are set at build time, so the page stays clean before the site
+ * is approved. The reserved min-height keeps the layout from jumping when the
+ * ad fills (CLS).
+ */
+interface Props {
+  slot: string | undefined;
+  minHeight?: number;
+  format?: 'auto' | 'rectangle' | 'vertical' | 'horizontal';
+  class?: string;
+}
+
+const { slot, minHeight = 250, format = 'auto', class: className } = Astro.props;
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+---
+
+{client && slot && (
+  <div class={className} style={`min-height:${minHeight + 18}px`}>
+    <div class="ad-label">Advertisement</div>
+    <ins
+      class="adsbygoogle ad-slot"
+      style={`display:block;min-height:${minHeight}px`}
+      data-ad-client={client}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    ></ins>
+    <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+)}

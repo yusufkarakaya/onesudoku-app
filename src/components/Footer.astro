@@ -10,7 +10,7 @@
  */
 interface Props {
   /** Which page this footer is on, so its own link renders undimmed. */
-  active?: 'home' | 'blog' | 'privacy' | 'delete-account' | 'support';
+  active?: 'home' | 'play' | 'blog' | 'privacy' | 'delete-account' | 'support';
 }
 
 const { active = 'home' } = Astro.props;
@@ -22,6 +22,7 @@ const links = [
         { href: '#faq', label: 'FAQ', key: null },
       ]
     : []),
+  { href: '/play', label: 'Play Online', key: 'play' },
   { href: '/blog', label: 'Blog', key: 'blog' },
   { href: '/privacy', label: 'Privacy Policy', key: 'privacy' },
   { href: '/delete-account', label: 'Delete Account', key: 'delete-account' },
