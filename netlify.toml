@@ -13,6 +13,17 @@
   status = 301
   force = true
 
+# Old @astrojs/sitemap output, still submitted in Search Console.
+[[redirects]]
+  from = "/sitemap-index.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/sitemap-0.xml"
+  to = "/sitemap.xml"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
