@@ -4,7 +4,7 @@ import { SITE_URL } from '../consts';
 
 // Every static .astro page is picked up automatically; dynamic routes
 // ([...slug] etc.) are listed from their content collection below.
-const pageFiles = Object.keys(import.meta.glob('./**/*.astro')).filter((f) => !f.includes('['));
+const pageFiles = Object.keys(import.meta.glob('./**/*.astro')).filter((f) => !f.includes('[') && f !== './play.astro');
 
 /** './index.astro' → '/', './privacy.astro' → '/privacy/', './blog/index.astro' → '/blog/' */
 function toRoute(file: string): string {

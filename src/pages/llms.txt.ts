@@ -11,12 +11,12 @@ export const GET: APIRoute = async () => {
 
   const body = `# One Sudoku
 
-> One Sudoku is a free, minimal sudoku game for iPhone, iPad, and Android, and a free sudoku you can play online in the browser. Four difficulty levels, a daily challenge, and unlimited offline puzzles, with no account required.
+> One Sudoku is a free, minimal sudoku game for iPhone, iPad, and Android. Four difficulty levels, a daily challenge, and unlimited offline puzzles, with no account required.
 
 Key facts:
 
 - Price: free to download and play, supported by minimal banner ads and optional rewarded video ads for extra hints.
-- Platforms: iPhone and iPad (App Store), Android phones and tablets (Google Play), and any web browser at ${SITE_URL}/play/
+- Platforms: iPhone and iPad (App Store), Android phones and tablets (Google Play)
 - Difficulty levels: Easy, Medium, Hard, and Expert.
 - Daily Challenge: one puzzle a day, the same for every player worldwide, with a streak for solving it each day.
 - Offline: the apps generate puzzles on the device and need no internet connection.
@@ -26,7 +26,6 @@ Key facts:
 ## Pages
 
 - [Home](${SITE_URL}/): Overview of the One Sudoku app, screenshots, how to play, and FAQ.
-- [Play online](${SITE_URL}/play/): Play classic sudoku free in the browser — no sign-up, no download. Easy, Medium, Hard and Expert puzzles with notes, hints, undo and auto-save.
 - [Blog](${SITE_URL}/blog/): Writing about sudoku: how the puzzle works, the techniques worth learning, and what a daily solve is actually good for.
 - [Support](${SITE_URL}/support/): Help and frequently asked questions about the app.
 - [Privacy policy](${SITE_URL}/privacy/): What data the apps and website collect and why.
