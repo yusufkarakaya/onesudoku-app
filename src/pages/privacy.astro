@@ -47,7 +47,7 @@ const breadcrumbSchema = {
       <div class="mb-12">
         <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Legal</span>
         <h1 class="text-3xl sm:text-4xl font-bold text-green-950 mb-3">Privacy Policy</h1>
-        <p class="text-zinc-500 text-sm">Effective date: <strong>September 24, 2026</strong></p>
+        <p class="text-zinc-500 text-sm">Effective date: <strong>October 5, 2026</strong></p>
       </div>
 
       <div class="prose prose-zinc max-w-none space-y-8 text-zinc-700 leading-relaxed">
@@ -121,7 +121,7 @@ const breadcrumbSchema = {
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-green-950 mb-3">3. Analytics (Google Firebase Analytics)</h2>
+          <h2 class="text-xl font-semibold text-green-950 mb-3">3. Analytics (Google Firebase Analytics and PostHog)</h2>
           <p>
             One Sudoku uses <strong>Google Firebase Analytics</strong> to understand how the app is used in aggregate, so we can fix problems and decide what to improve. Firebase Analytics automatically collects:
           </p>
@@ -133,7 +133,10 @@ const breadcrumbSchema = {
             <li>In-app events, such as a puzzle being started or completed and which difficulty was chosen</li>
           </ul>
           <p class="mt-3">
-            We look at this data only in aggregate. We do not use it to identify you personally, we do not sell it, and we do not combine it with your account information to build a profile about you.
+            We look at this data only in aggregate. If you are signed in, it is associated with your opaque account identifier (never your email address or name) so that activity on different devices is counted once. We do not use it to identify you personally, we do not sell it, and we do not use it to build an advertising profile about you.
+          </p>
+          <p class="mt-3">
+            The app also sends the same in-app events and screen views to <strong>PostHog</strong>, a product analytics service hosted in the United States, which we use to understand where players get stuck. PostHog may also record <strong>session replays</strong>: a reconstruction of the app's screens and taps during a session, used to find confusing screens and bugs. Replays mask every text field and image, and the screens that show your email address or name are excluded, so they show the layout of the app and where you tapped rather than what you typed. Replays do not include audio, your camera, or anything outside the app. See <a href="https://posthog.com/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">PostHog's Privacy Policy</a>.
           </p>
           <p class="mt-3">
             We may also receive anonymous, aggregated crash reports and performance data through Apple's and Google's built-in crash reporting, and through Firebase Crashlytics where enabled. This is used solely to fix bugs and improve stability.
@@ -204,6 +207,7 @@ const breadcrumbSchema = {
           <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
             <li><strong>Google Firebase</strong> — authentication, cloud sync, and analytics. <a href="https://firebase.google.com/support/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Firebase privacy</a></li>
             <li><strong>Google AdSense</strong> and <strong>Google Analytics</strong> — advertising and usage measurement on the website. <a href="https://policies.google.com/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+            <li><strong>PostHog</strong> — product analytics and session replay in the app. <a href="https://posthog.com/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">PostHog privacy</a></li>
             <li><strong>Google AdMob</strong> — advertising. <a href="https://policies.google.com/privacy" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
             <li><strong>Sign in with Apple</strong> — optional authentication. <a href="https://www.apple.com/legal/privacy/" class="text-green-600 underline underline-offset-2 hover:text-green-700" target="_blank" rel="noopener noreferrer">Apple Privacy Policy</a></li>
             <li><strong>Apple App Store</strong> and <strong>Google Play</strong> — app distribution. Each may collect information in accordance with its own policy.</li>
@@ -246,7 +250,7 @@ const breadcrumbSchema = {
           <h2 class="text-xl font-semibold text-green-950 mb-3">10. Data Retention</h2>
           <ul class="list-disc pl-6 mt-3 space-y-1 text-zinc-600">
             <li><strong>Account and synced game data</strong> — retained for as long as your account is active. When you delete your account, it is removed from our production systems immediately and from backups within 30 days.</li>
-            <li><strong>Analytics data</strong> — retained in pseudonymous, aggregated form according to the retention period configured in Firebase, after which it is automatically deleted.</li>
+            <li><strong>Analytics data</strong> — retained in pseudonymous, aggregated form according to the retention period configured in Firebase, after which it is automatically deleted. PostHog events and session replays are deleted according to PostHog's retention period for our plan.</li>
             <li><strong>Local device data</strong> — removed when you reset your progress in the app or uninstall the app.</li>
           </ul>
         </section>
@@ -254,7 +258,7 @@ const breadcrumbSchema = {
         <section>
           <h2 class="text-xl font-semibold text-green-950 mb-3">11. International Data Transfers</h2>
           <p>
-            Our service providers, including Google Firebase, process data on servers located in the United States and other countries. Where data is transferred out of the EEA or the UK, it is done under the safeguards provided by those providers, such as Standard Contractual Clauses.
+            Our service providers, including Google Firebase and PostHog, process data on servers located in the United States and other countries. Where data is transferred out of the EEA or the UK, it is done under the safeguards provided by those providers, such as Standard Contractual Clauses.
           </p>
         </section>
 
