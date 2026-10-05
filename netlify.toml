@@ -13,6 +13,20 @@
   status = 301
   force = true
 
+# Social bio links. Short on purpose; the UTM is added here so GA4 and the
+# store-link tagging in Analytics.astro can see where the visit came from.
+# A redirect, not a 200 rewrite: both read the UTM from the address bar.
+# 302, not 301, so a browser never caches it and the target can change.
+[[redirects]]
+  from = "/tiktok"
+  to = "/?utm_source=tiktok&utm_medium=social&utm_campaign=bio"
+  status = 302
+
+[[redirects]]
+  from = "/instagram"
+  to = "/?utm_source=instagram&utm_medium=social&utm_campaign=bio"
+  status = 302
+
 # Old @astrojs/sitemap output, still submitted in Search Console.
 [[redirects]]
   from = "/sitemap-index.xml"

@@ -6,6 +6,13 @@
  * Netlify requires a new deploy, not just a restart.
  */
 const gaId = import.meta.env.PUBLIC_GA_ID;
+
+/**
+ * App Store Connect campaign provider token (ASC → App Analytics → Campaigns →
+ * Generate link, the `pt=` value). One per developer account. Without it the
+ * App Store links are left alone and only the Play links carry the source.
+ */
+const ascProviderToken = import.meta.env.PUBLIC_ASC_PROVIDER_TOKEN ?? '';
 ---
 
 {gaId && (
@@ -20,12 +27,75 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
   </Fragment>
 )}
 
-{/* Store-click conversions. Delegated, so it costs nothing on pages with no store links. */}
-<script is:inline>
+{/*
+  Store-click conversions. Delegated, so it costs nothing on pages with no store links.
+
+  It also carries the visit's UTM source on to the store, which is the only way
+  an install can be traced back to a social post: the Instagram and TikTok bio
+  links are tagged (`?utm_source=tiktok&utm_medium=social…`), and their in-app
+  browsers usually strip the referrer, so the tag is all there is.
+  - Play: `&referrer=` is read back by Firebase in the app (Play Install
+    Referrer), so the Android `first_open` gets that first user source in GA4.
+  - App Store: `pt` + `ct` show up in App Store Connect → App Analytics →
+    Campaigns. GA4 cannot attribute an iOS install at all.
+  The tag is kept in sessionStorage so it survives a visit that lands on the
+  homepage and clicks through from a blog post. A visit with no tag leaves the
+  links untouched.
+*/}
+<script is:inline define:vars={{ ascProviderToken }}>
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
+  const STORAGE_KEY = 'store-utm';
+
+  function readUtm() {
+    const params = new URLSearchParams(location.search);
+    const fromUrl = {};
+    for (const key of UTM_KEYS) {
+      const value = params.get(key);
+      if (value) fromUrl[key] = value;
+    }
+    try {
+      if (fromUrl.utm_source) {
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(fromUrl));
+        return fromUrl;
+      }
+      return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || 'null');
+    } catch {
+      return fromUrl.utm_source ? fromUrl : null;
+    }
+  }
+
+  const utm = readUtm();
+
+  function tagStoreLink(link, store) {
+    if (!utm || link.dataset.storeTagged) return;
+    let url;
+    try {
+      url = new URL(link.href);
+    } catch {
+      return;
+    }
+    if (store === 'android') {
+      const referrer = new URLSearchParams();
+      for (const key of UTM_KEYS) if (utm[key]) referrer.set(key, utm[key]);
+      url.searchParams.set('referrer', referrer.toString());
+    } else if (store === 'ios' && ascProviderToken) {
+      // App Store Connect truncates a campaign name past 40 characters.
+      const campaign = [utm.utm_source, utm.utm_campaign].filter(Boolean).join('_').slice(0, 40);
+      url.searchParams.set('pt', ascProviderToken);
+      url.searchParams.set('ct', campaign);
+      url.searchParams.set('mt', '8');
+    } else {
+      return;
+    }
+    link.href = url.toString();
+    link.dataset.storeTagged = '1';
+  }
+
   document.addEventListener('click', (event) => {
     const link = event.target instanceof Element && event.target.closest('[data-store]');
     if (!link) return;
     const store = link.getAttribute('data-store');
+    tagStoreLink(link, store);
     window.gtag?.('event', 'store_click', { store });
   });
 </script>
