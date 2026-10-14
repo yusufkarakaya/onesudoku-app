@@ -15,8 +15,12 @@ const faqs = [
     a: 'Completely. Puzzles are generated on your device, so you can play anywhere — on a plane, on the subway, or with no signal at all. No internet connection is ever needed.',
   },
   {
+    q: 'What game modes are there?',
+    a: 'Three kinds of sudoku: Classic, Killer, where cages with sums replace the given numbers, and Rescue, where you take over a badly solved puzzle and fix it. Alongside them is Haunted Manor, a Halloween logic puzzle in which you hide one ghost on every floor, in every hall and in every room, with no two ghosts touching.',
+  },
+  {
     q: 'What difficulty levels are there?',
-    a: 'One Sudoku offers four difficulty levels — Easy, Medium, Hard, and Expert — so it works for both newcomers and experienced solvers.',
+    a: 'Classic has four difficulty levels — Easy, Medium, Hard, and Expert — so it works for both newcomers and experienced solvers. Killer and Rescue have their own levels, and Haunted Manor comes in three sizes: Cottage, Manor, and Castle.',
   },
   {
     q: 'What is the Daily Challenge?',
@@ -24,7 +28,7 @@ const faqs = [
   },
   {
     q: 'Are there any ads or in-app purchases?',
-    a: 'One Sudoku shows minimal banner ads to keep the app free. You can also watch optional video ads to earn extra hints. Ads are designed to stay out of your way while you solve.',
+    a: 'One Sudoku shows minimal banner ads to keep the app free, and you can watch optional video ads to earn extra hints. If you would rather play ad-free, the optional Premium removes every ad for $1.99 a month, $11.99 a year, or $29.99 once.',
   },
   {
     q: 'Is One Sudoku available on Android?',
@@ -42,7 +46,7 @@ const faqs = [
 const screenshots = [
   {
     src: '/screenshots/home.webp',
-    alt: 'The One Sudoku home screen on iPhone, showing the four difficulty levels with best times, a game in progress, and the completed daily challenge.',
+    alt: 'The One Sudoku home screen on iPhone, showing a game in progress, the Classic, Rescue and Killer play modes, and the daily challenge streak.',
   },
 ];
 
@@ -57,7 +61,7 @@ const appSchema = {
   downloadUrl: [APP_STORE_URL, PLAY_STORE_URL],
   installUrl: [APP_STORE_URL, PLAY_STORE_URL],
   description:
-    'A clean, free sudoku game for iPhone, iPad, and Android with four difficulty levels, a daily challenge, smart notes, and unlimited offline puzzles.',
+    'A clean, free sudoku game for iPhone, iPad, and Android with Classic, Killer, and Rescue modes, the Haunted Manor Halloween puzzle, a daily challenge, smart notes, and unlimited offline puzzles.',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -69,7 +73,9 @@ const appSchema = {
     description: shot.alt,
   })),
   featureList: [
-    'Four difficulty levels (Easy, Medium, Hard, Expert)',
+    'Classic sudoku with four difficulty levels (Easy, Medium, Hard, Expert)',
+    'Killer sudoku and Rescue mode',
+    'Haunted Manor, a Halloween ghost-placing logic puzzle',
     'Daily challenge with streaks',
     'Unlimited offline puzzles',
     'Candidate notes, unlimited undo, auto-save',
@@ -108,7 +114,7 @@ const faqSchema = {
 // the store listing or by opening the app — no invented ratings or download
 // counts, which would also put the structured data at risk.
 const trustPoints = [
-  { label: 'Free to play', sub: 'No paywall, no subscription' },
+  { label: 'Free to play', sub: 'Optional ad-free Premium' },
   { label: 'No account needed', sub: 'Open it and start solving' },
   { label: 'Works fully offline', sub: 'Puzzles made on your device' },
   { label: 'iPhone, iPad & Android', sub: 'Same app on every screen' },
@@ -116,7 +122,7 @@ const trustPoints = [
 
 // Claims paired with the screenshot in "A look inside".
 const insidePoints = [
-  { title: 'Four difficulty levels', body: 'Easy through Expert, each tracking its own best time and games won.' },
+  { title: 'Three ways to play', body: 'Classic from Easy to Expert, Killer with its sum cages, and Rescue, where you save a puzzle someone else got wrong.' },
   { title: 'Pick up where you left off', body: 'Every puzzle auto-saves, so a game survives the phone going in your pocket.' },
   { title: 'A daily challenge', body: 'One shared puzzle a day, with a streak that only grows if you keep showing up.' },
   { title: 'Nothing you did not ask for', body: 'No pop-ups, no forced sign-up, no feed to scroll. Just the grid.' },
@@ -139,6 +145,23 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
   ].filter(Boolean).join(' ');
   return { num, cls };
 });
+
+// Illustrative 6×6 manor for the Haunted Manor section, in the app's night
+// palette (src/theme/manor.ts in the app repo). It is a real solution: one ghost
+// per row, column and room, and no two ghosts touching.
+const manorRoomColors = ['#6F60A3', '#AF6D3E', '#5C8A6A', '#5073A9', '#9E6180', '#498D94'];
+const manorRooms = [
+  [0, 0, 0, 1, 1, 2],
+  [0, 0, 1, 1, 2, 2],
+  [3, 0, 4, 1, 2, 2],
+  [3, 3, 4, 4, 5, 2],
+  [3, 4, 4, 5, 5, 5],
+  [3, 3, 4, 5, 5, 5],
+];
+const manorGhostCol = [1, 3, 5, 0, 2, 4];
+const manorCells = manorRooms.flatMap((row, r) =>
+  row.map((room, c) => ({ color: manorRoomColors[room], ghost: manorGhostCol[r] === c })),
+);
 ---
 
 <Layout>
@@ -165,7 +188,7 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
         </h1>
 
         <p class="text-green-200/70 text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0">
-          A few quiet minutes with one puzzle and nothing else competing for your attention. Four difficulty levels, a daily challenge, and unlimited offline puzzles — free, with no account and no clutter.
+          A few quiet minutes with one puzzle and nothing else competing for your attention. Classic, Killer, and Rescue sudoku, a daily challenge, and unlimited offline puzzles — free, with no account and no clutter.
         </p>
 
         <div id="download" class="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-4 scroll-mt-24">
@@ -235,6 +258,43 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
     </ul>
   </section>
 
+  <!-- Haunted Manor: the Halloween game on the Play hub -->
+  <section class="bg-[#17142A] py-16 sm:py-24 px-6 overflow-hidden">
+    <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="text-center lg:text-left">
+        <span class="inline-flex items-center gap-2 bg-[#F28C28]/15 border border-[#F28C28]/40 rounded-full px-4 py-1.5 mb-6 text-[#F28C28] text-xs sm:text-sm font-semibold">
+          <span class="w-2 h-2 bg-[#F28C28] rounded-full animate-pulse"></span>
+          New for Halloween
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-[#EEE8F6] mb-4">Haunted Manor</h2>
+        <p class="text-[#B8B0D2] text-lg leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
+          A spooky logic puzzle that lives right next to your sudoku. Hide one ghost on every floor, in every hall and in every room — and no two ghosts may touch, not even diagonally.
+        </p>
+        <ul class="space-y-3 text-[#DDD5EC] text-left max-w-md mx-auto lg:mx-0">
+          <li class="flex gap-3"><span class="text-[#F28C28] font-bold" aria-hidden="true">✓</span>Three sizes: Cottage, Manor, and Castle</li>
+          <li class="flex gap-3"><span class="text-[#F28C28] font-bold" aria-hidden="true">✓</span>Solvable by logic alone, never by guessing</li>
+          <li class="flex gap-3"><span class="text-[#F28C28] font-bold" aria-hidden="true">✓</span>No timer, no rush — hints point to your next step</li>
+        </ul>
+      </div>
+
+      <div class="mx-auto w-full max-w-xs sm:max-w-sm" role="img" aria-label="A solved 6×6 Haunted Manor: six coloured rooms, each holding one ghost.">
+        <div class="grid grid-cols-6 gap-1 p-2 rounded-3xl bg-[#0F0D1C] shadow-2xl shadow-black/40">
+          {manorCells.map((cell) => (
+            <div class="aspect-square rounded-md flex items-center justify-center" style={`background-color: ${cell.color}`}>
+              {cell.ghost && (
+                <svg class="w-3/5 h-3/5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#F4EEF8" d="M12 2a8 8 0 0 0-8 8v11.5l2.7-2 2.6 2 2.7-2 2.7 2 2.6-2 2.7 2V10a8 8 0 0 0-8-8z"/>
+                  <circle cx="9.3" cy="10.5" r="1.4" fill="#17142A"/>
+                  <circle cx="14.7" cy="10.5" r="1.4" fill="#17142A"/>
+                </svg>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Features -->
   <section class="bg-green-50 py-16 sm:py-24 px-6">
     <div class="max-w-5xl mx-auto">
@@ -254,8 +314,8 @@ const howToCells = Array.from({ length: 81 }, (_, i) => {
               <rect x="14" y="14" width="7" height="7" rx="1" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-green-950 mb-2">Four difficulty levels</h3>
-          <p class="text-zinc-500 leading-relaxed">A standard 9×9 grid with Easy, Medium, Hard, and Expert — whether you're starting out or chasing a personal best.</p>
+          <h3 class="text-xl font-semibold text-green-950 mb-2">Classic, Killer &amp; Rescue</h3>
+          <p class="text-zinc-500 leading-relaxed">Classic 9×9 from Easy to Expert, Killer's sum cages, and Rescue, where you take over a badly solved puzzle and save it.</p>
         </div>
 
         <!-- Daily Challenge -->
