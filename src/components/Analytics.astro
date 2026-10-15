@@ -13,6 +13,13 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
  * App Store links are left alone and only the Play links carry the source.
  */
 const ascProviderToken = import.meta.env.PUBLIC_ASC_PROVIDER_TOKEN ?? '';
+
+/**
+ * Cloudflare Web Analytics site token (Cloudflare dashboard → Analytics & Logs →
+ * Web Analytics → Add a site → the `token` in the JS snippet). Cookieless, runs
+ * alongside GA4. Renders nothing unless set.
+ */
+const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 ---
 
 {gaId && (
@@ -25,6 +32,15 @@ const ascProviderToken = import.meta.env.PUBLIC_ASC_PROVIDER_TOKEN ?? '';
       gtag('config', gaId);
     </script>
   </Fragment>
+)}
+
+{cfBeaconToken && (
+  <script
+    is:inline
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon={JSON.stringify({ token: cfBeaconToken })}
+  ></script>
 )}
 
 {/*
