@@ -39,6 +39,12 @@
   to = "/"
   status = 302
 
+# Removed post; already indexed, so send it somewhere useful.
+[[redirects]]
+  from = "/blog/benefits-of-sudoku"
+  to = "/blog/"
+  status = 301
+
 # Old @astrojs/sitemap output, still submitted in Search Console.
 [[redirects]]
   from = "/sitemap-index.xml"
