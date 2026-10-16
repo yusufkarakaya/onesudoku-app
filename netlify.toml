@@ -27,6 +27,18 @@
   to = "/?utm_source=instagram&utm_medium=social&utm_campaign=bio"
   status = 302
 
+# The browser game was taken down; its code is in git history (last present in
+# 1b6f0bd). 302, not 301, so nothing caches the redirect if it comes back.
+[[redirects]]
+  from = "/play"
+  to = "/"
+  status = 302
+
+[[redirects]]
+  from = "/play/*"
+  to = "/"
+  status = 302
+
 # Old @astrojs/sitemap output, still submitted in Search Console.
 [[redirects]]
   from = "/sitemap-index.xml"
@@ -50,7 +62,3 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
-  for = "/puzzles/*"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
