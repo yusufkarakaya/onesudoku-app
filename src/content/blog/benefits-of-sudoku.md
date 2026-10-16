@@ -3,6 +3,11 @@ title: "The Real Benefits of Playing Sudoku Every Day"
 description: "What a daily sudoku puzzle actually does for your focus, your memory, and your relationship with your phone — and what the science does and doesn't support."
 pubDate: 2026-09-16
 readingTime: 7
+category: "Habits"
+heroImage: ../../assets/blog/benefits-of-sudoku-hero.jpg
+heroAlt: "Close-up of a newspaper sudoku, partly filled in by hand in pen"
+heroCredit: "Bozhin Karaivanov on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/yqcWOAHH1Rs"
 ---
 
 Sudoku has a reputation problem. Depending on who you ask, it either prevents dementia and raises your IQ, or it's a way to kill ten minutes in a waiting room and nothing more.

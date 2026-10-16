@@ -7,11 +7,16 @@ import { SITE_URL } from './src/consts';
 
 import preact from '@astrojs/preact';
 
+import rehypeWrapTables from './src/lib/rehype-wrap-tables.mjs';
+
 // https://astro.build/config
 // The sitemap is a single hand-rolled endpoint: src/pages/sitemap.xml.ts
 export default defineConfig({
   site: SITE_URL,
   integrations: [preact()],
+  markdown: {
+    rehypePlugins: [rehypeWrapTables],
+  },
   vite: {
     plugins: [tailwindcss()]
   }

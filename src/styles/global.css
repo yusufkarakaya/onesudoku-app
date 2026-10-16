@@ -1,2 +1,134 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/*
+ * Article body. The typography plugin does the heavy lifting; these rules hold
+ * what its modifiers can't express: tables that scroll on a phone, list
+ * markers, callout quotes, the hr, and heading anchors.
+ *
+ * Unlayered on purpose: it has to win over the plugin's prose rules whatever
+ * cascade layer they land in. It only reaches markdown output, which carries
+ * no utility classes of its own.
+ */
+.post-body {
+  --tw-prose-body: var(--color-zinc-700);
+  --tw-prose-headings: var(--color-green-950);
+  --tw-prose-bold: var(--color-green-950);
+  --tw-prose-links: var(--color-green-700);
+  --tw-prose-bullets: var(--color-green-500);
+  --tw-prose-counters: var(--color-green-700);
+  --tw-prose-th-borders: var(--color-green-100);
+  --tw-prose-td-borders: var(--color-green-100);
+}
+
+.post-body > p:first-of-type {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: var(--color-zinc-800);
+}
+
+.post-body h2 {
+  position: relative;
+  scroll-margin-top: 2rem;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.post-body h3 {
+  scroll-margin-top: 2rem;
+}
+
+.post-body .heading-anchor {
+  margin-left: 0.4em;
+  color: var(--color-green-400);
+  font-weight: 500;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+.post-body h2:hover .heading-anchor,
+.post-body .heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+.post-body a:not(.heading-anchor) {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-green-300);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 150ms, color 150ms;
+}
+.post-body a:not(.heading-anchor):hover {
+  color: var(--color-green-600);
+  text-decoration-color: currentColor;
+}
+
+.post-body blockquote {
+  border-left: 4px solid var(--color-green-400);
+  background: var(--color-green-50);
+  border-radius: 0 1rem 1rem 0;
+  padding: 1rem 1.5rem;
+  font-style: normal;
+  color: var(--color-green-950);
+}
+.post-body blockquote p::before,
+.post-body blockquote p::after {
+  content: none;
+}
+
+.post-body hr {
+  border: 0;
+  height: 6px;
+  margin: 3.5rem auto;
+  width: 42px;
+  background: radial-gradient(circle, var(--color-green-400) 3px, transparent 3.5px) 0 0 / 18px 6px repeat-x;
+}
+
+.post-body .table-wrap {
+  margin: 2rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--color-green-100);
+  border-radius: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+.post-body .table-wrap table {
+  margin: 0;
+  width: 100%;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.post-body .table-wrap thead {
+  background: var(--color-green-50);
+  border-bottom: 1px solid var(--color-green-100);
+}
+.post-body .table-wrap th {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-green-800);
+}
+.post-body .table-wrap td {
+  padding: 0.9rem 1.25rem;
+  vertical-align: top;
+}
+.post-body .table-wrap tbody tr:not(:last-child) {
+  border-bottom: 1px solid var(--color-green-100);
+}
+.post-body .table-wrap td:first-child {
+  min-width: 8.5rem;
+  font-weight: 600;
+  color: var(--color-green-950);
+}
+
+@media (max-width: 639px) {
+  .post-body .table-wrap th,
+  .post-body .table-wrap td {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+  .post-body .table-wrap td:first-child {
+    min-width: 6.5rem;
+  }
+}

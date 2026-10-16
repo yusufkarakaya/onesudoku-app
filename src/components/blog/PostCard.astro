@@ -1,0 +1,97 @@
+---
+/**
+ * A post teaser for the blog index and the "Keep reading" row.
+ *
+ * `featured` is the wide card for the newest post: image beside the text on
+ * large screens, a bigger title, and an explicit button.
+ */
+import { Image } from 'astro:assets';
+import { dateFormat, type Post } from '../../lib/blog';
+
+interface Props {
+  post: Post;
+  variant?: 'default' | 'featured';
+  /** h2 on the index, h3 under the "Keep reading" heading of a post. */
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { post, variant = 'default', headingLevel = 'h2' } = Astro.props;
+const { title, description, pubDate, readingTime, category, heroImage } = post.data;
+const Heading = headingLevel;
+const featured = variant === 'featured';
+---
+
+<a
+  href={`/blog/${post.id}/`}
+  class:list={[
+    'group flex flex-col w-full bg-white rounded-3xl border border-green-100 overflow-hidden transition-all duration-300',
+    'hover:border-green-300 hover:shadow-xl hover:shadow-green-900/5 hover:-translate-y-0.5',
+    featured && 'lg:flex-row',
+  ]}
+>
+  <div
+    class:list={[
+      'relative overflow-hidden bg-green-50 shrink-0',
+      featured ? 'aspect-[16/10] lg:aspect-auto lg:w-[55%]' : 'aspect-[16/10]',
+    ]}
+  >
+    {heroImage ? (
+      <Image
+        src={heroImage}
+        alt=""
+        widths={featured ? [640, 960, 1280] : [480, 720, 960]}
+        sizes={featured ? '(min-width: 1024px) 560px, calc(100vw - 48px)' : '(min-width: 640px) 480px, calc(100vw - 48px)'}
+        loading={featured ? 'eager' : 'lazy'}
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+      />
+    ) : (
+      <div
+        class="absolute inset-0 opacity-40"
+        aria-hidden="true"
+        style="background-image: repeating-linear-gradient(0deg, #bbf7d0 0, #bbf7d0 1px, transparent 1px, transparent 28px), repeating-linear-gradient(90deg, #bbf7d0 0, #bbf7d0 1px, transparent 1px, transparent 28px);"
+      />
+    )}
+  </div>
+
+  <div class:list={['flex flex-col flex-1', featured ? 'p-6 sm:p-8 lg:p-10 lg:justify-center' : 'p-6 sm:p-7']}>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-zinc-500 mb-4">
+      {category && (
+        <span class="inline-flex items-center bg-green-50 border border-green-200 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-full">
+          {category}
+        </span>
+      )}
+      <time datetime={pubDate.toISOString()}>{dateFormat.format(pubDate)}</time>
+      {readingTime && (
+        <>
+          <span aria-hidden="true" class="text-zinc-300">•</span>
+          <span>{readingTime} min read</span>
+        </>
+      )}
+    </div>
+
+    <Heading
+      class:list={[
+        'font-bold text-green-950 tracking-tight text-balance group-hover:text-green-800 transition-colors',
+        featured ? 'text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4' : 'text-xl sm:text-2xl leading-snug mb-3',
+      ]}
+    >
+      {title}
+    </Heading>
+
+    <p class:list={['text-zinc-600 leading-relaxed text-pretty', featured ? 'text-lg mb-8' : 'mb-6']}>{description}</p>
+
+    <span
+      class:list={[
+        'mt-auto inline-flex items-center gap-2 font-semibold text-sm self-start',
+        featured
+          ? 'bg-green-950 text-white px-5 py-3 rounded-xl group-hover:bg-green-800 transition-colors'
+          : 'text-green-700',
+      ]}
+    >
+      Read the post
+      <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </span>
+  </div>
+</a>
