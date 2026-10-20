@@ -18,7 +18,7 @@ The upshot is that each level teaches something specific. Work through them in o
 
 ## Step 1: The rules
 
-Fill the 9×9 grid so that every row, every column and every 3×3 box contains the digits 1 to 9 exactly once. That's it. There's no arithmetic involved; the digits could just as well be letters or colours.
+Fill the 9×9 grid so that every row, every column and every 3×3 box contains the digits 1 to 9 exactly once. ([How to Play Sudoku](/blog/how-to-play-sudoku/) covers the rules in more detail.) That's it. There's no arithmetic involved; the digits could just as well be letters or colours.
 
 The only other word you need is **candidate**: a digit that could still go in an empty cell without breaking a rule. Every technique below is a way of narrowing candidates down until only one is left.
 
@@ -48,12 +48,12 @@ Hard is where notes stop being optional. These techniques don't place digits dir
 
 | Technique | The idea |
 |---|---|
-| **Naked Pair** | Two cells in a house hold the same two candidates and nothing else. Those two digits belong to those two cells, so remove them everywhere else in the house. |
-| **Hidden Pair** | Two digits can only go in the same two cells of a house. Every other candidate in those cells can go. |
-| **Pointing Pair / Triple** | Inside a box, a digit is confined to one row or column. It can't appear in that row or column outside the box. |
-| **Box/Line Reduction** | The reverse: in a row or column, a digit is confined to one box. It can't appear elsewhere in that box. |
-| **Naked Triple** | Three cells in a house share three candidates between them. Those digits are taken; clear them from the rest of the house. |
-| **Hidden Triple** | Three digits fit only in the same three cells of a house. Strip everything else from those cells. |
+| **[Naked Pair](/blog/naked-pairs/)** | Two cells in a house hold the same two candidates and nothing else. Those two digits belong to those two cells, so remove them everywhere else in the house. |
+| **[Hidden Pair](/blog/hidden-pairs/)** | Two digits can only go in the same two cells of a house. Every other candidate in those cells can go. |
+| **[Pointing Pair / Triple](/blog/pointing-pairs/)** | Inside a box, a digit is confined to one row or column. It can't appear in that row or column outside the box. |
+| **[Box/Line Reduction](/blog/pointing-pairs/)** | The reverse: in a row or column, a digit is confined to one box. It can't appear elsewhere in that box. |
+| **[Naked Triple](/blog/naked-pairs/)** | Three cells in a house share three candidates between them. Those digits are taken; clear them from the rest of the house. |
+| **[Hidden Triple](/blog/hidden-pairs/)** | Three digits fit only in the same three cells of a house. Strip everything else from those cells. |
 
 Every Hard puzzle requires at least one of these, and none of them requires anything harder. Learn the pairs and the pointing pair first; they come up far more often than the triples.
 
@@ -65,9 +65,9 @@ Expert puzzles need at least one pattern that spans more than one house at a tim
 
 | Technique | The idea |
 |---|---|
-| **X-Wing** | A digit fits in exactly two cells in each of two rows, and those cells line up in the same two columns. The digit can be removed from the rest of those columns. (It works with rows and columns swapped, too.) |
-| **Swordfish** | The same logic stretched across three rows and three columns. |
-| **XY-Wing** | Three two-candidate cells link up so that, whichever way the pivot cell goes, one digit is ruled out of any cell that sees both ends. |
+| **[X-Wing](/blog/x-wing/)** | A digit fits in exactly two cells in each of two rows, and those cells line up in the same two columns. The digit can be removed from the rest of those columns. (It works with rows and columns swapped, too.) |
+| **[Swordfish](/blog/swordfish/)** | The same logic stretched across three rows and three columns. |
+| **[XY-Wing](/blog/xy-wing/)** | Three two-candidate cells link up so that, whichever way the pivot cell goes, one digit is ruled out of any cell that sees both ends. |
 
 That's the full set. One Sudoku's Expert level stops at XY-Wing, so if you know these eleven techniques you have everything any puzzle in the app will ask of you.
 
