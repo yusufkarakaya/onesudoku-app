@@ -18,6 +18,11 @@ const blog = defineCollection({
     /** Photographer credit, e.g. "Richard Bell on Unsplash". */
     heroCredit: z.string().optional(),
     heroCreditUrl: z.string().url().optional(),
+    /**
+     * Translations only: the id of the English post this one translates, e.g.
+     * "learn-sudoku". Links the versions for hreflang and the language menu.
+     */
+    translationKey: z.string().optional(),
   }),
 });
 

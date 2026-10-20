@@ -112,6 +112,6 @@ const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
     if (!link) return;
     const store = link.getAttribute('data-store');
     tagStoreLink(link, store);
-    window.gtag?.('event', 'store_click', { store });
+    window.gtag?.('event', 'store_click', { store, page_lang: document.documentElement.lang });
   });
 </script>

@@ -1,12 +1,12 @@
 import rss from '@astrojs/rss';
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 import { SITE_URL } from '../consts';
+import { getPosts, postPath } from '../lib/blog';
 
 export const GET: APIRoute = async () => {
-  const posts = (await getCollection('blog')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-  );
+  // English only: the feed declares one language, and the translations are
+  // reached through hreflang instead.
+  const posts = await getPosts('en');
 
   return rss({
     title: 'One Sudoku Blog',
@@ -17,7 +17,7 @@ export const GET: APIRoute = async () => {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.pubDate,
-      link: `/blog/${post.id}/`,
+      link: postPath(post),
     })),
     customData: '<language>en-us</language>',
   });

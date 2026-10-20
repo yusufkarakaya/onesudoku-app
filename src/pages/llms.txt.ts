@@ -1,13 +1,12 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 import { SITE_URL, APP_STORE_URL, PLAY_STORE_URL } from '../consts';
+import { LANG_META, PREFIXED_LANGS } from '../i18n/ui';
+import { getPosts, postPath } from '../lib/blog';
 
 // Plain-text summary for language models (https://llmstxt.org).
 // Keep every claim here in line with the homepage copy — nothing it doesn't already say.
 export const GET: APIRoute = async () => {
-  const posts = (await getCollection('blog')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-  );
+  const posts = await getPosts('en');
 
   const body = `# One Sudoku
 
@@ -15,7 +14,7 @@ export const GET: APIRoute = async () => {
 
 Key facts:
 
-- Price: free to download and play, supported by minimal banner ads and optional rewarded video ads for extra hints. An optional Premium removes all ads, refills hints every game, and adds a monthly report: $1.99 a month, $11.99 a year, or $29.99 once (US prices).
+- Price: free to download and play, supported by minimal banner ads and optional rewarded video ads for extra hints. An optional Premium removes all ads, refills hints every game, and adds a monthly report: $0.99 a month, $9.99 a year, or $29.99 once (US prices).
 - Platforms: iPhone and iPad (App Store), Android phones and tablets (Google Play)
 - Game modes: Classic sudoku; Killer sudoku, where cages with sums replace the given numbers; and Rescue, where the player takes over a badly solved puzzle and fixes it.
 - Difficulty levels: Classic has Easy, Medium, Hard, and Expert. Killer and Rescue have their own levels.
@@ -35,7 +34,13 @@ Key facts:
 
 ## Blog
 
-${posts.map((p) => `- [${p.data.title}](${SITE_URL}/blog/${p.id}/): ${p.data.description}`).join('\n')}
+${posts.map((p) => `- [${p.data.title}](${SITE_URL}${postPath(p)}): ${p.data.description}`).join('\n')}
+
+## Other languages
+
+The home page, blog and core guides are also published in ${PREFIXED_LANGS.map((l) => LANG_META[l].name).join(', ')}. The app itself is in English.
+
+${PREFIXED_LANGS.map((l) => `- [${LANG_META[l].name}](${SITE_URL}/${l}/)`).join('\n')}
 
 ## Download
 

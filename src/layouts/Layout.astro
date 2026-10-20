@@ -2,12 +2,16 @@
 import '../styles/global.css';
 import SiteAnalytics from '../components/Analytics.astro';
 import { SITE_URL } from '../consts';
+import { DEFAULT_LANG, LANG_META, type Alternate, type Lang } from '../i18n/ui';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
   noindex?: boolean;
+  lang?: Lang;
+  /** Every language version of this page, this one included. Drives hreflang. */
+  alternates?: Alternate[];
 }
 
 const {
@@ -15,7 +19,13 @@ const {
   description = 'One Sudoku is a clean, minimal sudoku game for iPhone, iPad, and Android. Classic, Killer, and Rescue sudoku, the Haunted Manor Halloween puzzle, a daily challenge, and unlimited offline puzzles. Free to play, no account required.',
   image = '/og-image.png',
   noindex = false,
+  lang = DEFAULT_LANG,
+  alternates = [],
 } = Astro.props;
+
+// hreflang only means something when there is more than one version.
+const hreflangs = alternates.length > 1 ? alternates : [];
+const xDefault = hreflangs.find((a) => a.lang === DEFAULT_LANG);
 
 const siteUrl = Astro.site ?? new URL(SITE_URL);
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
@@ -25,7 +35,7 @@ const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +50,8 @@ const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION;
       ? <meta name="robots" content="noindex, nofollow" />
       : <meta name="robots" content="index, follow, max-image-preview:large" />}
     <link rel="canonical" href={canonical} />
+    {hreflangs.map((a) => <link rel="alternate" hreflang={a.lang} href={new URL(a.path, siteUrl).href} />)}
+    {xDefault && <link rel="alternate" hreflang="x-default" href={new URL(xDefault.path, siteUrl).href} />}
     <link rel="alternate" type="application/rss+xml" title="One Sudoku Blog" href="/rss.xml" />
     {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
 
@@ -49,7 +61,8 @@ const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="One Sudoku" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={LANG_META[lang].ogLocale} />
+    {hreflangs.filter((a) => a.lang !== lang).map((a) => <meta property="og:locale:alternate" content={LANG_META[a.lang].ogLocale} />)}
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />

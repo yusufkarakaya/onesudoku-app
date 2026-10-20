@@ -1,0 +1,144 @@
+---
+/**
+ * The blog index, in any language: `src/pages/blog/index.astro` renders it in
+ * English and `src/pages/[lang]/blog/index.astro` in every other language.
+ *
+ * Laid out as a hub rather than a feed: the Learn Sudoku guide on top, then
+ * the posts grouped by category, since most of them are evergreen guides.
+ */
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import PostCard from './PostCard.astro';
+import BlogCta from './BlogCta.astro';
+import { SITE_URL } from '../../consts';
+import { getPosts, postKey, postPath } from '../../lib/blog';
+import { everyLanguage, localizePath, t, type Category, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = t(lang);
+const posts = await getPosts(lang);
+const featured = posts.find((p) => postKey(p) === 'learn-sudoku') ?? posts[0];
+const rest = posts.filter((p) => p !== featured);
+
+const groups: { category: Category | null; heading: string }[] = [
+  { category: 'Guide', heading: s.blog.sections.start },
+  { category: 'Technique', heading: s.blog.sections.techniques },
+  { category: 'Killer', heading: s.blog.sections.killer },
+];
+const known = new Set(groups.map((g) => g.category));
+const sections = [
+  ...groups.map((g) => ({ heading: g.heading, posts: rest.filter((p) => p.data.category === g.category) })),
+  { heading: s.blog.sections.more, posts: rest.filter((p) => !known.has(p.data.category as Category)) },
+].filter((section) => section.posts.length > 0);
+
+const blogPath = localizePath('/blog/', lang);
+const alternates = everyLanguage('/blog/');
+const title = s.blog.title;
+const description = s.blog.description;
+
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'One Sudoku Blog',
+  description,
+  url: `${SITE_URL}${blogPath}`,
+  inLanguage: lang,
+  publisher: {
+    '@type': 'Organization',
+    name: 'One Sudoku',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo-512.png`,
+  },
+  blogPost: posts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.pubDate.toISOString(),
+    url: `${SITE_URL}${postPath(post)}`,
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'One Sudoku', item: `${SITE_URL}${localizePath('/', lang)}` },
+    { '@type': 'ListItem', position: 2, name: s.blog.breadcrumb, item: `${SITE_URL}${blogPath}` },
+  ],
+};
+---
+
+<Layout title={title} description={description} lang={lang} alternates={alternates}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(blogSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header variant="sub" lang={lang} alternates={alternates} />
+
+  <main class="bg-white">
+    <section class="relative overflow-hidden bg-green-950 px-6 pt-14 pb-28 sm:pt-20 sm:pb-36">
+      <div
+        class="absolute inset-0 opacity-5"
+        aria-hidden="true"
+        style="background-image: repeating-linear-gradient(0deg, #4ade80 0, #4ade80 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, #4ade80 0, #4ade80 1px, transparent 1px, transparent 40px);"
+      />
+      <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[40rem] h-64 rounded-full bg-green-500/15 blur-3xl" aria-hidden="true" />
+
+      <div class="relative max-w-5xl mx-auto">
+        <span class="inline-flex items-center gap-2 bg-green-900/60 border border-green-700/40 rounded-full px-3 py-1 text-green-300 text-xs font-semibold mb-6">
+          <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+          {s.blog.badge}
+        </span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.05] text-balance mb-5 max-w-3xl">
+          {s.blog.headline}<br class="hidden sm:block" />
+          <span class="text-green-400">{s.blog.headlineAccent}</span>
+        </h1>
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <p class="text-green-100/75 text-lg leading-relaxed max-w-xl text-pretty">{description}</p>
+          {lang === 'en' && (
+            <a
+              href="/rss.xml"
+              class="inline-flex items-center gap-2 self-start sm:self-auto text-sm font-medium text-green-300 hover:text-white transition-colors shrink-0"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 110 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44m0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/></svg>
+              {s.blog.rss}
+            </a>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="px-6 -mt-16 sm:-mt-20 pb-16 sm:pb-24 relative">
+      <div class="max-w-5xl mx-auto">
+        {posts.length === 0 ? (
+          <p class="bg-white rounded-3xl border border-green-100 p-10 text-center text-zinc-500">{s.blog.noPosts}</p>
+        ) : (
+          <>
+            <PostCard post={featured} variant="featured" />
+
+            {sections.map((section) => (
+              <>
+                <h2 class="mt-16 mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-400">{section.heading}</h2>
+                <ul class="grid gap-6 sm:grid-cols-2">
+                  {section.posts.map((post) => (
+                    <li class="flex"><PostCard post={post} headingLevel="h3" /></li>
+                  ))}
+                </ul>
+              </>
+            ))}
+          </>
+        )}
+
+        <div class="mt-16 sm:mt-24">
+          <BlogCta lang={lang} />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer active="blog" lang={lang} alternates={alternates} />
+</Layout>

@@ -1,0 +1,18 @@
+---
+import BlogPostPage from '../../../components/blog/BlogPostPage.astro';
+import { getPosts, postSlug, type Post } from '../../../lib/blog';
+import { PREFIXED_LANGS } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    PREFIXED_LANGS.map(async (lang) =>
+      (await getPosts(lang)).map((post) => ({ params: { lang, slug: postSlug(post) }, props: { post } })),
+    ),
+  );
+  return paths.flat();
+}
+
+type Props = { post: Post };
+---
+
+<BlogPostPage post={Astro.props.post} />

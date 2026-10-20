@@ -1,0 +1,74 @@
+---
+/**
+ * Language switcher. Each entry goes to this page's own translation when there
+ * is one (`alternates`), and to that language's home page otherwise, so the
+ * menu never leads to a 404.
+ *
+ * A <details> rather than a scripted dropdown: it works without JavaScript and
+ * the links stay in the HTML for crawlers.
+ */
+import { LANGS, LANG_META, localizePath, t, type Alternate, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  alternates?: Alternate[];
+  /** `header` opens a dropdown; `footer` is an inline row of links. */
+  variant?: 'header' | 'footer';
+}
+
+const { lang, alternates = [], variant = 'header' } = Astro.props;
+
+const entries = LANGS.map((l) => ({
+  lang: l,
+  name: LANG_META[l].name,
+  href: alternates.find((a) => a.lang === l)?.path ?? localizePath('/', l),
+  current: l === lang,
+}));
+---
+
+{variant === 'header' ? (
+  <details class="relative group/lang">
+    <summary
+      class="list-none cursor-pointer inline-flex items-center gap-1.5 h-11 px-2 rounded-full text-green-200/70 hover:text-white text-sm font-medium transition-colors [&::-webkit-details-marker]:hidden"
+      aria-label={t(lang).nav.language}
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path stroke-linecap="round" d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" />
+      </svg>
+      <span class="uppercase">{lang}</span>
+    </summary>
+    <ul class="absolute right-0 mt-2 w-40 py-2 rounded-2xl bg-green-950 border border-green-800/60 shadow-xl shadow-black/30 z-50">
+      {entries.map((e) => (
+        <li>
+          <a
+            href={e.href}
+            hreflang={e.lang}
+            lang={e.lang}
+            aria-current={e.current ? 'page' : undefined}
+            class:list={[
+              'block px-4 py-2 text-sm transition-colors',
+              e.current ? 'text-green-400 font-semibold' : 'text-green-100/80 hover:text-white hover:bg-green-900/60',
+            ]}
+          >
+            {e.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </details>
+) : (
+  <nav aria-label={t(lang).nav.language} class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs">
+    {entries.map((e) => (
+      <a
+        href={e.href}
+        hreflang={e.lang}
+        lang={e.lang}
+        aria-current={e.current ? 'page' : undefined}
+        class={e.current ? 'text-green-400' : 'text-green-400/50 hover:text-green-400 transition-colors'}
+      >
+        {e.name}
+      </a>
+    ))}
+  </nav>
+)}

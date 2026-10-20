@@ -6,7 +6,8 @@
  * large screens, a bigger title, and an explicit button.
  */
 import { Image } from 'astro:assets';
-import { dateFormat, type Post } from '../../lib/blog';
+import { postLang, postPath, type Post } from '../../lib/blog';
+import { categoryLabel, formatDate, t } from '../../i18n/ui';
 
 interface Props {
   post: Post;
@@ -18,11 +19,13 @@ interface Props {
 const { post, variant = 'default', headingLevel = 'h2' } = Astro.props;
 const { title, description, pubDate, readingTime, category, heroImage } = post.data;
 const Heading = headingLevel;
+const lang = postLang(post);
+const s = t(lang);
 const featured = variant === 'featured';
 ---
 
 <a
-  href={`/blog/${post.id}/`}
+  href={postPath(post)}
   class:list={[
     'group flex flex-col w-full bg-white rounded-3xl border border-green-100 overflow-hidden transition-all duration-300',
     'hover:border-green-300 hover:shadow-xl hover:shadow-green-900/5 hover:-translate-y-0.5',
@@ -57,14 +60,14 @@ const featured = variant === 'featured';
     <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-zinc-500 mb-4">
       {category && (
         <span class="inline-flex items-center bg-green-50 border border-green-200 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-full">
-          {category}
+          {categoryLabel(category, lang)}
         </span>
       )}
-      <time datetime={pubDate.toISOString()}>{dateFormat.format(pubDate)}</time>
+      <time datetime={pubDate.toISOString()}>{formatDate(pubDate, lang)}</time>
       {readingTime && (
         <>
           <span aria-hidden="true" class="text-zinc-300">•</span>
-          <span>{readingTime} min read</span>
+          <span>{s.blog.minRead(readingTime)}</span>
         </>
       )}
     </div>
@@ -88,7 +91,7 @@ const featured = variant === 'featured';
           : 'text-green-700',
       ]}
     >
-      Read the post
+      {s.blog.readPost}
       <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
       </svg>
