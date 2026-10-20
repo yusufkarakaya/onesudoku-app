@@ -157,7 +157,7 @@ export const ui: Record<Lang, UiStrings> = {
       appStoreAria: 'One Sudoku’yu App Store’dan indir',
       playAria: 'One Sudoku’yu Google Play’den indir',
       downloadOnThe: 'İndir:',
-      getItOn: 'Edinin:',
+      getItOn: 'Hemen indir:',
       free: 'Ücretsiz · Hesap gerekmez',
       download: 'İndir',
     },
