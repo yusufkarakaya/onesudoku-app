@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 4
 category: "Killer"
 translationKey: "killer-sudoku-combinations"
+heroImage: ../../../assets/blog/killer-sudoku-combinations-hero.jpg
+heroAlt: "Reihen von Holzklötzen mit Zahlen und Malaufgaben, jeder in seinem eigenen Fach"
+heroCredit: "Enric Moreu on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/IJUI81_0Wc4"
 ---
 
 Im Killer-Sudoku wiederholen sich die Zahlen eines Käfigs nie, also lässt sich jede Summe nur auf wenige Arten bilden. Diese Arten zu kennen ist schon der halbe Weg. Diese Seite listet jede Kombination für jede Käfiggröße auf, erzeugt durch Prüfen aller 511 Gruppen verschiedener Zahlen von 1 bis 9.

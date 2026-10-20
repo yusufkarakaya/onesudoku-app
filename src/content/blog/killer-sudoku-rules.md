@@ -4,6 +4,10 @@ description: "Killer Sudoku swaps the printed numbers for cages with sums. Here 
 pubDate: 2026-10-20
 readingTime: 6
 category: "Killer"
+heroImage: ../../assets/blog/killer-sudoku-rules-hero.jpg
+heroAlt: "Scattered paper cutouts of black numbers on a white background"
+heroCredit: "Cooper Hofmann on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/OBgh6h_2yL0"
 ---
 
 Killer Sudoku looks like a regular sudoku that someone forgot to fill in. There are few given numbers or none at all. Instead the grid is covered in dashed outlines called **cages**, each with a small number in its corner. That number, and a little arithmetic, is what you solve from.

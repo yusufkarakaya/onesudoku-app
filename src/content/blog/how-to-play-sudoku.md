@@ -4,6 +4,10 @@ description: "The rules of sudoku in one minute, the words you'll see, and a sim
 pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
+heroImage: ../../assets/blog/how-to-play-sudoku-hero.jpg
+heroAlt: "A hand writing digits into a sudoku grid in a puzzle book"
+heroCredit: "Luna Lee on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/t_JLz2Nf0ho"
 ---
 
 Sudoku takes a minute to learn. You need no maths and no special knowledge, just a little patience and the habit of asking "where can this digit go?"

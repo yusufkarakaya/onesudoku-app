@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 6
 category: "Killer"
 translationKey: "killer-sudoku-rules"
+heroImage: ../../../assets/blog/killer-sudoku-rules-hero.jpg
+heroAlt: "Des chiffres noirs découpés dans du papier, éparpillés sur fond blanc"
+heroCredit: "Cooper Hofmann on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/OBgh6h_2yL0"
 ---
 
 Un Killer Sudoku ressemble à un sudoku ordinaire que quelqu’un aurait oublié de remplir. Il y a peu de chiffres donnés, voire aucun. À la place, la grille est couverte de contours en pointillés appelés **cages**, chacune avec un petit nombre dans son coin. Ce nombre, et un peu d’arithmétique, voilà de quoi vous résolvez.

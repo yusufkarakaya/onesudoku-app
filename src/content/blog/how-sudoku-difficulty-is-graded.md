@@ -4,6 +4,10 @@ description: "Why the number of given digits is a poor guide to how hard a sudok
 pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
+heroImage: ../../assets/blog/how-sudoku-difficulty-is-graded-hero.jpg
+heroAlt: "A white staircase climbing step by step against a white wall"
+heroCredit: "Ricardo Gomez Angel on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/Z61MuLuFQDQ"
 ---
 
 Most people assume a sudoku is harder when it has fewer numbers printed in it. That's roughly true on average, but it's a poor guide to any single puzzle. A grid with 25 clues can fall apart in five minutes, and one with 32 can stop an experienced solver cold.

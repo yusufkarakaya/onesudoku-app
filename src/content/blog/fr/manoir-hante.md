@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "haunted-manor-ghost-puzzle"
+heroImage: ../../../assets/blog/haunted-manor-ghost-puzzle-hero.jpg
+heroAlt: "Un vieux manoir la nuit, toutes ses fenêtres éclairées de rouge"
+heroCredit: "Imre Tomosvari on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/WQUwN8JpMzo"
 ---
 
 Le Manoir hanté (« Haunted Manor » dans l’app) est le casse-tête d’Halloween qui se trouve à côté des modes sudoku dans One Sudoku. Il s’apprend encore plus vite que le sudoku : pas de chiffres, seulement des fantômes, et trois règles. Si vous avez déjà joué à un casse-tête du genre Queens ou Star Battle, vous serez à l’aise en une minute.

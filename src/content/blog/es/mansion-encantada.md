@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "haunted-manor-ghost-puzzle"
+heroImage: ../../../assets/blog/haunted-manor-ghost-puzzle-hero.jpg
+heroAlt: "Una vieja mansión de noche con todas las ventanas iluminadas de rojo"
+heroCredit: "Imre Tomosvari on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/WQUwN8JpMzo"
 ---
 
 La Mansión Encantada (“Haunted Manor” en la app) es el puzle de Halloween que está junto a los modos de sudoku en One Sudoku. Se aprende aún más rápido que el sudoku: no hay números, solo fantasmas, y solo tres reglas. Si alguna vez has jugado a un puzle tipo Queens o Star Battle, te sentirás como en casa en un minuto.

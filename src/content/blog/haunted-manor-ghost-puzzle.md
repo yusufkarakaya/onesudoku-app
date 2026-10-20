@@ -4,6 +4,10 @@ description: "One ghost on every floor, in every hall and in every room, and no 
 pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
+heroImage: ../../assets/blog/haunted-manor-ghost-puzzle-hero.jpg
+heroAlt: "An old manor house at night with every window glowing red"
+heroCredit: "Imre Tomosvari on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/WQUwN8JpMzo"
 ---
 
 Haunted Manor is the Halloween puzzle that sits next to the sudoku modes in One Sudoku. It's quicker to learn than sudoku: there are no digits, just ghosts, and only three rules. If you've played a Queens-style or Star Battle puzzle before, you'll feel at home within a minute.

@@ -4,6 +4,10 @@ description: "Rescue is a sudoku for detectives. The grid arrives mostly filled 
 pubDate: 2026-10-20
 readingTime: 4
 category: "Guide"
+heroImage: ../../assets/blog/rescue-sudoku-hero.jpg
+heroAlt: "A magnifying glass resting over the bullseye of a target"
+heroCredit: "Sasun Bughdaryan on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/Qwv7JPI03VQ"
 ---
 
 Classic sudoku asks "what goes here?" Rescue asks a different question: **which of these numbers is lying?**

@@ -4,6 +4,10 @@ description: "Three cells with two candidates each, linked so that one digit is 
 pubDate: 2026-10-20
 readingTime: 5
 category: "Technique"
+heroImage: ../../assets/blog/xy-wing-hero.jpg
+heroAlt: "Black and white chess pieces in the middle of a game"
+heroCredit: "Felix Mittermeier on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/nAjil1z3eLk"
 ---
 
 The XY-Wing (sometimes called the Y-Wing) is a different kind of pattern from the [X-Wing](/blog/x-wing/). Instead of tracking one digit across rows, it chains together **three cells that each have exactly two candidates**.

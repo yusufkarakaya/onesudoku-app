@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 4
 category: "Killer"
 translationKey: "killer-sudoku-combinations"
+heroImage: ../../../assets/blog/killer-sudoku-combinations-hero.jpg
+heroAlt: "Her biri kendi bölmesinde duran, üzerinde sayılar ve çarpımlar yazan ahşap bloklar"
+heroCredit: "Enric Moreu on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/IJUI81_0Wc4"
 ---
 
 Killer Sudoku’da bir kafesteki sayılar tekrar etmez, bu yüzden her toplam sınırlı sayıda şekilde oluşabilir. Bu şekilleri bilmek oyunun büyük kısmı. Bu sayfa her kafes boyutu için her kombinasyonu listeliyor; tablo, 1’den 9’a kadar farklı sayılardan oluşan 511 kümenin hepsi kontrol edilerek üretildi.

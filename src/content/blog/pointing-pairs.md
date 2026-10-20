@@ -4,6 +4,10 @@ description: "When a digit inside a box is stuck on one line, it rules that digi
 pubDate: 2026-10-20
 readingTime: 4
 category: "Technique"
+heroImage: ../../assets/blog/pointing-pairs-hero.jpg
+heroAlt: "A pencil and a red ruler on a printed number puzzle"
+heroCredit: "Mohamed Marey on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/QNBsn06XXAQ"
 ---
 
 These two techniques are a matched set. Both come from the same observation: **a box and a line (row or column) overlap in three cells**. If a digit's options in one of them all fall inside that overlap, the digit is locked there, and it can't appear in the rest of the other.

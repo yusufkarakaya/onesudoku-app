@@ -4,6 +4,10 @@ description: "Two digits that can only go in the same two cells of a house claim
 pubDate: 2026-10-20
 readingTime: 4
 category: "Technique"
+heroImage: ../../assets/blog/hidden-pairs-hero.jpg
+heroAlt: "Close-up of a sudoku grid filled in with handwritten digits"
+heroCredit: "Bozhin Karaivanov on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/yqcWOAHH1Rs"
 ---
 
 A Hidden Pair is the mirror image of a [Naked Pair](/blog/naked-pairs/). A Naked Pair is two cells that can only hold two digits. A Hidden Pair is **two digits that can only go in two cells**. The pair is "hidden" because those cells usually have other candidates too, which makes it easy to look straight past.

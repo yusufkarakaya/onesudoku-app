@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 6
 category: "Killer"
 translationKey: "killer-sudoku-rules"
+heroImage: ../../../assets/blog/killer-sudoku-rules-hero.jpg
+heroAlt: "Beyaz zemine saçılmış, siyah rakamlı kâğıt parçaları"
+heroCredit: "Cooper Hofmann on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/OBgh6h_2yL0"
 ---
 
 Killer Sudoku, birinin doldurmayı unuttuğu sıradan bir sudokuya benzer. Verilen sayı çok azdır ya da hiç yoktur. Onun yerine tahta, köşesinde küçük bir sayı olan kesikli çizgili alanlarla, yani **kafeslerle** kaplıdır. Çözümü o sayı ve biraz toplama üzerinden yaparsın.

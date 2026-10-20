@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "how-to-play-sudoku"
+heroImage: ../../../assets/blog/how-to-play-sudoku-hero.jpg
+heroAlt: "Eine Hand trägt Ziffern in ein Sudoku-Gitter in einem Rätselheft ein"
+heroCredit: "Luna Lee on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/t_JLz2Nf0ho"
 ---
 
 Sudoku lernst du in einer Minute. Du brauchst weder Mathematik noch Vorwissen, nur etwas Geduld und die Gewohnheit, dich zu fragen: „Wo kann diese Zahl hin?“

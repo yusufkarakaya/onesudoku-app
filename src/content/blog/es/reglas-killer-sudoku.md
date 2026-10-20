@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 6
 category: "Killer"
 translationKey: "killer-sudoku-rules"
+heroImage: ../../../assets/blog/killer-sudoku-rules-hero.jpg
+heroAlt: "Recortes de papel con números negros esparcidos sobre fondo blanco"
+heroCredit: "Cooper Hofmann on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/OBgh6h_2yL0"
 ---
 
 Un Killer Sudoku parece un sudoku normal que alguien se olvidó de rellenar. Hay pocas pistas o ninguna. En su lugar, la cuadrícula está cubierta de contornos punteados llamados **jaulas**, cada una con un número pequeño en la esquina. Ese número, y un poco de aritmética, es lo que usas para resolver.

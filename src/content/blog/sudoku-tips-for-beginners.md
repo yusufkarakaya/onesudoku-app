@@ -4,6 +4,10 @@ description: "Practical sudoku tips for new players: where to start, how to scan
 pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
+heroImage: ../../assets/blog/sudoku-tips-for-beginners-hero.jpg
+heroAlt: "A pencil on an open blank notebook next to a cup of coffee"
+heroCredit: "Ashley West Edwards on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/AjcVTjCz310"
 ---
 
 You know the rules (if not, [How to Play Sudoku](/blog/how-to-play-sudoku/) takes a minute). These are the habits that separate a puzzle you finish from one you abandon halfway through.

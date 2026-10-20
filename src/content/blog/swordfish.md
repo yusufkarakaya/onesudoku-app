@@ -4,6 +4,10 @@ description: "A Swordfish is the X-Wing stretched across three rows and three co
 pubDate: 2026-10-20
 readingTime: 4
 category: "Technique"
+heroImage: ../../assets/blog/swordfish-hero.jpg
+heroAlt: "A pencil lying across an orange and white puzzle grid"
+heroCredit: "Andrey Soldatov on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/Zt-V-iVxrLA"
 ---
 
 If you know the [X-Wing](/blog/x-wing/), you already know the Swordfish. It's the same idea with one more row and one more column.

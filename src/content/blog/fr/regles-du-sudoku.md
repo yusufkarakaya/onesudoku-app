@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "how-to-play-sudoku"
+heroImage: ../../../assets/blog/how-to-play-sudoku-hero.jpg
+heroAlt: "Une main inscrit des chiffres dans une grille de sudoku d’un cahier de jeux"
+heroCredit: "Luna Lee on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/t_JLz2Nf0ho"
 ---
 
 Le sudoku s’apprend en une minute. Pas besoin de maths ni de connaissances particulières : juste un peu de patience et le réflexe de se demander « où ce chiffre peut-il aller ? ».

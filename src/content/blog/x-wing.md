@@ -4,6 +4,10 @@ description: "Two rows, two columns, one digit locked into a rectangle. What an 
 pubDate: 2026-10-20
 readingTime: 5
 category: "Technique"
+heroImage: ../../assets/blog/x-wing-hero.jpg
+heroAlt: "A pencil tip resting on a blue and white puzzle grid"
+heroCredit: "Andrey Soldatov on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/q6TeGVZzqpg"
 ---
 
 The X-Wing is the first technique most players learn that looks at **two rows at once**. It sounds advanced, but the logic is the same as a [Pointing Pair](/blog/pointing-pairs/): a digit is locked into certain lines, so it can't go anywhere else on them.

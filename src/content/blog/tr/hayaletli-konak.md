@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "haunted-manor-ghost-puzzle"
+heroImage: ../../../assets/blog/haunted-manor-ghost-puzzle-hero.jpg
+heroAlt: "Gece vakti bütün pencereleri kırmızı yanan eski bir konak"
+heroCredit: "Imre Tomosvari on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/WQUwN8JpMzo"
 ---
 
 Hayaletli Konak (uygulamada “Haunted Manor”), One Sudoku’da sudoku modlarının yanında duran Cadılar Bayramı bulmacası. Öğrenmesi sudokudan bile kolay: sayı yok, sadece hayaletler var ve sadece üç kural. Daha önce Queens tarzı ya da Star Battle bulmacası oynadıysan bir dakikada kendini evinde hissedersin.

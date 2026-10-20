@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 6
 category: "Killer"
 translationKey: "killer-sudoku-rules"
+heroImage: ../../../assets/blog/killer-sudoku-rules-hero.jpg
+heroAlt: "Verstreute Papierschnipsel mit schwarzen Zahlen auf weißem Grund"
+heroCredit: "Cooper Hofmann on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/OBgh6h_2yL0"
 ---
 
 Ein Killer-Sudoku sieht aus wie ein normales Sudoku, das jemand vergessen hat auszufüllen. Es gibt kaum Vorgaben oder gar keine. Stattdessen ist das Gitter mit gestrichelten Umrissen bedeckt, den **Käfigen**, jeder mit einer kleinen Zahl in der Ecke. Diese Zahl und ein bisschen Rechnen sind das, womit du löst.

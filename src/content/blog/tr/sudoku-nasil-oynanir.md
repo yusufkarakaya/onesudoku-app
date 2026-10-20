@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "how-to-play-sudoku"
+heroImage: ../../../assets/blog/how-to-play-sudoku-hero.jpg
+heroAlt: "Bir bulmaca kitabındaki sudoku tablosuna rakam yazan bir el"
+heroCredit: "Luna Lee on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/t_JLz2Nf0ho"
 ---
 
 Sudoku’yu öğrenmek bir dakika sürer. Matematik ya da özel bir bilgi gerekmez; biraz sabır ve “bu sayı nereye gidebilir?” diye sorma alışkanlığı yeter.

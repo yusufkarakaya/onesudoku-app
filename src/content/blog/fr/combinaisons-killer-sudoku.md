@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 4
 category: "Killer"
 translationKey: "killer-sudoku-combinations"
+heroImage: ../../../assets/blog/killer-sudoku-combinations-hero.jpg
+heroAlt: "Des rangées de blocs de bois portant des nombres et des multiplications, chacun dans sa case"
+heroCredit: "Enric Moreu on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/IJUI81_0Wc4"
 ---
 
 Dans le Killer Sudoku, les chiffres d’une cage ne se répètent jamais : chaque somme ne peut donc se former que de quelques façons. Les connaître, c’est l’essentiel du jeu. Cette page liste toutes les combinaisons pour chaque taille de cage, générées en vérifiant les 511 groupes de chiffres distincts de 1 à 9.

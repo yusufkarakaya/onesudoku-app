@@ -4,6 +4,10 @@ description: "When two cells in a row, column or box share the same two candidat
 pubDate: 2026-10-20
 readingTime: 4
 category: "Technique"
+heroImage: ../../assets/blog/naked-pairs-hero.jpg
+heroAlt: "A black and a white chess knight facing each other on a board"
+heroCredit: "Hassan Pasha on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/7SjEuEF06Zw"
 ---
 
 Singles place digits. A Naked Pair doesn't place anything. Instead it **removes candidates**, and removing the right candidates is what uncovers the next single. It's usually the first technique you need once puzzles reach Hard.

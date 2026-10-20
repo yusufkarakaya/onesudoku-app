@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "how-to-play-sudoku"
+heroImage: ../../../assets/blog/how-to-play-sudoku-hero.jpg
+heroAlt: "Una mano escribe números en una cuadrícula de sudoku de un libro de pasatiempos"
+heroCredit: "Luna Lee on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/t_JLz2Nf0ho"
 ---
 
 Aprender sudoku lleva un minuto. No necesitas matemáticas ni conocimientos especiales, solo un poco de paciencia y la costumbre de preguntarte “¿dónde puede ir este número?”.

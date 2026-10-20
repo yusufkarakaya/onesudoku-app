@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 5
 category: "Guide"
 translationKey: "haunted-manor-ghost-puzzle"
+heroImage: ../../../assets/blog/haunted-manor-ghost-puzzle-hero.jpg
+heroAlt: "Ein altes Herrenhaus bei Nacht, in dem jedes Fenster rot leuchtet"
+heroCredit: "Imre Tomosvari on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/WQUwN8JpMzo"
 ---
 
 Das Spukhaus („Haunted Manor“ in der App) ist das Halloween-Rätsel, das in One Sudoku neben den Sudoku-Modi steht. Es ist schneller gelernt als Sudoku: keine Zahlen, nur Geister, und nur drei Regeln. Wenn du schon einmal ein Rätsel im Stil von Queens oder Star Battle gespielt hast, fühlst du dich nach einer Minute zu Hause.

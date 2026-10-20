@@ -5,6 +5,10 @@ pubDate: 2026-10-20
 readingTime: 4
 category: "Killer"
 translationKey: "killer-sudoku-combinations"
+heroImage: ../../../assets/blog/killer-sudoku-combinations-hero.jpg
+heroAlt: "Filas de bloques de madera con números y multiplicaciones, cada uno en su compartimento"
+heroCredit: "Enric Moreu on Unsplash"
+heroCreditUrl: "https://unsplash.com/photos/IJUI81_0Wc4"
 ---
 
 En el Killer Sudoku los números de una jaula nunca se repiten, así que cada suma solo se puede formar de unas pocas maneras. Conocerlas es la mitad del juego. Esta página recoge todas las combinaciones para cada tamaño de jaula, generadas comprobando los 511 grupos de números distintos del 1 al 9.
