@@ -10,11 +10,11 @@ export const GET: APIRoute = async () => {
 
   const body = `# One Sudoku
 
-> One Sudoku is a free, minimal sudoku game for iPhone, iPad, and Android. Classic, Killer, and Rescue sudoku, the Haunted Manor Halloween puzzle, a daily challenge, and unlimited offline puzzles, with no account required.
+> One Sudoku is a free, offline sudoku app for iPhone, iPad, and Android. Classic, Killer, and Rescue sudoku, the Haunted Manor Halloween puzzle, a daily challenge, and unlimited offline puzzles, with no account required.
 
 Key facts:
 
-- Price: free to download and play, supported by minimal banner ads and optional rewarded video ads for extra hints. An optional Premium removes all ads, refills hints every game, and adds a monthly report: $0.99 a month, $9.99 a year, or $29.99 once (US prices).
+- Price: free to download and play, supported by ads: a small bottom banner, a short full-screen ad after every third finished puzzle (never mid-game), and optional rewarded video ads for extra hints. An optional Premium removes all ads, supports continued updates, refills hints every game, and adds a monthly report: $0.99 a month, $9.99 a year, or $29.99 once (US prices).
 - Platforms: iPhone and iPad (App Store), Android phones and tablets (Google Play)
 - Game modes: Classic sudoku; Killer sudoku, where cages with sums replace the given numbers; and Rescue, where the player takes over a badly solved puzzle and fixes it.
 - Difficulty levels: Classic has Easy, Medium, Hard, and Expert. Killer and Rescue have their own levels.

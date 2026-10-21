@@ -136,16 +136,16 @@ export const home: Record<Lang, HomeCopy> = {
         'One Sudoku; iPhone, iPad ve Android için ücretsiz bir sudoku uygulaması. İnternetsiz, Wi‑Fi olmadan oyna: Klasik Sudoku, Killer Sudoku, Sudoku Kurtarma, her gün yeni bir Günlük Bulmaca ve koyu tema. Hesap gerekmez, Premium ile reklamsız.',
     },
     hero: {
-      badge: 'App Store ve Google Play’de',
+      badge: 'App Store ve Google Play’de ücretsiz',
       headline: 'Sudoku uygulaması.',
       headlineAccent: 'Sade ve yalın.',
-      body: 'Birkaç sakin dakika, tek bir bulmaca ve dikkatini dağıtacak başka hiçbir şey. Klasik, Killer ve Kurtarma modları, her gün yeni bir bulmaca ve sınırsız internetsiz oyun. Ücretsiz, hesapsız, karmaşasız.',
+      body: 'iPhone, iPad ve Android için ücretsiz, internetsiz bir sudoku uygulaması: birkaç sakin dakika, tek bir bulmaca ve dikkatini dağıtacak başka hiçbir şey. Klasik, Killer ve Kurtarma modları, her gün yeni bir bulmaca ve Wi‑Fi gerektirmeyen sınırsız oyun. Hesapsız, karmaşasız.',
     },
     screenshotAlt:
       'iPhone’da koyu temada One Sudoku ana ekranı: Hayaletli Konak bulmacası, 7 günlük seriyle Günlük Bulmaca, Klasik ve Killer modları.',
     schema: {
       description:
-        'iPhone, iPad ve Android için sade ve ücretsiz bir sudoku oyunu: Klasik, Killer ve Kurtarma modları, Hayaletli Konak bulmacası, Günlük Bulmaca, akıllı notlar ve sınırsız internetsiz bulmaca.',
+        'iPhone, iPad ve Android için sade, ücretsiz ve internetsiz bir sudoku uygulaması: Klasik, Killer ve Kurtarma modları, Hayaletli Konak bulmacası, Günlük Bulmaca, akıllı notlar ve sınırsız internetsiz bulmaca.',
       features: [
         'Dört zorluk seviyeli klasik sudoku (Kolay, Orta, Zor, Uzman)',
         'Killer Sudoku ve Sudoku Kurtarma modu',
@@ -179,10 +179,10 @@ export const home: Record<Lang, HomeCopy> = {
       title: 'Sudoku sevenler için',
       sub: 'Her ayrıntı, dikkatini asıl önemli olana vermen için tasarlandı: bulmacayı çözmek.',
       items: [
-        { title: 'Klasik, Killer ve Kurtarma', body: 'Kolay’dan Uzman’a klasik 9×9, toplam kafesli Killer ve kötü çözülmüş bir bulmacayı devralıp kurtardığın Kurtarma modu.' },
-        { title: 'Günlük Bulmaca', body: 'Her gün, dünyadaki tüm oyuncular için aynı olan yeni bir bulmaca. Serini her gün bir çözümle büyüt.' },
-        { title: 'Sade, minimal tasarım', body: 'Açık ya da koyu, telefonuna göre. Reklamlar bulmacayı asla bölmez, zorunlu kayıt yok.' },
-        { title: 'Sınırsız internetsiz oyun', body: 'Bulmacalar cihazında üretilir. Uçakta, metroda ya da çekmeyen bir yerde, bağlantı olmadan oyna.' },
+        { title: 'Klasik, Killer ve Kurtarma sudoku', body: 'Kolay’dan Uzman’a klasik 9×9, toplam kafesli Killer ve kötü çözülmüş bir bulmacayı devralıp kurtardığın Kurtarma modu.' },
+        { title: 'Günde bir sudoku', body: 'Günlük Bulmaca: her gün, dünyadaki tüm oyuncular için aynı olan yeni bir bulmaca. Serini her gün bir çözümle büyüt.' },
+        { title: 'Sade tasarım, koyu tema', body: 'Açık ya da koyu, telefonuna göre. Reklamlar bulmacayı asla bölmez, zorunlu kayıt yok.' },
+        { title: 'İnternetsiz oyna, Wi‑Fi gerekmez', body: 'Bulmacalar cihazında üretilir. Uçakta, metroda ya da çekmeyen bir yerde, bağlantı olmadan oyna.' },
         { title: 'Akıllı çözüm araçları', body: 'Kalem notları, sınırsız geri alma ve otomatik kayıt. İhtiyacın olan her şey, fazlası değil.' },
         { title: 'Gelişimini takip et', body: 'Her zorlukta en iyi süreler, kazanma oranı ve seriler. İstersen Google, Apple veya e-posta ile giriş yapıp cihazların arasında eşitle; tamamen isteğe bağlı.' },
       ],
@@ -225,7 +225,7 @@ export const home: Record<Lang, HomeCopy> = {
         { q: 'Hesap gerekiyor mu?', a: 'Hayır. Her şeyi misafir olarak oynayabilirsin; ilerlemen cihazında saklanır. Google, Apple veya e-posta ile giriş isteğe bağlıdır; ilerlemeni ve serini cihazların arasında eşitler, telefon değiştirdiğinde hiçbir şey kaybolmaz.' },
       ],
     },
-    finalCta: { title: 'Oynamaya hazır mısın?', body: 'One Sudoku’yu ücretsiz indir ve bugün çözmeye başla. Hesap gerekmez, sürpriz yok.' },
+    finalCta: { title: 'Sudoku uygulamasını indir', body: 'One Sudoku’yu iPhone, iPad ya da Android’e ücretsiz indir ve bugün çözmeye başla. İnternetsiz, hesap gerekmez, sürpriz yok.' },
   },
 
   es: {
@@ -235,16 +235,16 @@ export const home: Record<Lang, HomeCopy> = {
         'One Sudoku es una app de sudoku gratis para iPhone, iPad y Android. Juega sin conexión y sin wifi: sudoku clásico, Killer Sudoku, Rescate de Sudoku, un Reto Diario y modo oscuro. Sin cuenta y sin anuncios con Premium.',
     },
     hero: {
-      badge: 'Disponible en el App Store y Google Play',
+      badge: 'Gratis en el App Store y Google Play',
       headline: 'La app de sudoku.',
       headlineAccent: 'Simple y sin más.',
-      body: 'Unos minutos tranquilos con un solo puzle y nada más que te distraiga. Sudoku clásico, Killer y Rescate, un Reto Diario y puzles ilimitados sin conexión. Gratis, sin cuenta y sin ruido.',
+      body: 'Una app de sudoku gratis y sin conexión para iPhone, iPad y Android: unos minutos tranquilos con un solo puzle y nada más que te distraiga. Sudoku clásico, Killer y Rescate, un Reto Diario y puzles ilimitados sin wifi. Sin cuenta y sin ruido.',
     },
     screenshotAlt:
       'La pantalla de inicio de One Sudoku en iPhone en modo oscuro, con la Mansión Encantada, el Reto Diario con una racha de 7 días y los modos Clásico y Killer.',
     schema: {
       description:
-        'Un juego de sudoku limpio y gratuito para iPhone, iPad y Android, con modos Clásico, Killer y Rescate, la Mansión Encantada, un Reto Diario, notas inteligentes y puzles ilimitados sin conexión.',
+        'Una app de sudoku limpia, gratuita y sin conexión para iPhone, iPad y Android, con modos Clásico, Killer y Rescate, la Mansión Encantada, un Reto Diario, notas inteligentes y puzles ilimitados sin conexión.',
       features: [
         'Sudoku clásico con cuatro niveles (Fácil, Medio, Difícil, Experto)',
         'Killer Sudoku y modo Rescate',
@@ -278,10 +278,10 @@ export const home: Record<Lang, HomeCopy> = {
       title: 'Hecho para amantes del sudoku',
       sub: 'Cada detalle está pensado para que te centres en lo importante: resolver el puzle.',
       items: [
-        { title: 'Clásico, Killer y Rescate', body: 'Sudoku clásico de 9×9 de Fácil a Experto, las jaulas con sumas del Killer y Rescate, donde recoges un puzle mal resuelto y lo salvas.' },
-        { title: 'Reto Diario', body: 'Un puzle nuevo cada día, el mismo para todos los jugadores del mundo. Construye tu racha día a día.' },
-        { title: 'Diseño limpio y minimalista', body: 'Claro u oscuro, según tu móvil. Los anuncios nunca interrumpen un puzle y no hay registro obligatorio.' },
-        { title: 'Juego ilimitado sin conexión', body: 'Los puzles se generan en tu dispositivo. Juega donde sea, en un avión, en el metro o sin cobertura.' },
+        { title: 'Sudoku Clásico, Killer y Rescate', body: 'Sudoku clásico de 9×9 de Fácil a Experto, las jaulas con sumas del Killer y Rescate, donde recoges un puzle mal resuelto y lo salvas.' },
+        { title: 'Un sudoku al día', body: 'El Reto Diario: un puzle nuevo cada día, el mismo para todos los jugadores del mundo. Construye tu racha día a día.' },
+        { title: 'Diseño limpio, modo oscuro', body: 'Claro u oscuro, según tu móvil. Los anuncios nunca interrumpen un puzle y no hay registro obligatorio.' },
+        { title: 'Juega sin conexión, sin wifi', body: 'Los puzles se generan en tu dispositivo. Juega donde sea, en un avión, en el metro o sin cobertura.' },
         { title: 'Herramientas inteligentes', body: 'Notas de candidatos, deshacer ilimitado y guardado automático. Todo lo que necesitas y nada más.' },
         { title: 'Sigue tu progreso', body: 'Mejores tiempos, porcentaje de victorias y rachas en cada nivel. Inicia sesión con Google, Apple o correo si quieres sincronizarlo entre dispositivos; es totalmente opcional.' },
       ],
@@ -324,7 +324,7 @@ export const home: Record<Lang, HomeCopy> = {
         { q: '¿Necesito una cuenta?', a: 'No. Puedes jugar a todo como invitado y tu progreso se guarda en tu dispositivo. Iniciar sesión con Google, Apple o correo es opcional: sincroniza tu progreso y tus rachas entre dispositivos para no perder nada al cambiar de móvil.' },
       ],
     },
-    finalCta: { title: '¿Listo para jugar?', body: 'Descarga One Sudoku gratis y empieza hoy. Sin cuenta y sin trampas.' },
+    finalCta: { title: 'Descarga la app de sudoku', body: 'Descarga One Sudoku gratis para iPhone, iPad o Android y empieza hoy. Sin conexión, sin cuenta y sin trampas.' },
   },
 
   de: {
@@ -334,16 +334,16 @@ export const home: Record<Lang, HomeCopy> = {
         'One Sudoku ist eine kostenlose Sudoku-App für iPhone, iPad und Android. Offline spielen, ohne Internet: klassisches Sudoku, Killer-Sudoku, Sudoku-Rettung, eine tägliche Herausforderung und Dunkelmodus. Ohne Konto, ohne Werbung mit Premium.',
     },
     hero: {
-      badge: 'Im App Store und bei Google Play',
+      badge: 'Kostenlos im App Store und bei Google Play',
       headline: 'Die Sudoku-App.',
       headlineAccent: 'Klar und einfach.',
-      body: 'Ein paar ruhige Minuten mit einem Rätsel und nichts, was dich ablenkt. Klassisches Sudoku, Killer und Rettung, eine tägliche Herausforderung und unbegrenzt Rätsel offline. Kostenlos, ohne Konto, ohne Schnickschnack.',
+      body: 'Eine kostenlose Offline-Sudoku-App für iPhone, iPad und Android: ein paar ruhige Minuten mit einem Rätsel und nichts, was dich ablenkt. Klassisches Sudoku, Killer und Rettung, eine tägliche Herausforderung und unbegrenzt Rätsel ohne Internet. Ohne Konto, ohne Schnickschnack.',
     },
     screenshotAlt:
       'Der Startbildschirm von One Sudoku auf dem iPhone im Dunkelmodus mit dem Spukhaus, der täglichen Herausforderung mit einer 7-Tage-Serie und den Modi Classic und Killer.',
     schema: {
       description:
-        'Ein klares, kostenloses Sudoku-Spiel für iPhone, iPad und Android mit den Modi Klassisch, Killer und Rettung, dem Spukhaus, einer täglichen Herausforderung, smarten Notizen und unbegrenzt Rätseln offline.',
+        'Eine klare, kostenlose Offline-Sudoku-App für iPhone, iPad und Android mit den Modi Klassisch, Killer und Rettung, dem Spukhaus, einer täglichen Herausforderung, smarten Notizen und unbegrenzt Rätseln offline.',
       features: [
         'Klassisches Sudoku in vier Stufen (Leicht, Mittel, Schwer, Experte)',
         'Killer-Sudoku und Sudoku-Rettung',
@@ -377,10 +377,10 @@ export const home: Record<Lang, HomeCopy> = {
       title: 'Für Sudoku-Fans gemacht',
       sub: 'Jedes Detail soll dich bei dem halten, worum es geht: beim Lösen.',
       items: [
-        { title: 'Klassisch, Killer & Rettung', body: 'Klassisches 9×9 von Leicht bis Experte, Killer mit Summenkäfigen und die Rettung, bei der du ein schlecht gelöstes Rätsel übernimmst und rettest.' },
-        { title: 'Tägliche Herausforderung', body: 'Jeden Tag ein neues Rätsel, für alle Spieler weltweit dasselbe. Bau deine Serie Tag für Tag aus.' },
-        { title: 'Klares, minimalistisches Design', body: 'Hell oder dunkel, passend zu deinem Handy. Werbung unterbricht nie ein Rätsel, und es gibt keine Pflicht-Anmeldung.' },
-        { title: 'Unbegrenzt offline spielen', body: 'Die Rätsel entstehen auf deinem Gerät. Spiel überall, im Flugzeug, in der U-Bahn oder im Funkloch.' },
+        { title: 'Sudoku: Klassisch, Killer & Rettung', body: 'Klassisches 9×9 von Leicht bis Experte, Killer mit Summenkäfigen und die Rettung, bei der du ein schlecht gelöstes Rätsel übernimmst und rettest.' },
+        { title: 'Ein Sudoku am Tag', body: 'Die tägliche Herausforderung: jeden Tag ein neues Rätsel, für alle Spieler weltweit dasselbe. Bau deine Serie Tag für Tag aus.' },
+        { title: 'Klares Design, Dunkelmodus', body: 'Hell oder dunkel, passend zu deinem Handy. Werbung unterbricht nie ein Rätsel, und es gibt keine Pflicht-Anmeldung.' },
+        { title: 'Offline spielen, ohne Internet', body: 'Die Rätsel entstehen auf deinem Gerät. Spiel überall, im Flugzeug, in der U-Bahn oder im Funkloch.' },
         { title: 'Smarte Werkzeuge', body: 'Kandidaten-Notizen, unbegrenztes Rückgängig und automatisches Speichern. Alles, was du brauchst, und nichts darüber hinaus.' },
         { title: 'Verfolge deinen Fortschritt', body: 'Bestzeiten, Gewinnquote und Serien für jede Stufe. Melde dich mit Google, Apple oder E-Mail an, wenn du alles zwischen Geräten synchronisieren willst; ganz freiwillig.' },
       ],
@@ -423,7 +423,7 @@ export const home: Record<Lang, HomeCopy> = {
         { q: 'Brauche ich ein Konto?', a: 'Nein. Du kannst alles als Gast spielen, dein Fortschritt wird auf dem Gerät gespeichert. Die Anmeldung mit Google, Apple oder E-Mail ist freiwillig: Sie synchronisiert Fortschritt und Serien zwischen deinen Geräten, damit beim Handywechsel nichts verloren geht.' },
       ],
     },
-    finalCta: { title: 'Bereit zum Spielen?', body: 'Lade One Sudoku kostenlos und leg heute los. Ohne Konto, ohne Haken.' },
+    finalCta: { title: 'Hol dir die Sudoku-App', body: 'Lade One Sudoku kostenlos für iPhone, iPad oder Android und leg heute los. Offline, ohne Konto, ohne Haken.' },
   },
 
   fr: {
@@ -433,16 +433,16 @@ export const home: Record<Lang, HomeCopy> = {
         'One Sudoku est une application de sudoku gratuite pour iPhone, iPad et Android. Jouez hors ligne, sans Wi‑Fi : sudoku classique, Killer Sudoku, Sauvetage de Sudoku, un Défi du jour et un mode sombre. Sans compte, sans pub avec Premium.',
     },
     hero: {
-      badge: 'Disponible sur l’App Store et Google Play',
+      badge: 'Gratuit sur l’App Store et Google Play',
       headline: 'L’appli de sudoku.',
       headlineAccent: 'Simple et épurée.',
-      body: 'Quelques minutes de calme avec une seule grille et rien d’autre pour vous distraire. Sudoku classique, Killer et Sauvetage, un Défi du jour et des grilles illimitées hors ligne. Gratuit, sans compte, sans encombrement.',
+      body: 'Une application de sudoku gratuite et hors ligne pour iPhone, iPad et Android : quelques minutes de calme avec une seule grille et rien d’autre pour vous distraire. Sudoku classique, Killer et Sauvetage, un Défi du jour et des grilles illimitées sans Wi‑Fi. Sans compte, sans encombrement.',
     },
     screenshotAlt:
       'L’écran d’accueil de One Sudoku sur iPhone en mode sombre, avec le Manoir hanté, le Défi du jour et sa série de 7 jours, et les modes Classic et Killer.',
     schema: {
       description:
-        'Un jeu de sudoku épuré et gratuit pour iPhone, iPad et Android, avec les modes Classique, Killer et Sauvetage, le Manoir hanté, un Défi du jour, des notes intelligentes et des grilles illimitées hors ligne.',
+        'Une application de sudoku épurée, gratuite et hors ligne pour iPhone, iPad et Android, avec les modes Classique, Killer et Sauvetage, le Manoir hanté, un Défi du jour, des notes intelligentes et des grilles illimitées hors ligne.',
       features: [
         'Sudoku classique en quatre niveaux (Facile, Moyen, Difficile, Expert)',
         'Killer Sudoku et Sauvetage de Sudoku',
@@ -476,10 +476,10 @@ export const home: Record<Lang, HomeCopy> = {
       title: 'Pensé pour les amateurs de sudoku',
       sub: 'Chaque détail vous garde concentré sur l’essentiel : résoudre la grille.',
       items: [
-        { title: 'Classique, Killer et Sauvetage', body: 'Le 9×9 classique de Facile à Expert, les cages à somme du Killer, et le Sauvetage, où vous reprenez une grille mal résolue pour la sauver.' },
-        { title: 'Défi du jour', body: 'Une nouvelle grille chaque jour, la même pour tous les joueurs du monde. Construisez votre série, un jour après l’autre.' },
-        { title: 'Design épuré', body: 'Clair ou sombre, selon votre téléphone. Les publicités n’interrompent jamais une grille, et aucune inscription n’est imposée.' },
-        { title: 'Jeu illimité hors ligne', body: 'Les grilles sont générées sur votre appareil. Jouez partout, en avion, dans le métro ou sans réseau.' },
+        { title: 'Sudoku classique, Killer et Sauvetage', body: 'Le 9×9 classique de Facile à Expert, les cages à somme du Killer, et le Sauvetage, où vous reprenez une grille mal résolue pour la sauver.' },
+        { title: 'Un sudoku par jour', body: 'Le Défi du jour : une nouvelle grille chaque jour, la même pour tous les joueurs du monde. Construisez votre série, un jour après l’autre.' },
+        { title: 'Design épuré, mode sombre', body: 'Clair ou sombre, selon votre téléphone. Les publicités n’interrompent jamais une grille, et aucune inscription n’est imposée.' },
+        { title: 'Jouez hors ligne, sans Wi‑Fi', body: 'Les grilles sont générées sur votre appareil. Jouez partout, en avion, dans le métro ou sans réseau.' },
         { title: 'Outils de résolution', body: 'Notes de candidats, annulation illimitée et sauvegarde automatique. Tout ce qu’il faut, rien de plus.' },
         { title: 'Suivez vos progrès', body: 'Meilleurs temps, taux de victoire et séries à chaque niveau. Connectez-vous avec Google, Apple ou un e-mail pour synchroniser vos appareils ; c’est entièrement facultatif.' },
       ],
@@ -522,6 +522,6 @@ export const home: Record<Lang, HomeCopy> = {
         { q: 'Faut-il un compte ?', a: 'Non. Vous pouvez tout jouer en invité, et votre progression est enregistrée sur l’appareil. La connexion avec Google, Apple ou un e-mail est facultative : elle synchronise progression et séries entre vos appareils pour ne rien perdre en changeant de téléphone.' },
       ],
     },
-    finalCta: { title: 'Prêt à jouer ?', body: 'Téléchargez One Sudoku gratuitement et commencez dès aujourd’hui. Sans compte, sans piège.' },
+    finalCta: { title: 'Téléchargez l’appli de sudoku', body: 'Téléchargez One Sudoku gratuitement sur iPhone, iPad ou Android et commencez dès aujourd’hui. Hors ligne, sans compte, sans piège.' },
   },
 };
