@@ -34,47 +34,45 @@ for (const { from, to, width, height, density } of targets) {
 }
 
 /**
- * Crops the phone out of the App Store hook image into a reusable screenshot.
+ * Frames the app's home screen as a phone for the hero and "look inside".
  *
- * appstore-1-hook.png is a marketing card: a framed device sitting on a green
- * background, with a headline baked in above it. The site needs the device on
- * its own, over both the dark hero and the white "look inside" section — so the
- * background outside the frame's rounded top corners has to become transparent,
- * or it shows up as green wedges.
+ * scripts/home-screen.png is a raw iPhone 17 Pro simulator capture (1206x2622):
+ * status bar overridden to 9:41, ads off, the Expo dev button hidden. It lives
+ * outside public/ because only the framed result is served. Re-shoot it when the
+ * home screen changes; the frame is drawn here so a capture is all it takes.
  *
- * Frame bounds were measured off the source pixels, not eyeballed: the frame
- * spans x 132..1187 and starts at y 645, reaching full width by y 740 — so the
- * corner radius is ~95px. The device runs off the bottom edge of the source, so
- * the bottom corners are square by construction.
+ * The screen gets rounded display corners and sits in a near-black bezel, all at
+ * source scale, then the whole phone is downscaled once.
  */
-const phone = { left: 132, top: 645, width: 1056, radius: 95 };
-phone.height = 2868 - phone.top;
+const screen = { width: 1206, height: 2622, radius: 165 };
+const bezel = 36;
 
 const shotsDir = path.join(publicDir, 'screenshots');
 await fs.mkdir(shotsDir, { recursive: true });
 
-/** Rounded on top, flush at the bottom — matches how the device is cropped. */
-const cornerMask = Buffer.from(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="${phone.width}" height="${phone.height}">
-     <path d="M0 ${phone.radius}
-              A ${phone.radius} ${phone.radius} 0 0 1 ${phone.radius} 0
-              H ${phone.width - phone.radius}
-              A ${phone.radius} ${phone.radius} 0 0 1 ${phone.width} ${phone.radius}
-              V ${phone.height} H 0 Z" fill="#fff"/>
-   </svg>`,
-);
+const roundedRect = (w, h, r, fill) =>
+  Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+       <rect width="${w}" height="${h}" rx="${r}" ry="${r}" fill="${fill}"/>
+     </svg>`,
+  );
 
 // sharp composites after resizing whatever the call order, so the mask has to be
-// applied to the full-size crop in its own pass before the downscale.
-const masked = await sharp(path.join(publicDir, 'appstore-1-hook.png'))
-  .extract({ left: phone.left, top: phone.top, width: phone.width, height: phone.height })
-  .composite([{ input: cornerMask, blend: 'dest-in' }])
+// applied to the full-size capture in its own pass before the downscale.
+const roundedScreen = await sharp(new URL('./home-screen.png', import.meta.url).pathname)
+  .composite([{ input: roundedRect(screen.width, screen.height, screen.radius, '#fff'), blend: 'dest-in' }])
   .png()
   .toBuffer();
 
-const { width, height } = await sharp(masked)
+const phone = { width: screen.width + 2 * bezel, height: screen.height + 2 * bezel };
+const framed = await sharp(roundedRect(phone.width, phone.height, screen.radius + bezel, '#0b0d0c'))
+  .composite([{ input: roundedScreen, left: bezel, top: bezel }])
+  .png()
+  .toBuffer();
+
+const { width, height } = await sharp(framed)
   .resize(720)
   .webp({ quality: 82 })
   .toFile(path.join(shotsDir, 'home.webp'));
 
-console.log(`appstore-1-hook.png -> screenshots/home.webp (${width}x${height})`);
+console.log(`home-screen.png -> screenshots/home.webp (${width}x${height})`);

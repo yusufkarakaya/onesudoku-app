@@ -59,6 +59,8 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'One Sudoku',
+  // Searchers spell the name several ways (Search Console: "1sudoku", "onetsudoku").
+  alternateName: ['OneSudoku', 'One Sudoku app'],
   url: SITE_URL,
   inLanguage: lang,
   publisher: {
@@ -184,12 +186,12 @@ const manorCells = manorRooms.flatMap((row, r) =>
         </div>
       </div>
 
-      <!-- Real home screen, cropped out of the App Store artwork -->
+      <!-- Real home screen, framed by scripts/generate-images.mjs -->
       <img
         src="/screenshots/home.webp"
         alt={c.screenshotAlt}
         width="720"
-        height="1516"
+        height="1518"
         fetchpriority="high"
         decoding="async"
         class="w-56 sm:w-64 lg:w-72 shrink-0 drop-shadow-2xl"
@@ -353,7 +355,7 @@ const manorCells = manorRooms.flatMap((row, r) =>
             src={screenshots[0].src}
             alt={c.screenshotAlt}
             width="720"
-            height="1516"
+            height="1518"
             loading="lazy"
             decoding="async"
             class="w-60 sm:w-72 drop-shadow-2xl"

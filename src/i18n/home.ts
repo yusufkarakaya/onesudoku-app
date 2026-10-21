@@ -30,21 +30,21 @@ const strong = (s: string) => `<strong class="text-green-950 font-semibold">${s}
 export const home: Record<Lang, HomeCopy> = {
   en: {
     meta: {
-      title: 'One Sudoku — Free Sudoku Game for iPhone, iPad & Android',
+      title: 'One Sudoku — Offline Sudoku App for iPhone & Android',
       description:
-        'One Sudoku is a clean, minimal sudoku game for iPhone, iPad, and Android. Classic, Killer, and Rescue sudoku, the Haunted Manor Halloween puzzle, a daily challenge, and unlimited offline puzzles. Free to play, no account required.',
+        'One Sudoku is a free sudoku app for iPhone, iPad, and Android. Play offline with no Wi‑Fi: Classic, Killer, and Rescue sudoku, one new puzzle a day, and dark mode. No account needed, ad-free with Premium.',
     },
     hero: {
-      badge: 'Available on the App Store & Google Play',
-      headline: 'Sudoku.',
+      badge: 'Free on the App Store & Google Play',
+      headline: 'The sudoku app.',
       headlineAccent: 'Pure and simple.',
-      body: 'A few quiet minutes with one puzzle and nothing else competing for your attention. Classic, Killer, and Rescue sudoku, a daily challenge, and unlimited offline puzzles — free, with no account and no clutter.',
+      body: 'A free, offline sudoku app for iPhone, iPad, and Android: a few quiet minutes with one puzzle and nothing else competing for your attention. Classic, Killer, and Rescue sudoku, a daily challenge, and unlimited puzzles with no Wi‑Fi — no account and no clutter.',
     },
     screenshotAlt:
-      'The One Sudoku home screen on iPhone, showing a game in progress, the Classic, Rescue and Killer play modes, and the daily challenge streak.',
+      'The One Sudoku home screen on iPhone in dark mode, showing the Haunted Manor puzzle, the Daily Challenge with a 7-day streak, and the Classic and Killer play modes.',
     schema: {
       description:
-        'A clean, free sudoku game for iPhone, iPad, and Android with Classic, Killer, and Rescue modes, the Haunted Manor Halloween puzzle, a daily challenge, smart notes, and unlimited offline puzzles.',
+        'A clean, free offline sudoku app for iPhone, iPad, and Android with Classic, Killer, and Rescue modes, the Haunted Manor Halloween puzzle, a daily challenge, smart notes, and unlimited offline puzzles.',
       features: [
         'Classic sudoku with four difficulty levels (Easy, Medium, Hard, Expert)',
         'Killer sudoku and Rescue mode',
@@ -81,10 +81,10 @@ export const home: Record<Lang, HomeCopy> = {
       title: 'Built for sudoku lovers',
       sub: 'Every detail is designed to keep you focused on what matters — solving the puzzle.',
       items: [
-        { title: 'Classic, Killer & Rescue', body: 'Classic 9×9 from Easy to Expert, Killer’s sum cages, and Rescue, where you take over a badly solved puzzle and save it.' },
-        { title: 'Daily Challenge', body: 'A fresh puzzle every day, the same for every player worldwide. Build your streak one solve at a time.' },
-        { title: 'Clean, minimal design', body: 'Thoughtful ad placement that stays out of your way — no pop-ups, no forced sign-ups.' },
-        { title: 'Unlimited offline play', body: 'Puzzles are generated on your device. Play anywhere — on a plane, underground, or off the grid — no connection needed.' },
+        { title: 'Classic, Killer & Rescue sudoku', body: 'Classic 9×9 from Easy to Expert, Killer’s sum cages, and Rescue, where you take over a badly solved puzzle and save it.' },
+        { title: 'One sudoku a day', body: 'The Daily Challenge: a fresh puzzle every day, the same for every player worldwide. Build your streak one solve at a time.' },
+        { title: 'Clean design, dark mode', body: 'Light or dark, following your phone, and ad placement that stays out of your way — no pop-ups, no forced sign-ups.' },
+        { title: 'Play offline, no Wi‑Fi needed', body: 'Puzzles are generated on your device. Play anywhere — on a plane, underground, or off the grid — no connection needed.' },
         { title: 'Smart solving tools', body: 'Candidate notes, unlimited undo, and auto-save. Every tool you need, and nothing you don’t.' },
         { title: 'Track your progress', body: 'Best times, win rate, and streaks across every difficulty. Sign in with Google, Apple, or email if you want it synced across your devices — entirely optional.' },
       ],
@@ -116,32 +116,33 @@ export const home: Record<Lang, HomeCopy> = {
       sub: 'Everything you might want to know before you download.',
       items: [
         { q: 'Is One Sudoku free?', a: 'Yes. One Sudoku is free to download and play with minimal, non-intrusive ads. No account required.' },
-        { q: 'Does it work offline?', a: 'Completely. Puzzles are generated on your device, so you can play anywhere — on a plane, on the subway, or with no signal at all. No internet connection is ever needed.' },
+        { q: 'Can I play sudoku offline, without Wi‑Fi?', a: 'Completely. Puzzles are generated on your device, so you can play anywhere — on a plane, on the subway, or with no signal at all. No internet connection is ever needed.' },
         { q: 'What game modes are there?', a: 'Three kinds of sudoku: Classic, Killer, where cages with sums replace the given numbers, and Rescue, where you take over a badly solved puzzle and fix it. Alongside them is Haunted Manor, a Halloween logic puzzle in which you hide one ghost on every floor, in every hall and in every room, with no two ghosts touching.' },
         { q: 'What difficulty levels are there?', a: 'Classic has four difficulty levels — Easy, Medium, Hard, and Expert — so it works for both newcomers and experienced solvers. Killer and Rescue have their own levels, and Haunted Manor comes in three sizes: Cottage, Manor, and Castle.' },
         { q: 'What is the Daily Challenge?', a: 'Every day there is one fresh puzzle that is the same for every player worldwide. Solve it each day to build and keep your streak.' },
-        { q: 'Are there any ads or in-app purchases?', a: 'One Sudoku shows minimal banner ads to keep the app free, and you can watch optional video ads to earn extra hints. If you would rather play ad-free, the optional Premium removes every ad for $0.99 a month, $9.99 a year, or $29.99 once.' },
+        { q: 'Can I play One Sudoku without ads?', a: 'Yes, with Premium. The free version shows minimal banner ads to keep the app free, and you can watch optional video ads to earn extra hints. If you would rather play ad-free, the optional Premium removes every ad for $0.99 a month, $9.99 a year, or $29.99 once.' },
         { q: 'Is One Sudoku available on Android?', a: 'Yes. One Sudoku is available on the App Store for iPhone and iPad, and on Google Play for Android phones and tablets.' },
+        { q: 'Does One Sudoku have a dark mode?', a: 'Yes. One Sudoku follows your phone’s light or dark appearance, and you can pin either one in Settings.' },
         { q: 'Do I need an account?', a: 'No. You can play everything as a guest, and your progress is saved on your device. Signing in with Google, Apple, or an email address is optional — it syncs your progress and streaks across your devices so nothing is lost when you switch phones.' },
       ],
     },
-    finalCta: { title: 'Ready to play?', body: 'Download One Sudoku free and start solving today — no account required, no catch.' },
+    finalCta: { title: 'Get the sudoku app', body: 'Download One Sudoku free for iPhone, iPad, or Android and start solving today — offline, no account required, no catch.' },
   },
 
   tr: {
     meta: {
-      title: 'One Sudoku — iPhone, iPad ve Android için Ücretsiz Sudoku Oyunu',
+      title: 'One Sudoku — İnternetsiz Sudoku Uygulaması, iPhone ve Android',
       description:
-        'One Sudoku; iPhone, iPad ve Android için sade bir sudoku oyunu. Klasik Sudoku, Killer Sudoku, Sudoku Kurtarma, Hayaletli Konak bulmacası, Günlük Bulmaca ve sınırsız internetsiz bulmaca. Ücretsiz, hesap gerekmez.',
+        'One Sudoku; iPhone, iPad ve Android için ücretsiz bir sudoku uygulaması. İnternetsiz, Wi‑Fi olmadan oyna: Klasik Sudoku, Killer Sudoku, Sudoku Kurtarma, her gün yeni bir Günlük Bulmaca ve koyu tema. Hesap gerekmez, Premium ile reklamsız.',
     },
     hero: {
       badge: 'App Store ve Google Play’de',
-      headline: 'Sudoku.',
+      headline: 'Sudoku uygulaması.',
       headlineAccent: 'Sade ve yalın.',
       body: 'Birkaç sakin dakika, tek bir bulmaca ve dikkatini dağıtacak başka hiçbir şey. Klasik, Killer ve Kurtarma modları, her gün yeni bir bulmaca ve sınırsız internetsiz oyun. Ücretsiz, hesapsız, karmaşasız.',
     },
     screenshotAlt:
-      'iPhone’da One Sudoku ana ekranı: devam eden bir oyun, Klasik, Kurtarma ve Killer modları ve günlük bulmaca serisi.',
+      'iPhone’da koyu temada One Sudoku ana ekranı: Hayaletli Konak bulmacası, 7 günlük seriyle Günlük Bulmaca, Klasik ve Killer modları.',
     schema: {
       description:
         'iPhone, iPad ve Android için sade ve ücretsiz bir sudoku oyunu: Klasik, Killer ve Kurtarma modları, Hayaletli Konak bulmacası, Günlük Bulmaca, akıllı notlar ve sınırsız internetsiz bulmaca.',
@@ -228,18 +229,18 @@ export const home: Record<Lang, HomeCopy> = {
 
   es: {
     meta: {
-      title: 'One Sudoku — Juego de Sudoku Gratis para iPhone, iPad y Android',
+      title: 'One Sudoku — App de Sudoku sin Conexión para iPhone y Android',
       description:
-        'One Sudoku es un juego de sudoku limpio y minimalista para iPhone, iPad y Android. Sudoku clásico, Killer Sudoku, Rescate de Sudoku, la Mansión Encantada, un Reto Diario y puzles ilimitados sin conexión. Gratis y sin cuenta.',
+        'One Sudoku es una app de sudoku gratis para iPhone, iPad y Android. Juega sin conexión y sin wifi: sudoku clásico, Killer Sudoku, Rescate de Sudoku, un Reto Diario y modo oscuro. Sin cuenta y sin anuncios con Premium.',
     },
     hero: {
       badge: 'Disponible en el App Store y Google Play',
-      headline: 'Sudoku.',
+      headline: 'La app de sudoku.',
       headlineAccent: 'Simple y sin más.',
       body: 'Unos minutos tranquilos con un solo puzle y nada más que te distraiga. Sudoku clásico, Killer y Rescate, un Reto Diario y puzles ilimitados sin conexión. Gratis, sin cuenta y sin ruido.',
     },
     screenshotAlt:
-      'La pantalla de inicio de One Sudoku en iPhone, con una partida en curso, los modos Clásico, Rescate y Killer y la racha del Reto Diario.',
+      'La pantalla de inicio de One Sudoku en iPhone en modo oscuro, con la Mansión Encantada, el Reto Diario con una racha de 7 días y los modos Clásico y Killer.',
     schema: {
       description:
         'Un juego de sudoku limpio y gratuito para iPhone, iPad y Android, con modos Clásico, Killer y Rescate, la Mansión Encantada, un Reto Diario, notas inteligentes y puzles ilimitados sin conexión.',
@@ -326,18 +327,18 @@ export const home: Record<Lang, HomeCopy> = {
 
   de: {
     meta: {
-      title: 'One Sudoku — Kostenloses Sudoku-Spiel für iPhone, iPad & Android',
+      title: 'One Sudoku — Offline Sudoku-App für iPhone & Android',
       description:
-        'One Sudoku ist ein klares, minimalistisches Sudoku-Spiel für iPhone, iPad und Android. Klassisches Sudoku, Killer-Sudoku, Sudoku-Rettung, das Spukhaus, eine tägliche Herausforderung und unbegrenzt Rätsel offline. Kostenlos, ohne Konto.',
+        'One Sudoku ist eine kostenlose Sudoku-App für iPhone, iPad und Android. Offline spielen, ohne Internet: klassisches Sudoku, Killer-Sudoku, Sudoku-Rettung, eine tägliche Herausforderung und Dunkelmodus. Ohne Konto, ohne Werbung mit Premium.',
     },
     hero: {
       badge: 'Im App Store und bei Google Play',
-      headline: 'Sudoku.',
+      headline: 'Die Sudoku-App.',
       headlineAccent: 'Klar und einfach.',
       body: 'Ein paar ruhige Minuten mit einem Rätsel und nichts, was dich ablenkt. Klassisches Sudoku, Killer und Rettung, eine tägliche Herausforderung und unbegrenzt Rätsel offline. Kostenlos, ohne Konto, ohne Schnickschnack.',
     },
     screenshotAlt:
-      'Der Startbildschirm von One Sudoku auf dem iPhone mit einem laufenden Spiel, den Modi Classic, Rescue und Killer und der Serie der täglichen Herausforderung.',
+      'Der Startbildschirm von One Sudoku auf dem iPhone im Dunkelmodus mit dem Spukhaus, der täglichen Herausforderung mit einer 7-Tage-Serie und den Modi Classic und Killer.',
     schema: {
       description:
         'Ein klares, kostenloses Sudoku-Spiel für iPhone, iPad und Android mit den Modi Klassisch, Killer und Rettung, dem Spukhaus, einer täglichen Herausforderung, smarten Notizen und unbegrenzt Rätseln offline.',
@@ -424,18 +425,18 @@ export const home: Record<Lang, HomeCopy> = {
 
   fr: {
     meta: {
-      title: 'One Sudoku — Jeu de Sudoku Gratuit pour iPhone, iPad et Android',
+      title: 'One Sudoku — Application Sudoku Hors Ligne, iPhone et Android',
       description:
-        'One Sudoku est un jeu de sudoku épuré pour iPhone, iPad et Android. Sudoku classique, Killer Sudoku, Sauvetage de Sudoku, le Manoir hanté, un Défi du jour et des grilles illimitées hors ligne. Gratuit, sans compte.',
+        'One Sudoku est une application de sudoku gratuite pour iPhone, iPad et Android. Jouez hors ligne, sans Wi‑Fi : sudoku classique, Killer Sudoku, Sauvetage de Sudoku, un Défi du jour et un mode sombre. Sans compte, sans pub avec Premium.',
     },
     hero: {
       badge: 'Disponible sur l’App Store et Google Play',
-      headline: 'Sudoku.',
-      headlineAccent: 'Simple et épuré.',
+      headline: 'L’appli de sudoku.',
+      headlineAccent: 'Simple et épurée.',
       body: 'Quelques minutes de calme avec une seule grille et rien d’autre pour vous distraire. Sudoku classique, Killer et Sauvetage, un Défi du jour et des grilles illimitées hors ligne. Gratuit, sans compte, sans encombrement.',
     },
     screenshotAlt:
-      'L’écran d’accueil de One Sudoku sur iPhone, avec une partie en cours, les modes Classic, Rescue et Killer et la série du Défi du jour.',
+      'L’écran d’accueil de One Sudoku sur iPhone en mode sombre, avec le Manoir hanté, le Défi du jour et sa série de 7 jours, et les modes Classic et Killer.',
     schema: {
       description:
         'Un jeu de sudoku épuré et gratuit pour iPhone, iPad et Android, avec les modes Classique, Killer et Sauvetage, le Manoir hanté, un Défi du jour, des notes intelligentes et des grilles illimitées hors ligne.',
